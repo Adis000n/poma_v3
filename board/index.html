@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plansza - Poma</title>
+</head>
+<body>
+    <h1>Plansza</h1>
+    <div id="message">Waiting for message...</div>
+    <script src="../ws_setup.js"></script>
+    <script>
+        let i = 0;
+        initializeWebSocket('ws://localhost:3000/ws');
+        ws.onmessage = (event) => {
+            const message = JSON.parse(event.data);
+            const messageTime = message.timestamp;
+            const curTime = Date.now();
+            const timeDifference = curTime - messageTime;
+            document.getElementById('message').innerText = 
+                `Time difference: ${timeDifference} ms (Message #${i})`;
+            i++;
+        };
+    </script>
+</body>
+</html>
