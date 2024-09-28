@@ -1,29 +1,46 @@
-document.getElementById('stop_btn').disabled = true;
-document.getElementById('reset_btn').disabled = true;
-initializeWebSocket('ws://localhost:3000/ws', (message) => {
+// Constants
+const WS_URL = 'ws://localhost:3000/ws';
+
+// Cached DOM elements
+const startBtn = document.getElementById('start_btn');
+const stopBtn = document.getElementById('stop_btn');
+const resetBtn = document.getElementById('reset_btn');
+
+// Initialize WebSocket
+initializeWebSocket(WS_URL, (message) => {
     console.log('Received:', message);
 });
-document.getElementById('start_btn').addEventListener('click', () => {
-    document.getElementById('stop_btn').disabled = false;
-    document.getElementById('reset_btn').disabled = false;
-    document.getElementById('start_btn').disabled = true;
-    timer = "start";
-    const message = { timer };
+
+// Helper function to enable/disable buttons
+function setButtonState({ start, stop, reset }) {
+    startBtn.disabled = start;
+    stopBtn.disabled = stop;
+    resetBtn.disabled = reset;
+}
+
+// Helper function to send WebSocket messages
+function sendTimerMessage(action) {
+    const message = { timer: action };
     sendMessage(JSON.stringify(message));
+}
+
+// Initial button state
+setButtonState({ start: false, stop: true, reset: true });
+
+// Start button click event
+startBtn.addEventListener('click', () => {
+    setButtonState({ start: true, stop: false, reset: false });
+    sendTimerMessage('start');
 });
-document.getElementById('stop_btn').addEventListener('click', () => {
-    document.getElementById('stop_btn').disabled = true;
-    document.getElementById('reset_btn').disabled = false;
-    document.getElementById('start_btn').disabled = false;
-    timer = "stop";
-    const message = { timer };
-    sendMessage(JSON.stringify(message));
+
+// Stop button click event
+stopBtn.addEventListener('click', () => {
+    setButtonState({ start: false, stop: true, reset: false });
+    sendTimerMessage('stop');
 });
-document.getElementById('reset_btn').addEventListener('click', () => {
-    document.getElementById('stop_btn').disabled = true;
-    document.getElementById('reset_btn').disabled = true;
-    document.getElementById('start_btn').disabled = false;
-    timer = "reset";
-    const message = { timer };
-    sendMessage(JSON.stringify(message));
+
+// Reset button click event
+resetBtn.addEventListener('click', () => {
+    setButtonState({ start: false, stop: true, reset: true });
+    sendTimerMessage('reset');
 });
