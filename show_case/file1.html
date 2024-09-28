@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File1</title>
+</head>
+<body>
+    <button onclick="send_text()">Wyslij po prostu tekst</button>
+    <button onclick="send_1()">Wyslij zmienną nr1</button>
+    <button onclick="send_2()">Wyslij zmienną nr2</button>
+    
+    <script src="../ws_setup.js"></script> <!-- Ta linia musi być w kazdmy pliku który działa z web socketem tutaj jest funkcja send Message obsługa ponownego łączenia  i inne potrzebne rzeczy-->
+    <script>
+        const WS_URL = 'ws://localhost:3000/ws'; // To całe razem z funkcją rozpoczyna połączenie z serverem też zawsze potrzebne
+        initializeWebSocket(WS_URL, (message) => {
+            console.log('Received:', message);
+        });
+
+        function send_text(){
+            sendMessage("This is plain text"); // Jeśli chcemy wysłać poprostu tekst to mozna to zrobić w ten prosty sposób ALE wtedy w kazdym miejscu gdzie odbieramy tekst po prostu bedzie sie to wyswietlało
+            //Ta funkcja jest z pliku ws_setup dlatego miedzy innymi sie nie podpowiada
+        }
+
+        function send_1(){
+            time = 5;
+            const message = { timer: time }; // jesli chcemy wysłać wiadomość z zmienną zeby dało się ją odczytać w jakimś specyficznym miejscu musimy najpierw zdefiniować wiadmość w tym przypadku timer to nazwa wiadomości a po dwukropku jest wiadmośc moze to być to zmienna tak jak tutaj lub poprostu wartośc
+            sendMessage(JSON.stringify(message)); // tutaj uzywamy znowu funkcji sendMessage do wysłania wiadomości na serwer tylko tym razeym musimy zmienić ją na jsona
+        }
+
+        function send_2(){
+            imageState = "pokazane";
+            const message = { image: imageState }; // tutaj tak samo jak powyzej
+            sendMessage(JSON.stringify(message)); 
+        }
+    </script>
+</body>
+</html>

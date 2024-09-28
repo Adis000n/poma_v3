@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File2</title>
+</head>
+<body>
+    <h2 id="tekst"></h2>
+    <h2 id="zmienna1"></h2>
+    <h2 id="zmienna2"></h2>
+    
+    <script src="../ws_setup.js"></script> <!-- Ta linia musi być w kazdmy pliku który działa z web socketem tutaj jest funkcja send Message obsługa ponownego łączenia  i inne potrzebne rzeczy-->
+    <script>
+        function isJSON(message) { // Taka mała logika tylko na sprawdzenie czy jest to json i jesli jest to wypakowanie ale jesli będą tylko wysyłane zmienne nie bedzie to potrzebne
+            try {
+                JSON.parse(message);
+                return true;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        initializeWebSocket('ws://localhost:3000/ws', (data) => { // Ta cała obszerna funkcja będzię łączyć się z serwer i oczekiwać az dostanie jaką kolwiek wiadomość
+            if (isJSON(data)) { 
+                const message = JSON.parse(data); //data to zmienna dla jakiej kolwiek wiadomości jaka przyjdzie, kiedy przyjdzie wiadomośc wypakowywujemy ją z jsona i nazywamy message tak samo jak była nazwana w pliku z którego wysyłaliśmy
+                
+                if (message.timer) { // w tym duzym ifie sprawdzamy jaką wiadomośc dostaliśmy  jeśli jest to timer czyli nazwa jaką w poprzednim pliku nadaliśmy
+                    var time = message.timer; // wiadomośc tą mozemy przypisąc do zmiennej i wyświetlić
+                    document.getElementById("zmienna1").innerHTML = time;
+                }
+                else if (message.image) {
+                    var imageState = message.image;// tutaj tak samo zauważ że po wysłaniu jednej wiadomości ze zmienną pokazuje się ona tylko tam gdzi jej wskażemy
+                    document.getElementById("zmienna2").innerHTML = imageState;
+                }
+            } else {
+                document.getElementById("tekst").innerHTML = data; // Bo tutaj kazda wiadomość jako po prostu tekst będzie wyświetlona
+            }
+        });
+    </script>
+</body>
+</html>
