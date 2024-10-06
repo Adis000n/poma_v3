@@ -8,10 +8,45 @@
 </head>
 <body>
     <h1>Admin</h1>
-    <button type="button" class="btn btn-success" id="start_btn">Start</button>
-    <button type="button" class="btn btn-danger" id="stop_btn">Stop</button>
-    <button type="button" class="btn btn-warning" id="reset_btn">Reset</button>
+    <div id="timer">
+        <button type="button" class="btn btn-success" id="start_btn">Start</button>
+        <button type="button" class="btn btn-danger" id="stop_btn">Stop</button>
+        <button type="button" class="btn btn-warning" id="reset_btn">Reset</button>
+    </div>
+    
+
+    <div id="pytania" >
+        <h3>Kategoria:</h3>
+        <div class="btn-group btn-group-toggle" role="group" aria-label="Kategoria buttons">
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="chemia">Chemia</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="informatyka">Informatyka</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="fizyka">Fizyka</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="matematyka">Matematyka</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="technika">Technika</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="niespodzianka">Niespodzianka</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="bonus">Bonus</button>
+        </div>
+
+        <h3 class="mt-4">Punkty:</h3>
+        <div class="btn-group btn-group-toggle" role="group" aria-label="Punkty buttons">
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="1">1</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="2">2</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="3">3</button>
+        </div>
+
+        <h3 class="mt-4">Numer Drużyny:</h3>
+        <div class="btn-group btn-group-toggle" role="group" aria-label="Numer Drużyny buttons">
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="1">1</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="2">2</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="3">3</button>
+            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="4">4</button>
+        </div>
+        <div class="mt-4">
+            <button id="submitButton" type="button" class="btn btn-success" onclick="submitPytanie()" disabled>Submit</button>
+        </div>
+    </div>
     <script src="../ws_setup.js"></script>
     <script src="js/timer_script.js"></script>
+    <script src="js/pytania_script.js"></script>
 </body>
 </html>
