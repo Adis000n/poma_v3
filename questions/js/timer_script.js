@@ -21,17 +21,3 @@ function resetTimer() {
     document.getElementById('timer').innerText = currentTime;
 }
 
-initializeWebSocket('ws://localhost:3000/ws', (data) => {
-    const message = JSON.parse(data);
-    if (message.timer) {
-        const timerStatus = message.timer;
-        if (timerStatus === "start") {
-            startTimer();
-        } else if (timerStatus === "stop") {
-            stopTimer();
-        } else if (timerStatus === "reset") {
-            stopTimer(); 
-            resetTimer();
-        }
-    }
-});
