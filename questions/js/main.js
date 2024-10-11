@@ -15,3 +15,4 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         showPytanie(pytanie);
     }
 });
+// Commit Testowy Plz Działąj
