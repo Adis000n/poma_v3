@@ -1,4 +1,4 @@
-function isJSON(message) { // Taka mała logika tylko na sprawdzenie czy jest to json i jesli jest to wypakowanie ale jesli będą tylko wysyłane zmienne nie bedzie to potrzebne
+function isJSON(message) { 
     try {
         JSON.parse(message);
         return true;
@@ -7,14 +7,19 @@ function isJSON(message) { // Taka mała logika tylko na sprawdzenie czy jest to
     }
 }
 
-initializeWebSocket('ws://localhost:3000/ws', (data) => { // Ta cała obszerna funkcja będzię łączyć się z serwer i oczekiwać az dostanie jaką kolwiek wiadomość
+initializeWebSocket('ws://localhost:3000/ws', (data) => { 
     if(isJSON(data)){
         const message = JSON.parse(data);
             if(message.nazwy_druzyny){
-                console.log(message.nazwy_druzyny);
+                // console.log(message.nazwy_druzyny);
                 var druzyny=[]
                 druzyny= message.nazwy_druzyny;
                 console.table(druzyny) //tutaj frond endowcy macie tabelke z drużynami 
+        }
+        else if(message.punkty_druzyny){
+            // console.table(message.punkty_druzyny);
+            var tabela_punkty= [] = message.punkty_druzyny;
+            console.table(tabela_punkty);// tutaj front endowcy macie tabelke z punktami drużyn 
         }
 
     }

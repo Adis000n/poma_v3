@@ -13,6 +13,7 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     } else if (message.dane_pytanie) { 
         var pytanie = message.dane_pytanie; 
         showPytanie(pytanie);
+     
     }
 });
 

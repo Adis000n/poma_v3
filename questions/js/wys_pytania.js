@@ -1,3 +1,3 @@
 function showPytanie(dane){
-    console.log(dane);
+    console.log(dane);  
 }
