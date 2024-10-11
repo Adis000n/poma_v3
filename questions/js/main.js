@@ -15,4 +15,3 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         showPytanie(pytanie);
     }
 });
-//cos
