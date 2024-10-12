@@ -16,5 +16,3 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
      
     }
 });
-
-// Ok chyba działa
