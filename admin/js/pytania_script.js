@@ -1,7 +1,7 @@
 var Pytanie = {
     kategoria: '',
-    punkty: '',
-    numerDruzyny: ''
+    punkty: 0,
+    numerDruzyny: 0
 };
 
 function updateSubmitButtonState() {
@@ -38,10 +38,9 @@ function submitPytanie() {
         button.classList.remove('btn-primary');
         button.classList.add('btn-outline-primary');
     });
-    Punkty_przesyl();//funkcja która przesyła punkty i je liczy
     Pytanie.kategoria = '';
-    Pytanie.punkty = '';
-    Pytanie.numerDruzyny = '';
+    Pytanie.punkty = 0;
+    Pytanie.numerDruzyny = 0;
 
     document.getElementById('submitButton').disabled = true;
 }

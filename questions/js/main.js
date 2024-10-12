@@ -16,3 +16,7 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
      
     }
 });
+
+const numer_druzyny_div = document.getElementById("numer_druzyny");
+const punkty_div = document.getElementById("punkty");
+const kategoria_div = document.getElementById("kategoria");
