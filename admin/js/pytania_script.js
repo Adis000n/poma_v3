@@ -38,8 +38,7 @@ function submitPytanie() {
         button.classList.remove('btn-primary');
         button.classList.add('btn-outline-primary');
     });
-    Punkty_przesyl();//funkcja która przesyła punkty i nawet je liczy XD
-
+    Punkty_przesyl();//funkcja która przesyła punkty i je liczy
     Pytanie.kategoria = '';
     Pytanie.punkty = '';
     Pytanie.numerDruzyny = '';
