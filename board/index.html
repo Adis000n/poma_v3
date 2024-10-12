@@ -4,12 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plansza - Poma</title>
-</head>
-<body>
-    <h1>Plansza</h1>
-    <div id="message">Waiting for message...</div>
     <script src="../ws_setup.js"></script>
     <script src="js/main.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden
+
+        }
+
+        .Plansza {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 1fr 2fr 1fr;
+            width: 95%;
+            height: 95%;
+        }
+
+        .team1, .team2, .team3, .team4 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            grid-area: druzyna;
+        }
+
+        .team1 { grid-column: 1; grid-row: 1; }
+        .team2 { grid-column: 3; grid-row: 1; }
+        .team3 { grid-column: 1; grid-row: 3; }
+        
+        .team4 {
+            grid-column: 3;  
+            grid-row: 3;   
+        }
+        .team4, .team3 {
+            padding-bottom: 30px;
+        }
+        .board {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .board img {
+            max-width:95%;
+            max-height: 95%;
+            object-fit: cover;
+        }
+
+        .nazwa_druzny {
+            margin-bottom: 10px;
+            font-family: "Brush Script MT", cursive;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="Plansza">
+        <div class="team1">
+            <div>Drużyna 1</div>
+            <div class="nazwa_druzny">Nadia augustynek</div>
+            <div class="points">PKT: -</div>
+        </div>
+
+        <div class="board">
+            <img src="/grafika/plansza.png" alt="Plansza gry">
+        </div>
+
+        <div class="team2">
+            <div>Drużyna 2</div>
+            <div class="nazwa_druzny">Hejterzy agustynka</div>
+            <div class="points">PKT: -</div>
+        </div>
+
+        <div class="team3">
+            <div>Drużyna 3</div>
+            <div class="nazwa_druzny">prosze obierzcie mnie ze skory</div>
+            <div class="points">PKT: -</div>
+        </div>
+
+        <div class="team4">
+            <div>Drużyna 4</div>
+            <div class="nazwa_druzny">Szkola wielkich fiutow</div>
+            <div class="points">PKT: -</div>
+        </div>
+    </div>
 
 </body>
 </html>
