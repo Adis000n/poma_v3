@@ -1,3 +1,8 @@
+const numer_druzyny_div = document.getElementById("numer_druzyny");
+const punkty_div = document.getElementById("punkty");
+const kategoria_div = document.getElementById("kategoria");
+const pytanie_img = document.getElementById("pytanie-img");
+
 initializeWebSocket('ws://localhost:3000/ws', (data) => {
     const message = JSON.parse(data);
     if (message.timer) {
@@ -18,6 +23,4 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     }
 });
 
-const numer_druzyny_div = document.getElementById("numer_druzyny");
-const punkty_div = document.getElementById("punkty");
-const kategoria_div = document.getElementById("kategoria");
+
