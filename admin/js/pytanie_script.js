@@ -43,4 +43,6 @@ function submitPytanie() {
     Pytanie.numerDruzyny = 0;
 
     document.getElementById('submitButton').disabled = true;
+    createAnswerButton();
+    deletePytanieButton();
 }

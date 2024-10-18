@@ -47,14 +47,16 @@
             <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="3">3</button>
             <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="4">4</button>
         </div>
-        <div class="mt-4">
-            <button id="submitButton" type="button" class="btn btn-success" onclick="submitPytanie()" disabled>Submit</button>
+        <div class="mt-4" id="pytanie_all_buttons">
+            <!-- Przyciski są tworzone w odpowiednich momentach skryptu funkcje które tworzą przyciski są w main.js -->
         </div>
     </div>
     <script src="../ws_setup.js"></script>
     <script src="js/timer_script.js"></script>
-    <script src="js/pytania_script.js"></script>
+    <script src="js/pytanie_script.js"></script>
+    <script src="js/odpowiedz_script.js"></script>
     <script src="js/druzyny_script.js"></script>
     <script src="js/punkty.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
