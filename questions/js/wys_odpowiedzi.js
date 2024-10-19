@@ -4,7 +4,6 @@ function showOdpowiedz_img(pytanie_path){
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var imagePath = xhr.responseText.trim(); 
-            console.log(`Wszystko jest git: ${imagePath}`)
             var fullPath = `../${imagePath}`;
             odpowiedz_img.src = fullPath;
         }
