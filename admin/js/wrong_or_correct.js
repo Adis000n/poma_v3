@@ -1,6 +1,6 @@
 function correctAnswer(){
     //przesyłanie zmienionnych wartości punktów do planszy
-    console.log(Pytanie.numerDruzyny); // tutaj jest numer Druzyny z tego pytania, póżniej uzunąć tą linijkę
+    console.log(Pytanie.numerDruzynym, Pytanie.punkty ); // tutaj jest numer Druzyny i punkty z tego pytania, póżniej uzunąć tą linijkę
     const message = { is_correct: true }; 
     sendMessage(JSON.stringify(message));
     deleteWrongCorrectButtons();
