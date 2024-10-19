@@ -8,21 +8,16 @@ function showPytanie_img(pytanie) {
     var kategoria = pytanie.kategoria;
     var punkty = pytanie.punkty;
     var xhr = new XMLHttpRequest();
-    
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var imagePath = xhr.responseText.trim(); 
+            pytanie_img_path = imagePath;
             var fullPath = `../${imagePath}`;
-            console.log(imagePath);
-            var imageElement = document.getElementById('pytanie-img'); 
-            imageElement.src = fullPath;
+            pytanie_img.src = fullPath;
         }
     };
-    
-
     xhr.open('GET', `php/wyswietlanie-img-pytania.php?kategoria=${kategoria}&punkty=${punkty}`, true);
     xhr.send();
-    
 }
 
 

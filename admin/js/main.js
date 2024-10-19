@@ -1,3 +1,9 @@
+const WS_URL = 'ws://localhost:3000/ws';
+
+initializeWebSocket(WS_URL, (message) => {
+    console.log('Received:', message);
+});
+
 var div_pytania = document.getElementById("pytanie_all_buttons");
 var pytanie_button,answer_button,correct_button,wrong_button;
 createPytanieButton();

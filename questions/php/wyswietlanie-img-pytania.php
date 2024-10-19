@@ -33,5 +33,4 @@ function updateState($conn,$kategoria,$punkty,$imagePath){
     }
     mysqli_stmt_close($update_stmt);
 }
-
 ?>
