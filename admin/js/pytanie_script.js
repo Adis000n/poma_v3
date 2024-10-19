@@ -1,9 +1,3 @@
-var Pytanie = {
-    kategoria: '',
-    punkty: 0,
-    numerDruzyny: 0
-};
-
 function updateSubmitButtonState() {
     const submitButton = document.getElementById('submitButton');
     if (Pytanie.kategoria && Pytanie.punkty && Pytanie.numerDruzyny) {
@@ -29,7 +23,6 @@ function selectOption(selectedButton, typ) {
 }
 
 function submitPytanie() {
-    console.log(Pytanie);
     const message = { dane_pytanie: Pytanie }; 
     sendMessage(JSON.stringify(message));
     createAnswerButton();

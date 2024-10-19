@@ -3,6 +3,11 @@ const WS_URL = 'ws://localhost:3000/ws';
 initializeWebSocket(WS_URL, (message) => {
     console.log('Received:', message);
 });
+var Pytanie = {
+    kategoria: '',
+    punkty: 0,
+    numerDruzyny: 0
+};
 
 var div_pytania = document.getElementById("pytanie_all_buttons");
 var pytanie_button,answer_button,correct_button,wrong_button;
@@ -25,7 +30,6 @@ function createAnswerButton(){
     answer_button.className = "btn btn-secondary";
     answer_button.innerHTML = "Wyświetl odpowiedź";
     answer_button.setAttribute("onclick", "showAnswer()");
-    console.log("Tworze przycisk do odp");
     div_pytania.appendChild(answer_button);
 }
 function createWrongCorrectButtons(){
