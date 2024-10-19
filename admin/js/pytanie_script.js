@@ -32,17 +32,6 @@ function submitPytanie() {
     console.log(Pytanie);
     const message = { dane_pytanie: Pytanie }; 
     sendMessage(JSON.stringify(message));
-
-    const allButtons = document.querySelectorAll('.btn-group .btn');
-    allButtons.forEach(function(button) {
-        button.classList.remove('btn-primary');
-        button.classList.add('btn-outline-primary');
-    });
-    Pytanie.kategoria = '';
-    Pytanie.punkty = 0;
-    Pytanie.numerDruzyny = 0;
-
-    document.getElementById('submitButton').disabled = true;
     createAnswerButton();
     deletePytanieButton();
 }

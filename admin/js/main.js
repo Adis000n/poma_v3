@@ -55,3 +55,14 @@ function deleteWrongCorrectButtons(){
     div_pytania.removeChild(correct_button);
     div_pytania.removeChild(wrong_button);
 }
+
+function clearPytanieButtons(){
+    const allButtons = document.querySelectorAll('.btn-group .btn');
+    allButtons.forEach(function(button) {
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-outline-primary');
+    });
+    Pytanie.kategoria = '';
+    Pytanie.punkty = 0;
+    Pytanie.numerDruzyny = 0;
+}
