@@ -3,35 +3,44 @@
 <head>
 
     <style>
-        body{
+        body {
             background-color: #333;
         }
 
-        .header{
+        .header {
             padding: 40px;
             color: #fff;
             margin: 0 auto;
             margin-bottom: 40px;
         }
-        .header h1,p{
+        .header h1, p {
             text-align: center;
         }
 
-        .wheel{
+        .req{
+            position: relative;
+            width: 100%;
+            height: 150px;
+            /* background-color: #fff; */
+        }
+
+        .wheel {
             display: flex;
             justify-content: center;
+            align-items: center;
             position: relative;
+            visibility: hidden;
         }
-        .center-circle{
+        .center-circle {
             width: 100px;
             height: 100px;
             border-radius: 60px;
-            background-color: #fff;
+            background-color: rgb(0, 0, 0);
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
         }
-        .triangle{
+        .triangle {
             width: 0; 
             height: 0; 
             border-top: 10px solid transparent;
@@ -39,36 +48,66 @@
             border-right: 30px solid white; 
             position: absolute;
             top: 50%;
-            right: -220%;
+            right: -298%;
             transform: translateY(-50%);
         }
-        textarea{
+        textarea {
             background-color: rgba(20, 20, 20, 0.2);
             caret-color: #fff;
             resize: none;
             color: #fff;
             display: none;
         }
-        .inputArea{
+        .inputArea {
             display: flex;
             justify-content: center;
             margin-top: 40px;
+        }
+        .winner-box{
+            width: 1100px;
+            height: 300px;
+            background-color: white;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 30px;
+            opacity: 90%;
+            visibility: hidden;
+        }
+        .winner-display {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            visibility: hidden; /* Domyślnie ukryte */
+        }
+        .cross{
+            background-image: url(../grafika/krzyżyk.png);
+            background-repeat: no-repeat;
+            background-position: 50% 50%; 
+            height: 20px;
+            width: 20px;
+            border: none;
         }
     </style>
 
 </head>
 
 <body >
-    <div class="header">
-        <h1>WINNER</h1>
-        <p id="winner">NONE</p>
-    </div>
-    <div class="wheel" style>
-        <canvas class="" id="canvas" width="500" height="500"></canvas>
+    <button onclick="showWheel(), spin()">Zakręć</button>
+    <div class = "req"></div>
+    <div class="wheel"  id="wheel">
+        <canvas class="" id="canvas" width="700" height="700"></canvas>
         <div class="center-circle" onclick="spin()">
             <div class="triangle"></div>
         </div>
-        
+        <div class="winner-box"  id="winner-box">
+            <div class="winner-display" id="winnerDisplay">Wylosowano: <span id="winnerText"></span><span>&nbsp;&nbsp;&nbsp;</span><button class="cross" onclick="hideWheel()"></button></div> <!-- Nowy div dla zwycięzcy -->
+        </div>
     </div>
     <div class="inputArea" onchange="createWheel()"> <!-- Tu wpisujesz wartości jakie mają być na kole-->
         <textarea rows="20" cols="30" >Pedofil
@@ -78,15 +117,23 @@ Ksiądz Proboszcz</textarea>
     </div>
 
     <script>
+        function showWheel() {
+            document.getElementById("wheel").style.visibility = "visible"; // Ustaw widoczność koła
+            first = true;
+            currentDeg = 0; // Resetuj kąt obrotu
+            pause = false;
+        }function hideWheel() {
+            document.getElementById("wheel").style.visibility = "hidden"; // Ustaw widoczność koła
+            document.getElementById("winner-box").style.visibility = "hidden";
+            document.getElementById("winnerDisplay").style.visibility = "hidden";
+            pause = false;
+        }
+
         function randomColor(){
             const orangePalette = [
                 {r: 255, g: 165, b: 0}, // bright orange
                 {r: 245, g: 130, b: 0}, // deep orange
                 {r: 230, g: 100, b: 0}, // burnt orange
-                {r: 220, g: 220, b: 0}, // pastel orange
-                {r: 255, g: 140, b: 0}, // vibrant orange
-                {r: 240, g: 120, b: 0}, // warm orange
-                {r: 225, g: 105, b: 0}, // golden orange
                 {r: 210, g: 90, b: 0}, // dark orange
             ];
 
@@ -119,14 +166,14 @@ Ksiądz Proboszcz</textarea>
     </script>
 
     <script>
-        const canvas = document.getElementById("canvas")
-        const ctx = canvas.getContext("2d")
-        const width = document.getElementById("canvas").width
-        const height = document.getElementById("canvas").height
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const width = document.getElementById("canvas").width;
+        const height = document.getElementById("canvas").height;
 
-        const centerX = width/2
-        const centerY = height/2
-        const radius = width/2
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const radius = width / 2;
 
         let items = document.getElementsByTagName("textarea")[0].value.split("\n");
 
@@ -150,71 +197,71 @@ Ksiądz Proboszcz</textarea>
         }
         draw()
 
-        function draw(){
+        function draw() {
             ctx.beginPath();
-            ctx.arc(centerX, centerY, radius, toRad(0), toRad(360))
-            ctx.fillStyle = `rgb(${33},${33},${33})`
+            ctx.arc(centerX, centerY, radius, toRad(0), toRad(360));
+            ctx.fillStyle = `rgb(${33},${33},${33})`;
             ctx.lineTo(centerX, centerY);
-            ctx.fill()
+            ctx.fill();
 
             let startDeg = currentDeg;
-            for(let i = 0 ; i < items.length; i++, startDeg += step){
-                let endDeg = startDeg + step
+            for (let i = 0; i < items.length; i++, startDeg += step) {
+                let endDeg = startDeg + step;
 
-                color = colors[i]
-                let colorStyle = `rgb(${color.r},${color.g},${color.b})`
-
-                ctx.beginPath();
-                rad = toRad(360/step);
-                ctx.arc(centerX, centerY, radius - 2, toRad(startDeg), toRad(endDeg))
-                let colorStyle2 = `rgb(${color.r - 30},${color.g - 30},${color.b - 30})`
-                ctx.fillStyle = colorStyle2
-                ctx.lineTo(centerX, centerY);
-                ctx.fill()
+                color = colors[i];
+                let colorStyle = `rgb(${color.r},${color.g},${color.b})`;
 
                 ctx.beginPath();
-                rad = toRad(360/step);
-                ctx.arc(centerX, centerY, radius - 30, toRad(startDeg), toRad(endDeg))
-                ctx.fillStyle = colorStyle
+                ctx.arc(centerX, centerY, radius - 2, toRad(startDeg), toRad(endDeg));
+                let colorStyle2 = `rgb(${color.r - 30},${color.g - 30},${color.b - 30})`;
+                ctx.fillStyle = colorStyle2;
                 ctx.lineTo(centerX, centerY);
-                ctx.fill()
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius - 30, toRad(startDeg), toRad(endDeg));
+                ctx.fillStyle = colorStyle;
+                ctx.lineTo(centerX, centerY);
+                ctx.fill();
+
+                // Oblicz położenie tekstu (Tutaj aby zmnienić położenie teksu należy zmienić [radius - x])
+                let textAngle = (startDeg + endDeg) / 2;
+                let textX = centerX + (radius - 160) * Math.cos(toRad(textAngle));
+                let textY = centerY + (radius - 160) * Math.sin(toRad(textAngle));
 
                 // draw text
                 ctx.save();
-                ctx.translate(centerX, centerY);
-                ctx.rotate(toRad((startDeg + endDeg)/2));
+                ctx.translate(textX, textY);
+                ctx.rotate(toRad(textAngle));
                 ctx.textAlign = "center";
-                if(color.r > 150 || color.g > 150 || color.b > 150){
-                    ctx.fillStyle = "#000";
-                }
-                else{
-                    ctx.fillStyle = "#fff";
-                }
+                ctx.textBaseline = "middle"; // Wyśrodkowanie tekstu
+                ctx.fillStyle = (color.r > 150 || color.g > 150 || color.b > 150) ? "#000" : "#fff";
                 ctx.font = 'bold 24px serif';
-                ctx.fillText(items[i], 130, 10);
+                ctx.fillText(items[i], 0, 0); // Zmiana na (0, 0) ponieważ już przesuwamy do textX, textY
                 ctx.restore();
 
-                itemDegs[items[i]] = 
-                    {
+                itemDegs[items[i]] = {
                     "startDeg": startDeg,
-                    "endDeg" : endDeg
-                    }
-                
+                    "endDeg": endDeg
+                };
 
                 // check winner
-                if(startDeg%360 < 360 && startDeg%360 > 270  && endDeg % 360 > 0 && endDeg%360 < 90 ){
-                    document.getElementById("winner").innerHTML = items[i]
+                if (startDeg % 360 < 360 && startDeg % 360 > 270 && endDeg % 360 > 0 && endDeg % 360 < 90) {
+                    document.getElementById("winnerText").innerHTML = items[i];
                 }
             }
-        }
+}
         
 
         let speed = 0
         let maxRotation = randomRange(360* 3, 360 * 6)
         let pause = false
+        let first = true
         function animate(){
-            if(pause){
-                return
+            if(pause && first){
+                document.getElementById("winner-box").style.visibility = "visible";
+                document.getElementById("winnerDisplay").style.visibility = "visible";
+                first = false;
             }
             speed = easeOutSine(getPercent(currentDeg ,maxRotation ,0)) * 20
             if(speed < 0.01){
@@ -235,14 +282,22 @@ Ksiądz Proboszcz</textarea>
             currentDeg = 0
             createWheel()
             draw();
-
             
-            maxRotation = (360 * 6) - itemDegs['Pedofil'].endDeg + 10
+
+            const randomIndex = Math.floor(Math.random() * items.length); // Losuj indeks
+            const winningItem = items[randomIndex]; // Wybierz zwycięski element
+            const winningDeg = itemDegs[winningItem].endDeg; // Pobierz kąt końcowy zwycięskiego elementu
+            const baseRotation = 360 * 8; // Możesz zmienić tę wartość, aby zwiększyć lub zmniejszyć liczbę obrotów
+            maxRotation = baseRotation - winningDeg + 10; 
             itemDegs = {}
             console.log("max",maxRotation)
             console.log(itemDegs);
             pause = false
             window.requestAnimationFrame(animate);
+
+            function getPercent(input, min, max) {
+            return (((input - min) * 100) / (max - min)) / 100;
+        }
         }
 
     </script>
