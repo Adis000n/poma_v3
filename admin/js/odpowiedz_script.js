@@ -1,7 +1,8 @@
 function showAnswer(){
-    var answer_clicked = true;
-    var message = { is_answer_clicked: answer_clicked };
+    var message = { is_answer_clicked: true };
     sendMessage(JSON.stringify(message)); 
     createWrongCorrectButtons();
     deleteAnswerButton();
+    setButtonState({ start: false, stop: true, reset: false });
+    sendTimerMessage('stop');
 }

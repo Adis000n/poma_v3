@@ -27,6 +27,9 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     else if (message.is_answer_clicked){
         showOdpowiedz_img(pytanie_img_path)
     }
+    else if(message.clear_questions){
+        clearAll();
+    }
 });
 
 

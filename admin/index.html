@@ -49,7 +49,12 @@
         </div>
         <div class="mt-4" id="pytanie_all_buttons">
             <!-- Przyciski są tworzone w odpowiednich momentach skryptu funkcje które tworzą przyciski są w main.js -->
+             
         </div>
+        <div id="show_all_time_buttons">
+            <button id="mediaButton" type="button" class="btn btn-dark" onclick="start_stop_media()">Start/stop Media</button>
+            <button id="clearButton" type="button" class="btn btn-info" onclick="clear_pytania()">Wyczyść pytania</button>
+         </div>
     </div>
     <script src="../ws_setup.js"></script>
     <script src="js/main.js"></script>
@@ -59,5 +64,6 @@
     <script src="js/druzyny_script.js"></script>
     <script src="js/punkty.js"></script>
     <script src="js/wrong_or_correct.js"></script>
+    <script src="js/reszta_obslugi_pytan_script.js"></script><!-- media start stop, czyszczenie pytan -->
 </body>
 </html>
