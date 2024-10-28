@@ -7,6 +7,7 @@ function showPytanie_data(pytanie){
 function showPytanie_img(pytanie,audio_element,wideo_element) {
     var kategoria = pytanie.kategoria;
     var punkty = pytanie.punkty;
+    var nr_druzyny = parseInt(pytanie.numerDruzyny);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -26,7 +27,7 @@ function showPytanie_img(pytanie,audio_element,wideo_element) {
             }
         }
     };
-    xhr.open('GET', `php/wyswietlanie-img-pytania.php?kategoria=${kategoria}&punkty=${punkty}`, true);
+    xhr.open('GET', `php/wyswietlanie-img-pytania.php?kategoria=${kategoria}&punkty=${punkty}&nr_druzyny=${nr_druzyny}`, true);
     xhr.send();
 }
 
