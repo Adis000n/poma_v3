@@ -7,6 +7,8 @@ function clearAll(){
     odpowiedz_img.src = "";
     audio_element.querySelector("source").src = "";
     audio_element.load();
+    audio_element.setAttribute("hidden", true);
     wideo_element.querySelector("source").src = "";
     wideo_element.load();
+    wideo_element.setAttribute("hidden", true);
 }
