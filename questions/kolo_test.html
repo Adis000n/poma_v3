@@ -129,26 +129,20 @@ Ksiądz Proboszcz</textarea>
             pause = false;
         }
 
-        function randomColor(){
+        let currentIndex = 0; // Zmienna do śledzenia aktualnego indeksu
+
+        function randomColor() {
             const orangePalette = [
-                {r: 255, g: 165, b: 0}, // bright orange
-                {r: 245, g: 130, b: 0}, // deep orange
-                {r: 230, g: 100, b: 0}, // burnt orange
-                {r: 210, g: 90, b: 0}, // dark orange
+                {r: 600, g: 165, b: 0}, // bright orange
+                {r: 100, g: 130, b: 0}, // deep orange
+                {r: 200, g: 100, b: 0}, // burnt orange
+                {r: 410, g: 90, b: 0}, // dark orange
             ];
 
-            let usedColors = [];
+            const color = orangePalette[currentIndex];
+            currentIndex = (currentIndex + 1) % orangePalette.length; 
 
-            function getRandomColor(){
-                let color = orangePalette[Math.floor(Math.random() * orangePalette.length)];
-                while(usedColors.includes(color)){
-                color = orangePalette[Math.floor(Math.random() * orangePalette.length)];
-                }
-                usedColors.push(color);
-                return color;
-            }
-
-            return getRandomColor();
+            return color; 
         }
         function toRad(deg){
             return deg * (Math.PI / 180.0);
