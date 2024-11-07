@@ -15,11 +15,14 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
                 var druzyny=[]
                 druzyny= message.nazwy_druzyny;
                 console.table(druzyny) //tutaj frond endowcy macie tabelke z drużynami 
+                NazwyUpdate(druzyny)
+
         }
         else if(message.punkty_druzyny){
             // console.table(message.punkty_druzyny);
             var tabela_punkty= [] = message.punkty_druzyny;
             console.table(tabela_punkty);// tutaj front endowcy macie tabelke z punktami drużyn 
+            AktualizacjaPunkty(tabela_punkty);
         }
 
     }
