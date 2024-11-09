@@ -1,16 +1,15 @@
-function showPytanie_data(pytanie){
-    numer_druzyny_div.innerHTML = pytanie.numerDruzyny;
-    kategoria_div.innerHTML = pytanie.kategoria;
-    punkty_div.innerHTML = pytanie.punkty;
+function showPytanie_data(pytanie_dane){
+    numer_druzyny_div.innerHTML = pytanie_dane.numerDruzyny;
+    kategoria_div.innerHTML = pytanie_dane.kategoria;
+    punkty_div.innerHTML = pytanie_dane.punkty;
 }
 
-function showPytanie_img(pytanie, audio_element, wideo_element) {
+function showPytanie_img(pytanie) {
     var kategoria = pytanie.kategoria;
     var punkty = pytanie.punkty;
     var nr_druzyny = parseInt(pytanie.numerDruzyny);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
-        clearAll();
         if (xhr.readyState === 4 && xhr.status === 200) {
             var img_data = JSON.parse(xhr.responseText.trim());
             var imgPath = img_data[0] === "Brak_znalezionych_obrazow" ? "grafika/Brak_pytania.jpg" : img_data[0];
