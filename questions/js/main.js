@@ -5,9 +5,11 @@ pytanie_img = document.getElementById("pytanie-img");
 odpowiedz_img = document.getElementById("odpowiedz-img");
 audio_element = document.getElementById("audio");
 wideo_element = document.getElementById("wideo");
+pytanie_loader = document.getElementById("pytanie-loader");
 var pytanie_img_path;
 audio_element.setAttribute("hidden", true);
 wideo_element.setAttribute("hidden", true);
+pytanie_loader.setAttribute("hidden", true);
 initializeWebSocket('ws://localhost:3000/ws', (data) => {
     const message = JSON.parse(data);
     if (message.timer) {
@@ -23,8 +25,12 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     } else if (message.dane_pytanie) { 
         var pytanie = message.dane_pytanie; 
         clearAll();
-        showPytanie_img(pytanie);
-        showPytanie_data(pytanie);
+        pytanie_loader.removeAttribute("hidden");
+        setTimeout(() => {
+            pytanie_loader.setAttribute("hidden", true);
+            showPytanie_img(pytanie);
+            showPytanie_data(pytanie);
+        }, "1000");
     }
     else if (message.is_answer_clicked){
         showOdpowiedz_img(pytanie_img_path)
