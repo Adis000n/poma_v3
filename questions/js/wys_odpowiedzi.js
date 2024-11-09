@@ -7,8 +7,10 @@ function showOdpowiedz_img(pytanie_path) {
             var foundImage = response[0];  
             var imagePath = response[1];   
             var odpImg = foundImage ? imagePath : "grafika/Brak_odpowiedzi.jpg";
-            var fullPath = `../${odpImg}`;
-            odpowiedz_img.src = fullPath;
+            odpowiedz_img.src = `../${odpImg}`;
+            odpowiedz_img.classList.remove("slide-in"); 
+            void odpowiedz_img.offsetWidth; 
+            odpowiedz_img.classList.add("slide-in"); 
         }
     };
 

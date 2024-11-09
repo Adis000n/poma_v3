@@ -72,7 +72,23 @@
               box-shadow: -38px 0 , -14px 0, 14px 0 , 38px -12px;
             }
           }
-          
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slide-in {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .fade-in {
+            animation: fade-in 1s forwards;
+        }
+
+        .slide-in {
+            animation: slide-in 0.5s forwards;
+}
+
 
     </style>
     <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/> 
