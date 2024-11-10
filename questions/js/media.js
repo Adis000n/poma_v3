@@ -36,8 +36,8 @@ function play_media() {
     }
 
     if (wideo_element.paused || wideo_element.currentTime === 0) {
-        wideo_element.play();
+        fadeIn(wideo_element,1000)
     } else {
-        wideo_element.pause();
+        fadeOut(wideo_element,1000)
     }
 }
