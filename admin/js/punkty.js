@@ -7,9 +7,10 @@ function wysylanie() {
 const message = { punkty_druzyny: tabela_punkty }; 
 sendMessage(JSON.stringify(message));
 }
+// Manualna zmiana taktak
 function manualChangePoints() {
-    const teamSelect = document.getElementById('team_select').value; // Pobieranie numeru drużyny z selecta
-    const teamPoints = document.getElementById('team_points').value; // Pobieranie wprowadzonych punktów
+    const teamSelect = document.getElementById('team_select').value; 
+    const teamPoints = document.getElementById('team_points').value; 
 
     if (teamPoints === '' || isNaN(teamPoints)) {
         alert('Proszę wprowadzić prawidłową liczbę punktów.');
@@ -20,7 +21,7 @@ function manualChangePoints() {
     wysylanie();
 }
 
-// Opcjonalna funkcja do wyświetlania aktualnych wyników w interfejsie
+// funkcja do wyswietlania
 function updateTeamDisplay() {
     let display = '';
     tabela_punkty.forEach((points, index) => {
