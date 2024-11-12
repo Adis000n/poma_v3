@@ -8,5 +8,18 @@ function startevent() { //funkcja która działa po naciścięciu start konkursu
   console.table(druzyny);
   const message = { nazwy_druzyny: druzyny }; 
   sendMessage(JSON.stringify(message));
-  
+  //update do bazy danyhc
+  const xhr3 = new XMLHttpRequest();
+  xhr3.open('POST', 'http://localhost/poma_v5/poma_v3/admin/php/insert-nazwy-druzyny.php', true);
+  xhr3.setRequestHeader('Content-Type', 'application/json');
+  xhr3.onreadystatechange = function() {
+    console.log("chyba działa123");
+    if (xhr3.readyState === 4 && xhr3.status === 200) {
+      console.log(xhr3.responseText);
+      console.log("chyba działa");
+    }
+  };
+  xhr3.send(JSON.stringify(message));
 }
+
+

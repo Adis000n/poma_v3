@@ -8,7 +8,7 @@ backupBtn.addEventListener('click', () => {
             console.log(response); 
         }
     };
-    xhr2.open('GET', 'http://localhost/projekty/poma_v3/admin/php/get-backup-batalia.php', true); 
+    xhr2.open('GET', 'http://localhost/poma_v5/poma_v3/admin/php/get-backup-batalia.php', true); 
     xhr2.send(); 
 
     var xhr = new XMLHttpRequest();
