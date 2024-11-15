@@ -1,49 +1,112 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pytania - Poma</title>
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
             width: 100%;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(rgb(75, 75, 204), rgb(53, 53, 104));
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #283048, #859398);
+            color: #fff;
         }
 
         table {
-            border: 4mm ridge rgba(255, 166, 0, 0.747);
+            border: 6px solid rgba(255, 255, 255, 0.3);
             width: 80%;
             height: 80%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
         }
 
-        td, th {
-            border: 4mm ridge rgba(255, 166, 0, 0.747);
-            padding: 15px;
+        td,
+        th {
+            padding: 20px;
             text-align: center;
         }
 
         td {
-            background-color: #f9f9f9;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .pytanko {
-            width: 100%;
-            height: 50%;
+        .Pytania h1 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 20px;
         }
 
-        #Pyanie {
-            width: 100%;
-            height: 100%;
+        #numer_druzyny,
+        #punkty,
+        #kategoria {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #c6ff5c;
+            margin-top: 10px;
         }
-        .Pytania {
-            height: 100%;
+
+        #timer {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff3860;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                color: #ff3860;
+            }
+
+            50% {
+                transform: scale(1.2);
+                color: #ff6f91;
+            }
+
+            100% {
+                transform: scale(1);
+                color: #ff3860;
+            }
+        }
+
+        video,
+        audio {
+            margin-top: 20px;
+            max-width: 80%;
+            border: 3px solid #ffd700;
+            border-radius: 10px;
+        }
+
+        #pytanie-img,
+        #odpowiedz-img {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        span {
+            font-size: 1rem;
+            color: #d1d1d1;
         }
 
         #pytanie-loader {
@@ -51,69 +114,87 @@
             height: 12px;
             border-radius: 50%;
             display: block;
-            margin:15px auto;
+            margin: 15px auto;
             position: relative;
             color: #fb8500;
             box-sizing: border-box;
             animation: animloader 0.7s linear infinite alternate;
-          }
-          
-          @keyframes animloader {
+        }
+
+        @keyframes animloader {
             0% {
-              box-shadow: -38px -12px ,  -14px 0,  14px 0, 38px 0;
+                box-shadow: -38px -12px, -14px 0, 14px 0, 38px 0;
             }
+
             33% {
-              box-shadow: -38px 0px, -14px -12px,  14px 0, 38px 0;
+                box-shadow: -38px 0px, -14px -12px, 14px 0, 38px 0;
             }
+
             66% {
-              box-shadow: -38px 0px , -14px 0, 14px -12px, 38px 0;
+                box-shadow: -38px 0px, -14px 0, 14px -12px, 38px 0;
             }
+
             100% {
-              box-shadow: -38px 0 , -14px 0, 14px 0 , 38px -12px;
+                box-shadow: -38px 0, -14px 0, 14px 0, 38px -12px;
             }
-          }
+        }
+
         @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slide-in {
-            from { transform: translateY(-40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         .fade-in {
             animation: fade-in 1s forwards;
         }
 
         .slide-in {
             animation: slide-in 0.5s forwards;
-}
-
-
+        }
     </style>
-    <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/> 
+    <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <table>
         <tr>
             <td rowspan="4">
-            <div class="Pytania">
-                <h1 class="pytanko"> Pytanie: </h1>
-                <img id="pytanie-img"><br>
-                <span id="pytanie-loader"></span>
-                <video id="wideo">
-                    <source src="" type="video/mp4" >
-                    Coś poszło nie tak lub twoja przeglądarka nie wspiera wyswietlania filmów.
-                </video>
-                <audio id="audio">
-                    <source src="" type="audio/mpeg" >
-                    Coś poszło nie tak lub twoja przeglądarka nie wspiera wyswietlania filmów.
-                </audio>
-                <img id="odpowiedz-img">
-            </div>
+                <div class="Pytania">
+                    <h1 class="pytanko"> Pytanie: </h1>
+                    <img id="pytanie-img"><br>
+                    <span id="pytanie-loader"></span>
+                    <video id="wideo">
+                        <source src="" type="video/mp4">
+                        Coś poszło nie tak lub twoja przeglądarka nie wspiera wyswietlania filmów.
+                    </video>
+                    <audio id="audio">
+                        <source src="" type="audio/mpeg">
+                        Coś poszło nie tak lub twoja przeglądarka nie wspiera wyswietlania filmów.
+                    </audio>
+                    <img id="odpowiedz-img">
+                </div>
             </td>
-            <td style="border: 4mm ridge rgba(255, 166, 0, 0.747); width: 20%;"><p> Numer Drużyny: </p>
-            <div id="numer_druzyny">-</div></td>
+            <td style="border: 4mm ridge rgba(255, 166, 0, 0.747); width: 20%;">
+                <p> Numer Drużyny: </p>
+                <div id="numer_druzyny">-</div>
+            </td>
         </tr>
         <tr>
             <td style="border: 4mm ridge rgba(255, 166, 0, 0.747);">
@@ -142,4 +223,5 @@
     <script src="js/czyszczenie.js"></script>
     <script src="js/media.js"></script>
 </body>
+
 </html>
