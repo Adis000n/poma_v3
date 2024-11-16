@@ -28,25 +28,47 @@ sendMessage(JSON.stringify(message));
     };
     xhr4.send(JSON.stringify(message));
 }
-// Manualna zmiana taktak
-function manualChangePoints() {
-    const teamSelect = document.getElementById('team_select').value; 
-    const teamPoints = document.getElementById('team_points').value; 
+function updateDisplay() {
+    const teamsContainer = document.getElementById("teams");
+    teamsContainer.innerHTML = ""; 
 
-    if (teamPoints === '' || isNaN(teamPoints)) {
-        alert('Proszę wprowadzić prawidłową liczbę punktów.');
-        return;
-    }
-    tabela_punkty[teamSelect - 1] = parseInt(teamPoints);
-    console.log(`Punkty drużyny ${teamSelect} zostały zmienione na: ${teamPoints}`);
-    wysylanie();
-}
-
-// funkcja do wyswietlania
-function updateTeamDisplay() {
-    let display = '';
     tabela_punkty.forEach((points, index) => {
-        display += `Drużyna ${index + 1}: ${points} punktów\n`;
+        const teamNumber = index + 1;
+        const teamDiv = document.createElement("div");
+        teamDiv.className = "team-container";
+
+        // HTML dla każdej drużyny 
+        teamDiv.innerHTML = `
+            <div class="team-header">Drużyna ${teamNumber}</div>
+            <input type="number" id="team_points_${teamNumber}" class="team-input" value="${points}" onchange="manualChange(${teamNumber})">
+            <div class="team-buttons">
+                <button class="btn-negative" onclick="changePoints(${teamNumber}, -2)">-2</button>
+                <button class="btn-negative" onclick="changePoints(${teamNumber}, -1)">-1</button>
+                <button class="btn-positive" onclick="changePoints(${teamNumber}, 1)">+1</button>
+                <button class="btn-positive" onclick="changePoints(${teamNumber}, 2)">+2</button>
+            </div>
+        `;
+        teamsContainer.appendChild(teamDiv);
     });
-    console.log(display); 
-};
+    const applyButton = document.createElement("button");
+    applyButton.className = "apply-button";
+    applyButton.innerText = "Zastosuj";
+    applyButton.onclick = applyPoints; 
+    teamsContainer.appendChild(applyButton); 
+}
+function changePoints(teamNumber, change) {
+    tabela_punkty[teamNumber - 1] += change;
+    document.getElementById(`team_points_${teamNumber}`).value = tabela_punkty[teamNumber - 1];
+}
+function manualChange(teamNumber) {
+    const newPoints = parseInt(document.getElementById(`team_points_${teamNumber}`).value);
+    if (!isNaN(newPoints)) {
+        tabela_punkty[teamNumber - 1] = newPoints;
+    }
+}
+function applyPoints() {
+    const message = { punkty_druzyny: tabela_punkty };
+    sendMessage(JSON.stringify(message)); 
+    console.log("Zastosowano punkty:", tabela_punkty);
+}
+window.onload = updateDisplay;
