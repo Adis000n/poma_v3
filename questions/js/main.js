@@ -41,6 +41,10 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     else if(message.play_media){
         play_media();
     }
+    else if(message.backup_data_to_pytania){
+        var backup_data = message.backup_data_to_pytania;
+        backupAll(backup_data);
+    }
 });
 
 

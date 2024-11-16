@@ -8,7 +8,7 @@ function startevent() {
   const message = { nazwy_druzyny: druzyny }; 
   sendMessage(JSON.stringify(message));
   const xhr3 = new XMLHttpRequest();
-  xhr3.open('POST', 'http://localhost/poma_v5/poma_v3/admin/php/insert-nazwy-druzyny.php', true);
+  xhr3.open('POST', 'http://localhost/projekty/poma_v3/admin/php/insert-nazwy-druzyny.php', true);
   xhr3.setRequestHeader('Content-Type', 'application/json');
   xhr3.onreadystatechange = function() {
     if (xhr3.readyState === 4 && xhr3.status === 200) {
