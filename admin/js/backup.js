@@ -26,5 +26,16 @@ backupBtn.addEventListener('click', () => {
 
 function send_backup_pytania(backup_data){
     var message = { backup_data_to_pytania: backup_data };
-    sendMessage(JSON.stringify(message)); 
+    sendMessage(JSON.stringify(message));
+    switch(backup_data.stan){
+        case "pytanie":
+
+        break;
+        case "odpowiedz":
+
+        break;
+        case "clear":
+            
+        break;
+    }
 }
