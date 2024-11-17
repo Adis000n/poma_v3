@@ -22,7 +22,7 @@ function getImage($pytanie_path, $conn) {
 }
 
 function updateState($conn, $imageOdpPath) {
-    $update_query = "UPDATE `mvc_konkurs_batalia` SET `img_odpowiedzi`=? WHERE `id`=1";
+    $update_query = "UPDATE `mvc_konkurs_batalia` SET `img_odpowiedzi`=?, `stan`='odpowiedz' WHERE `id`=1";
     $update_stmt = mysqli_prepare($conn, $update_query);
     if (!$update_stmt) {
         die("Error preparing update statement: " . mysqli_error($conn));
