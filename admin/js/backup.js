@@ -23,11 +23,11 @@ backupBtn.addEventListener('click', () => {
 
 
 
-function send_backup_pytania(backup_data){
+function send_backup_pytania(backup_data) {
     var message = { backup_data_to_pytania: backup_data };
     sendMessage(JSON.stringify(message));
 
-    switch(backup_data.stan){
+    switch (backup_data.stan) {
         case "pytanie":
             while (div_pytania.firstChild) {
                 div_pytania.removeChild(div_pytania.firstChild);
@@ -47,35 +47,30 @@ function send_backup_pytania(backup_data){
                 const correctButton = Array.from(punktyButtons).find(button => 
                     Number(button.textContent.trim()) === Number(backup_data.poziom)
                 );
-                
+
                 if (correctButton) {
-                    console.log("Matched Button:", correctButton.textContent);
                     selectOption(correctButton, 'punkty');
-                } else {
-                    console.warn("No matching button found for poziom:", backup_data.poziom);
                 }
-                
             }
 
             if (backup_data.nr_druzyny) {
-                const druzynyButtons = document.querySelectorAll(
-                    '.btn-group[aria-label="Numer Drużyny buttons"] .btn, ' +
-                    '#numer-druzyny .btn, ' +
-                    '.btn-group .btn'
+                const druzynyButtons = document.querySelectorAll('.btn-group[aria-label="Numer Druzyny buttons"] .btn');
+                const correctButton = Array.from(druzynyButtons).find(button => 
+                    Number(button.textContent.trim()) === Number(backup_data.nr_druzyny)
                 );
-                druzynyButtons.forEach(button => {
-                    if (button.textContent.trim() === backup_data.nr_druzyny.toString()) {
-                        selectOption(button, 'numerDruzyny');
-                    }
-                });
+
+                if (correctButton) {
+                    selectOption(correctButton, 'numerDruzyny');
+                }
             }
 
             createAnswerButton();
-        break;
+            break;
+
         case "odpowiedz":
-        break;
+            break;
         case "clear":
             clear_pytania();
-        break;
+            break;
     }
 }
