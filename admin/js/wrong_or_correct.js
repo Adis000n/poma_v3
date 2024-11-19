@@ -5,7 +5,6 @@ function correctAnswer(){
     deleteWrongCorrectButtons();
     createPytanieButton();
     clearPytanieButtons();
-    
 }
 function wrongAnswer(){
     const message = { is_correct: false }; 

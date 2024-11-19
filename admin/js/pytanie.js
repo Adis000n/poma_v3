@@ -1,11 +1,10 @@
 function updateSubmitButtonState() {
     const submitButton = document.getElementById('submitButton');
-    if (Pytanie.kategoria && Pytanie.punkty && Pytanie.numerDruzyny) {
-        submitButton.disabled = false;
-    } else {
-        submitButton.disabled = true;
+    if (submitButton) {
+        submitButton.disabled = !(Pytanie.kategoria && Pytanie.punkty && Pytanie.numerDruzyny);
     }
 }
+
 
 function selectOption(selectedButton, typ) {
     const buttons = selectedButton.closest('.btn-group').querySelectorAll('.btn');
