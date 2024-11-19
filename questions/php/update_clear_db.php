@@ -1,6 +1,6 @@
 <?php
 include "../../db_connect.php";
-$update_query = "UPDATE `mvc_konkurs_batalia` SET `stan`='clear' WHERE `id`=1";
+$update_query = "UPDATE `mvc_konkurs_batalia` SET `stan`='clear',`img_pytania`='', `media`='', `media_typ`='', `poziom`='', `kategoria`='', `nr_druzyny`='', `img_odpowiedzi`='' WHERE `id`=1";
 $update_stmt = mysqli_prepare($conn, $update_query);
 if (!$update_stmt) {
     die("Error preparing update statement: " . mysqli_error($conn));

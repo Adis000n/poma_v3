@@ -8,8 +8,6 @@ include "../../db_connect.php";
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-file_put_contents('debug.log', "Raw input: " . $input . "\n", FILE_APPEND);
-file_put_contents('debug.log', "Parsed data: " . print_r($data, true) . "\n", FILE_APPEND);
 
 if (isset($data['punkty_druzyny'])) {
     $punkty_druzyny = $data['punkty_druzyny'];
