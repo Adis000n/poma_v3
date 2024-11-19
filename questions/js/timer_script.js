@@ -21,3 +21,8 @@ function resetTimer() {
     document.getElementById('timer').innerText = currentTime;
 }
 
+function addTimer(){
+    currentTime += 20;
+    document.getElementById('timer').innerText = currentTime;
+}
+

@@ -21,6 +21,8 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         } else if (timerStatus === "reset") {
             stopTimer(); 
             resetTimer();
+        } else if (timerStatus === "add"){
+            addTimer();
         }
     } else if (message.dane_pytanie) { 
         var pytanie = message.dane_pytanie; 
