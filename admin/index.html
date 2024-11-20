@@ -4,57 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Poma</title>
-    <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/> 
+    <!-- <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/>  -->
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
-    <h1>Admin</h1>
-    <div id="Dodaj_druzyny">
-        <h2>Obsługa konkurus</h2>
-        <button type="button" class="btn btn-success" onclick="startevent()">Rozpocznij konkurs</button><br>
-        <br>
-    </div>
-    <div id="timer">
-        <button type="button" class="btn btn-success" id="start_btn">Start</button>
-        <button type="button" class="btn btn-danger" id="stop_btn">Stop</button>
-        <button type="button" class="btn btn-warning" id="reset_btn">Reset</button>
-    </div>
-    
-
-    <div id="pytania" >
-        <h3>Kategoria:</h3>
-        <div class="btn-group btn-group-toggle" role="group" aria-label="Kategoria buttons">
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="chemia">Chemia</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="informatyka">Informatyka</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="fizyka">Fizyka</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="matematyka">Matematyka</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="technika">Technika</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="niespodzianka">Niespodzianka</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="bonus">Bonus</button>
+    <div id="grid">
+        <div id="lewy">
+            <div id="teams" class="teams-table">
+        
+            </div>
+            <div id="gridlewy">
+                <div id="timerall">
+                    <h2>Timer</h2>
+                    <div id="timer">
+                        <button type="button" class="btn btn-success" id="start_btn">▶️</button>
+                        <button type="button" class="btn btn-danger" id="stop_btn">⏹️</button>
+                        <button type="button" class="btn btn-add" id="add_btn">➕</button>
+                        <button type="button" class="btn btn-warning" id="reset_btn">🔄</button>
+                        <p id="time">30</p>
+                    </div>
+                </div>
+                <div id="Dodaj_druzyny">
+                    <h2>Obsługa konkurus</h2>
+                    <button type="button" class="btn btn-success" onclick="startevent()">Rozpocznij konkurs</button><br>
+                    <br>
+                    <button type="button" class="btn btn-dark" id="backup_btn">BACKUP</button>
+                </div>
+            </div>
         </div>
-
-        <h3 class="mt-4">Punkty:</h3>
-        <div class="btn-group btn-group-toggle" role="group" aria-label="Punkty buttons">
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="1">1</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="2">2</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="3">3</button>
-        </div>
-
-        <h3 class="mt-4">Numer Drużyny:</h3>
-        <div class="btn-group btn-group-toggle" role="group" aria-label="Numer Drużyny buttons">
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="1">1</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="2">2</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="3">3</button>
-            <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="4">4</button>
-        </div>
-        <div class="mt-4">
-            <button id="submitButton" type="button" class="btn btn-success" onclick="submitPytanie()" disabled>Submit</button>
+        
+        <div id="prawy">
+            <div id="pytania" >
+                <h3>Kategoria:</h3>
+                <div class="btn-group btn-group-toggle" role="group" aria-label="Kategoria buttons">
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="chemia">Chemia</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="informatyka">Informatyka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="fizyka">Fizyka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="matematyka">Matematyka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="technika">Technika</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="niespodzianka">Niespodzianka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="bonus">Bonus</button>
+                </div>
+                <h3 class="mt-4">Punkty:</h3>
+                <div class="btn-group btn-group-toggle" role="group" aria-label="Punkty buttons">
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="1">1</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="2">2</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="3">3</button>
+                </div>
+                <h3 class="mt-4">Numer Drużyny:</h3>
+                <div class="btn-group btn-group-toggle" role="group" aria-label="Numer Druzyny buttons">
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="1">1</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="2">2</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="3">3</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="4">4</button>
+                </div>
+                <div class="mt-4" id="pytanie_all_buttons">
+                <!-- Przyciski są tworzone w odpowiednich momentach skryptu funkcje które tworzą przyciski są w main.js -->
+                </div>
+                </div>
+                <div id="show_all_time_buttons">
+                    <button id="mediaButton" type="button" class="btn btn-dark" onclick="start_stop_media()">Start/stop Media</button>
+                    <button id="clearButton" type="button" class="btn btn-info" onclick="clear_pytania()">Wyczyść pytania</button>
+                 </div>
+            </div>
         </div>
     </div>
     <script src="../ws_setup.js"></script>
-    <script src="js/timer_script.js"></script>
-    <script src="js/pytania_script.js"></script>
-    <script src="js/druzyny_script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/backup.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/pytanie.js"></script>
+    <script src="js/odpowiedz.js"></script>
+    <script src="js/druzyny.js"></script>
     <script src="js/punkty.js"></script>
+    <script src="js/wrong_or_correct.js"></script>
+    <script src="js/czysczenie_pytan.js"></script>
+    <script src="js/media.js"></script>
 </body>
 </html>

@@ -6,6 +6,8 @@
     <title>Plansza - Poma</title>
     <script src="../ws_setup.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/wyswietl_punkty_na_planszy.js"></script>
+    <script src="js/wyswietl_nazwy_szkol.js"></script>
     <style>
         body {
             background-color: black;
@@ -97,22 +99,22 @@
             object-fit: cover;
         }
 
-        .nazwa_druzny1 {
+        #nazwa_druzny1 {
             margin-bottom: 10px;
             font-family: "Brush Script MT", cursive;
             color:aqua
         }
-        .nazwa_druzny2 {
+        #nazwa_druzny2 {
             margin-bottom: 10px;
             font-family: "Brush Script MT", cursive;
             color: rgb(249 128 128)
         }
-        .nazwa_druzny3 {
+        #nazwa_druzny3 {
             margin-bottom: 10px;
             font-family: "Brush Script MT", cursive;
             color:yellow
         }
-        .nazwa_druzny4 {
+        #nazwa_druzny4 {
             margin-bottom: 10px;
             font-family: "Brush Script MT", cursive;
             color:rgb(122 235 107)
@@ -140,30 +142,29 @@
         <div class="team1">
             <div>Drużyna 1</div>
             <div class="nazwa_druzny1">Szkola Podstawowa Numer 27 W Bielsku-Białej</div>
-            <div class="points1"></div>
+            <div class="points"></div>
         </div>
 
         <div class="board">
-            <img src="/grafika/plansza.png" alt="Plansza gry">
+            <img src="../grafika/plansza.png" alt="Plansza gry">
         </div>
 
         <div class="team2">
             <div>Drużyna 2</div>
-            <div class="nazwa_druzny2"></div> 
-            <div class="points2"> 12 </div>
+            <div class="nazwa_druzny2">T</div> 
+            <div class="points"></div>
         </div>
 
         <div class="team3">
             <div>Drużyna 3</div>
-            <div class="nazwa_druzny3"></div>
-            <div class="points3"></div>
+            <div class="nazwa_druzny3">T</div>
+            <div class="points"></div>
         </div>
 
         <div class="team4">
             <div>Drużyna 4</div>
-            <div class="nazwa_druzny4"></div>
-            <div>Punkty</div>
-            <div class="points4">1</div>
+            <div class="nazwa_druzny4">T</div>
+            <div class="points"></div>
         </div>
     </div>
 

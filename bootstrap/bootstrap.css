@@ -12053,5 +12053,70 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.teams-table {
+  display: block;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0; 
+}
 
+.team-container {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  width: 175px;
+  text-align: center; 
+  font-size: 12px;
+}
+
+.team-header {
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-align: center; 
+}
+
+.team-input {
+  width: 50px;
+  text-align: center; 
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.team-buttons {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 4px;
+}
+
+.team-buttons button {
+  width: 35px;
+  height: 35px;
+  font-size: 12px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-negative {
+  background-color: #d9534f;
+  color: white;
+}
+
+.btn-positive {
+  background-color: #5cb85c;
+  color: white;
+}
+
+.apply-button {
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px;
+  display: block;
+  border: none;
+  border-radius: 8px;
+  margin-left: 0; 
+  text-align: left; 
+}
 /*# sourceMappingURL=bootstrap.css.map */
