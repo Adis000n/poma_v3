@@ -28,7 +28,6 @@ function resetTimer() {
     stopAlarm();        
 }
 
-<<<<<<< HEAD
 function showEndMessage() {
     if (!document.getElementById('end-message')) {
         const endMessage = document.createElement('div');
@@ -67,10 +66,8 @@ function stopAlarm() {
     alarmSound.pause();
     alarmSound.currentTime = 0; 
 }
-=======
 function addTimer(){
     currentTime += 20;
     document.getElementById('timer').innerText = currentTime;
 }
 
->>>>>>> eafcde74ac48a2593e904bf62571b5f0d1f586bb
