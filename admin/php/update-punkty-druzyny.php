@@ -12,9 +12,8 @@ $data = json_decode($input, true);
 if (isset($data['punkty_druzyny'])) {
     $punkty_druzyny = $data['punkty_druzyny'];
 } else {
-    file_put_contents('debug.log', "Error: 'punkty_druzyny' key not found in data\n", FILE_APPEND);
-    echo "Error: 'punkty_druzyny' key not found in data";
-    exit;
+    echo json_encode(["status" => "error", "message" => "Nie udało się pobrać punktów drużyn."]);
+    return;
 }
 
 $stmt = $conn->prepare("UPDATE mvc_konkurs_druzyny SET punkty = ? WHERE id = ?");

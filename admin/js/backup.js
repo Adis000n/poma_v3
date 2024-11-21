@@ -29,48 +29,60 @@ function send_backup_pytania(backup_data) {
 
     switch (backup_data.stan) {
         case "pytanie":
+            clear_buttons_select_pytanie(backup_data);
+            createAnswerButton();
+            break;
+        case "odpowiedz":
+            clear_buttons_select_pytanie(backup_data);
+            createWrongCorrectButtons();
+            break;
+        case "clear":
             while (div_pytania.firstChild) {
                 div_pytania.removeChild(div_pytania.firstChild);
             }
-
-            if (backup_data.kategoria) {
-                const kategoriaButtons = document.querySelectorAll('.btn-group[aria-label="Kategoria buttons"] .btn');
-                kategoriaButtons.forEach(button => {
-                    if (button.textContent.trim().toLowerCase() === backup_data.kategoria.toLowerCase()) {
-                        selectOption(button, 'kategoria');
-                    }
-                });
-            }
-
-            if (backup_data.poziom) {
-                const punktyButtons = document.querySelectorAll('.btn-group[aria-label="Punkty buttons"] .btn');
-                const correctButton = Array.from(punktyButtons).find(button => 
-                    Number(button.textContent.trim()) === Number(backup_data.poziom)
-                );
-
-                if (correctButton) {
-                    selectOption(correctButton, 'punkty');
-                }
-            }
-
-            if (backup_data.nr_druzyny) {
-                const druzynyButtons = document.querySelectorAll('.btn-group[aria-label="Numer Druzyny buttons"] .btn');
-                const correctButton = Array.from(druzynyButtons).find(button => 
-                    Number(button.textContent.trim()) === Number(backup_data.nr_druzyny)
-                );
-
-                if (correctButton) {
-                    selectOption(correctButton, 'numerDruzyny');
-                }
-            }
-
-            createAnswerButton();
-            break;
-
-        case "odpowiedz":
-            break;
-        case "clear":
+            createPytanieButton();
             clear_pytania();
             break;
+    }
+}
+
+
+function clear_buttons_select_pytanie(backup_data){
+    Pytanie.kategoria = backup_data.kategoria;
+    Pytanie.punkty = backup_data.poziom;
+    Pytanie.numerDruzyny = backup_data.nr_druzyny;
+    while (div_pytania.firstChild) {
+        div_pytania.removeChild(div_pytania.firstChild);
+    }
+
+    if (backup_data.kategoria) {
+        const kategoriaButtons = document.querySelectorAll('.btn-group[aria-label="Kategoria buttons"] .btn');
+        kategoriaButtons.forEach(button => {
+            if (button.textContent.trim().toLowerCase() === backup_data.kategoria.toLowerCase()) {
+                selectOption(button, 'kategoria');
+            }
+        });
+    }
+
+    if (backup_data.poziom) {
+        const punktyButtons = document.querySelectorAll('.btn-group[aria-label="Punkty buttons"] .btn');
+        const correctButton = Array.from(punktyButtons).find(button => 
+            Number(button.textContent.trim()) === Number(backup_data.poziom)
+        );
+
+        if (correctButton) {
+            selectOption(correctButton, 'punkty');
+        }
+    }
+
+    if (backup_data.nr_druzyny) {
+        const druzynyButtons = document.querySelectorAll('.btn-group[aria-label="Numer Druzyny buttons"] .btn');
+        const correctButton = Array.from(druzynyButtons).find(button => 
+            Number(button.textContent.trim()) === Number(backup_data.nr_druzyny)
+        );
+
+        if (correctButton) {
+            selectOption(correctButton, 'numerDruzyny');
+        }
     }
 }
