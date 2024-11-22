@@ -371,6 +371,14 @@ button:hover {
     cursor: not-allowed;
     border: 2px solid #cccccc;
 }
+
+#team3:disabled, #team3.disabled, #team4:disabled, #team4.disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    border: 2px solid #cccccc;
+}
+
 .team-container.active {
     background-color: #e0f7fa; 
     border: 2px solid #009688; 
