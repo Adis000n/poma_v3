@@ -1,7 +1,12 @@
 var druzyny=[];
 function startevent() { 
   druzyny=[];
-  ilosc_druzyn=Number(prompt("Podaj liczbe druzyn min 2 max 4)",4)) 
+  ilosc_druzyn=Number(prompt("Podaj liczbe druzyn min 2 max 4)",4));
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', `http://localhost/projekty/poma_v3/admin/php/update_ammount_teams.php?ilosc_druzyn=${ilosc_druzyn}`, true);
+  xhr.send();
+  
   for(let i=1;i<=ilosc_druzyn;i++) druzyny.push(prompt("Podaj nazwę drużyny "+ i, "Drużyna " +i));
   const message = { nazwy_druzyny: druzyny }; 
   sendMessage(JSON.stringify(message));

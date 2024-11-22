@@ -16,7 +16,7 @@ function clearAll(){
 
 function update_status_to_clear(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost/projekty/poma_v3/questions/php/update_clear_db.php', true);
+    xhr.open('GET', 'php/update_clear_db.php', true);
     xhr.send();
     
 }
