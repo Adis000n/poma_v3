@@ -1,18 +1,23 @@
 let timerInterval;
 let currentTime = 30;
-
-
-const alarmSound = new Audio('js/bell-ring.mp3');
+let alarmSound = new Audio('js/bell-ring.mp3');
+let lastSeconds = new Audio('js/audio_clock-tick-long.mp3');
+let alarmPlaying = false;
 
 function startTimer() {
     timerInterval = setInterval(() => {
         if (currentTime > 0) {
             currentTime--;
             document.getElementById('timer').innerText = currentTime;
+
+
+            if (currentTime <= 5 && !alarmPlaying) {
+                playLastSecondsAlarm(); 
+            }
         } else {
             clearInterval(timerInterval);
             showEndMessage(); 
-            playAlarm();      
+            playAlarm();
         }
     }, 1000);
 }
@@ -25,7 +30,7 @@ function resetTimer() {
     currentTime = 30;
     document.getElementById('timer').innerText = currentTime;
     removeEndMessage(); 
-    stopAlarm();        
+    stopAlarm();
 }
 
 function showEndMessage() {
@@ -56,18 +61,26 @@ function removeEndMessage() {
     }
 }
 
-
 function playAlarm() {
-    alarmSound.play();
+    alarmSound.play(); 
 }
-
 
 function stopAlarm() {
     alarmSound.pause();
     alarmSound.currentTime = 0; 
 }
+
 function addTimer(){
     currentTime += 20;
     document.getElementById('timer').innerText = currentTime;
 }
 
+function playLastSecondsAlarm() {
+    alarmPlaying = true; 
+    lastSeconds.play();
+    setTimeout(() => {
+        lastSeconds.pause();
+        lastSeconds.currentTime = 0; 
+        alarmPlaying = false; 
+    }, 5000);
+}
