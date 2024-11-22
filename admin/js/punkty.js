@@ -69,6 +69,7 @@ function manualChange(teamNumber) {
 function applyPoints() {
     const message = { punkty_druzyny: tabela_punkty };
     sendMessage(JSON.stringify(message)); 
+    wysylanie(); 
     console.log("Zastosowano punkty:", tabela_punkty);
 }
 window.onload = updateDisplay;
