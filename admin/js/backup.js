@@ -14,7 +14,17 @@ backupBtn.addEventListener('click', () => {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
-            console.log(response); 
+            ilosc_druzyn = response.ilosc_druzyn;
+            
+            druzyny = response.teams
+                .slice(0, parseInt(ilosc_druzyn))
+                .map(team => team.nazwa);
+            const message = { nazwy_druzyny: druzyny }; 
+            sendMessage(JSON.stringify(message));
+
+            tabela_punkty = response.teams.map(team => parseInt(team.punkty));
+            Punkty_przesyl();
+            updateDisplay();
         }
     };
     xhr.open('GET', 'http://localhost/projekty/poma_v3/admin/php/get-backup-druzyny.php', true); 
