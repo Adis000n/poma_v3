@@ -436,3 +436,61 @@ button.btn-primary.selected {
     background-color: #28a745; 
     box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); 
 }
+
+#status-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+}
+
+#status-dot.active {
+    background-color: #4CAF50;
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+#status-dot.inactive {
+    background-color: #f44336;
+    animation: glow-red 1.5s ease-in-out infinite;
+}
+
+#status-dot-container {
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 20px;
+    color: white;
+    background-color: #333 ;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #4CAF50;
+    }
+    50% {
+        box-shadow: 0 0 20px #4CAF50;
+    }
+    100% {
+        box-shadow: 0 0 5px #4CAF50;
+    }
+}
+
+@keyframes glow-red {
+    0% {
+        box-shadow: 0 0 5px #f44336;
+    }
+    50% {
+        box-shadow: 0 0 20px #f44336;
+    }
+    100% {
+        box-shadow: 0 0 5px #f44336;
+    }
+}
+

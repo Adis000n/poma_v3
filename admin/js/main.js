@@ -1,8 +1,10 @@
-const WS_URL = 'ws://localhost:3000/ws';
-
-initializeWebSocket(WS_URL, (message) => {
-    console.log('Received:', message);
+initializeWebSocket('ws://localhost:3000/ws', (data) => {
+    const message = JSON.parse(data);
+    if (message.audio_status !== undefined) {
+            set_audio_status(message.audio_status);
+    }
 });
+
 var Pytanie = {
     kategoria: '',
     punkty: 0,
@@ -70,3 +72,5 @@ function clearPytanieButtons(){
     Pytanie.punkty = 0;
     Pytanie.numerDruzyny = 0;
 }
+
+

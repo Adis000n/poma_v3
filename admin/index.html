@@ -65,12 +65,16 @@
                 <div id="show_all_time_buttons">
                     <button id="mediaButton" type="button" class="btn btn-dark" onclick="start_stop_media()">Start/stop Media</button>
                     <button id="clearButton" type="button" class="btn btn-info" onclick="clear_pytania()">Wyczyść pytania</button>
-                 </div>
+                </div>
+                <div id="status-dot-container">
+                    <div id="status-dot" class="inactive"></div> Status czy dzwięki z pytań będą odtworzone poprawnie
+                </div>
             </div>
         </div>
     </div>
     <script src="../ws_setup.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/audio_status.js"></script>
     <script src="js/backup.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/pytanie.js"></script>
@@ -80,5 +84,6 @@
     <script src="js/wrong_or_correct.js"></script>
     <script src="js/czysczenie_pytan.js"></script>
     <script src="js/media.js"></script>
+    
 </body>
 </html>
