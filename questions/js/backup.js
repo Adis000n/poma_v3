@@ -7,6 +7,10 @@ function backupAll(backup_data){
         displayPytanie(backup_data);
         showOdpowiedz_img(pytanie_img_path);
         break;
+        case "done":
+        displayPytanie(backup_data);
+        showOdpowiedz_img(pytanie_img_path);
+        break;
         case "clear":
         clearAll();
         break;

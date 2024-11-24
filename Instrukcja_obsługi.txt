@@ -29,10 +29,11 @@ INSTRUKCJA INSTALACJI I KONFIGURACJI SYSTEMU
 
 4. KONFIGURACJA ŚCIEŻEK
 ----------------------
-Dostosuj ścieżki w następujących plikach:
+Dostosuj ścieżki w następujących plikach(localhost musi zostać nie może tam być localhost:3000):
 • admin/js/backup.js
 • admin/js/druzyny.js
 • admin/js/punkty.js
+• admin/js/wrong_or_correct.js
 
 5. URUCHOMIENIE SYSTEMU
 ----------------------
