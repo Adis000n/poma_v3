@@ -60,5 +60,12 @@ UWAGA: Interakcja ze stroną pytań jest konieczna do poprawnego działania syst
 
 ===========================================================================================================
 
+POZOSTAŁE WAŻNE RZECZY
+• Dla stabliności serwera zalecane jest restartowanie go i odświeżanie wsyzstkich pod stron przed każdą rundą
+• W przypadku informacji nie przesyłających się do serwera można zastopować serwer i uruchomić ponownie bez odświeżania stron (strony automatycznie łączą się ponownie)
+• Żeby zastopować serwer należy w terminalu kliknąc CTRL + C (tak jak kopiowanie ale nie zaznaczamy żadnego tekstu)
+
+
+
 
 
