@@ -9,7 +9,7 @@ const message = { punkty_druzyny: tabela_punkty };
 sendMessage(JSON.stringify(message));
     // Update the database
     const xhr4 = new XMLHttpRequest();
-    xhr4.open('POST', 'http://localhost/projekty/poma_v3/admin/php/update-punkty-druzyny.php', true);
+    xhr4.open('POST', `${PATH_TO_POMA}/admin/php/update-punkty-druzyny.php`, true);
     xhr4.setRequestHeader('Content-Type', 'application/json');
     xhr4.onreadystatechange = function() {
         if (xhr4.readyState === 4) {

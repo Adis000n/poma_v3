@@ -7,7 +7,7 @@ backupBtn.addEventListener('click', () => {
             send_backup_pytania(response);
         }
     };
-    xhr2.open('GET', 'http://localhost/projekty/poma_v3/admin/php/get-backup-batalia.php', true); 
+    xhr2.open('GET', `${PATH_TO_POMA}/admin/php/get-backup-batalia.php`, true); 
     xhr2.send(); 
 
     var xhr = new XMLHttpRequest();
@@ -34,7 +34,7 @@ backupBtn.addEventListener('click', () => {
             updateDisplay();
         }
     };
-    xhr.open('GET', 'http://localhost/projekty/poma_v3/admin/php/get-backup-druzyny.php', true); 
+    xhr.open('GET', `${PATH_TO_POMA}/admin/php/get-backup-druzyny.php`, true); 
     xhr.send();
 });
 
