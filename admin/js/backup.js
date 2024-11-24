@@ -53,6 +53,12 @@ function send_backup_pytania(backup_data) {
             clear_buttons_select_pytanie(backup_data);
             createWrongCorrectButtons();
             break;
+        case "done":
+            while (div_pytania.firstChild) {
+                div_pytania.removeChild(div_pytania.firstChild);
+            }
+            createPytanieButton();
+            break;
         case "clear":
             while (div_pytania.firstChild) {
                 div_pytania.removeChild(div_pytania.firstChild);
