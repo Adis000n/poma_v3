@@ -15,8 +15,24 @@
             justify-content: center;
             align-items: center;
             font-family: 'Roboto', sans-serif;
-            background: #ffffff;
+            background: linear-gradient(90deg, #aa541b, #003366);
+            background-size: 400% 400%;
+            animation: gradient-animation 8s infinite;
             color: #444;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         table {
@@ -34,6 +50,7 @@
         th {
             padding: 20px;
             text-align: center;
+            vertical-align: top;
         }
 
         td {
@@ -45,6 +62,12 @@
             font-size: 2.5rem;
             color: #007bff;
             margin-bottom: 20px;
+        }
+
+        .pytanko {
+            position: relative;
+            margin: 0 auto;
+            margin-top: 10px;
         }
 
         #numer_druzyny,
