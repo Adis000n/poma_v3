@@ -24,7 +24,7 @@ async function startevent() {
   xhr3.setRequestHeader('Content-Type', 'application/json');
   xhr3.onreadystatechange = function() {
     if (xhr3.readyState === 4 && xhr3.status === 200) {
-      // Success message removed as requested
+      // wszystko jest pomyślnie
     }
   };
   xhr3.send(JSON.stringify(message));
