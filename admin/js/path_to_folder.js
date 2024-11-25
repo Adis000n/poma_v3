@@ -1,1 +1,0 @@
-const PATH_TO_POMA = 'http://localhost/projekty/poma_v3';
