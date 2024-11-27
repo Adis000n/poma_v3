@@ -9,7 +9,7 @@ function backupAll(backup_data){
         break;
         case "done":
         displayPytanie(backup_data);
-        showOdpowiedz_img(pytanie_img_path);
+        showOdpowiedz_img_done(pytanie_img_path);
         break;
         case "clear":
         clearAll();
@@ -41,4 +41,26 @@ function displayPytanie(backup_data){
         void audio_element.offsetWidth; 
         audio_element.classList.add("slide-in"); 
     }
+}
+
+
+
+function showOdpowiedz_img_done(pytanie_path) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            var foundImage = response[0];  
+            var imagePath = response[1];   
+            var odpImg = foundImage ? imagePath : "grafika/Brak_odpowiedzi.jpg";
+            odpowiedz_img.src = `../${odpImg}`;
+            odpowiedz_img.classList.remove("slide-in"); 
+            void odpowiedz_img.offsetWidth; 
+            odpowiedz_img.classList.add("slide-in"); 
+        }
+    };
+
+    xhr.open('GET', `php/wyswietlanie-img-odpowiedzi-done.php?pytanie_path=${pytanie_path}`, true);
+    xhr.send();
 }

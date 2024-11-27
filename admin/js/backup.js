@@ -30,7 +30,7 @@ backupBtn.addEventListener('click', () => {
             sendMessage(JSON.stringify(message));
 
             tabela_punkty = response.teams.map(team => parseInt(team.punkty));
-            Punkty_przesyl();
+            wysylanie();
             updateDisplay();
         }
     };
