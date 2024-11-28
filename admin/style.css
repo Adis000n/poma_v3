@@ -469,6 +469,13 @@ button.btn-primary.selected {
     margin-top: 50px;
 }
 
+#mediaButton.play {
+    background-color: #4caf50;  /* green */
+}
+
+#mediaButton.stop {
+    background-color: #f44336;  /* red */
+}
 
 @keyframes glow {
     0% {

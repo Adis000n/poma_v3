@@ -22,6 +22,7 @@ function selectOption(selectedButton, typ) {
 }
 
 function submitPytanie() {
+    stopMedia(); 
     const message = { dane_pytanie: Pytanie }; 
     sendMessage(JSON.stringify(message));
     createAnswerButton();

@@ -11,4 +11,5 @@ function clear_pytania(){
     time.innerText = currentTime;
     setButtonState({ start: false, stop: true, reset: true });
     sendTimerMessage('reset');
+    stopMedia();
 }

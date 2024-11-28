@@ -48,6 +48,7 @@ function send_backup_pytania(backup_data) {
         case "pytanie":
             clear_buttons_select_pytanie(backup_data);
             createAnswerButton();
+            stopMedia();
             break;
         case "odpowiedz":
             clear_buttons_select_pytanie(backup_data);
