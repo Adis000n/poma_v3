@@ -26,4 +26,9 @@ function submitPytanie() {
     sendMessage(JSON.stringify(message));
     createAnswerButton();
     deletePytanieButton();
+    clearInterval(timerInterval);
+    currentTime = 30;
+    time.innerText = currentTime;
+    setButtonState({ start: false, stop: true, reset: true });
+    sendTimerMessage('reset');
 }

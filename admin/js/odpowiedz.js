@@ -3,6 +3,7 @@ function showAnswer(){
     sendMessage(JSON.stringify(message)); 
     createWrongCorrectButtons();
     deleteAnswerButton();
+    clearInterval(timerInterval);
     setButtonState({ start: false, stop: true, reset: false });
     sendTimerMessage('stop');
 }

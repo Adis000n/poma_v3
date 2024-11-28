@@ -6,4 +6,9 @@ function clear_pytania(){
     createPytanieButton();
     const message = { clear_questions: true }; 
     sendMessage(JSON.stringify(message));
+    clearInterval(timerInterval);
+    currentTime = 30;
+    time.innerText = currentTime;
+    setButtonState({ start: false, stop: true, reset: true });
+    sendTimerMessage('reset');
 }
