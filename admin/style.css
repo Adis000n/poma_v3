@@ -1,0 +1,503 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 90vh;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    padding: 20px;
+    width: 85%;
+    height: 90%;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#lewy, #prawy {
+    padding: 20px;
+    background-color: #eaeaea;
+    border-radius: 10px;
+    height: 90%;
+}
+
+#teams {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.teams-table > div {
+    background-color: #3e3e3e;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+button.btn-success, button.btn-danger, button.btn-warning, button.btn-add {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button.btn-success {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+}
+
+button.btn-danger {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+button.btn-warning {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+}
+
+#timer {
+    margin-top: 20px;
+}
+
+#timer h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: #333;
+}
+
+#Dodaj_druzyny h2 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
+
+#pytania {
+    margin-bottom: 20px;
+    height: 70%;
+}
+
+#pytania h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-group .btn-outline-primary {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #3e3e3e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-group .btn-outline-primary:hover {
+    background-color: #5a5a5a;
+}
+
+#pytanie_all_buttons, #show_all_time_buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#pytanie_all_buttons .btn, #show_all_time_buttons .btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#pytanie_all_buttons .btn-lightblue {
+    background-color: #2196f3;
+}
+
+#pytanie_all_buttons .btn-darkblue {
+    background-color: #3f51b5; 
+}
+
+#pytanie_all_buttons .btn-turquoise {
+    background-color: #009688; 
+}
+
+#pytanie_all_buttons .btn-lightblue:hover, #pytanie_all_buttons .btn-darkblue:hover, #pytanie_all_buttons .btn-turquoise:hover {
+    opacity: 0.9;
+}
+
+/* Przyciski na dole */
+button#mediaButton, button#clearButton {
+    background-color: #3e3e3e;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button#mediaButton:hover, button#clearButton:hover {
+    background-color: #5a5a5a;
+}
+
+button.btn-dark {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+button.btn-info {
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#teams {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px; 
+    padding: 20px;
+    justify-items: center; 
+}
+
+.team-container {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+}
+
+.team-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.team-input {
+    width: 80px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.team-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.team-buttons .btn-negative {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.team-buttons .btn-negative:hover {
+    background-color: #d32f2f;
+}
+
+.team-buttons .btn-positive {
+    background-color: #4caf50; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.team-buttons .btn-positive:hover {
+    background-color: #388e3c;
+}
+
+.apply-button {
+    grid-column: span 2; 
+    background-color: #2196f3;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    justify-self: center; 
+    transition: background-color 0.3s;
+}
+
+.apply-button:hover {
+    background-color: #1976d2; 
+}
+
+#timer h2,
+#Dodaj_druzyny h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#timer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+#timer button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+#timer .btn-success {
+    background-color: #28a745;
+}
+
+#timer .btn-danger {
+    background-color: #dc3545;
+}
+
+#timer .btn-add {
+    background-color: #17a2b8;
+}
+
+#timer .btn-warning {
+    background-color: #ffc107;
+}
+
+#Dodaj_druzyny {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Dodaj_druzyny button {
+    width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+#Dodaj_druzyny .btn-success {
+    background-color: #28a745;
+}
+
+#Dodaj_druzyny .btn-dark {
+    background-color: #343a40;
+}
+#gridlewy{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#submitButton {
+    background-color: #007bff;
+    color: white; 
+    border: 2px solid #007bff; 
+    border-radius: 6px; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#submitButton:hover:not([disabled]) {
+    background-color: white; 
+    color: #007bff; 
+}
+
+#submitButton:disabled {
+    background-color: #cccccc;
+    color: #666666; 
+    cursor: not-allowed;
+    border: 2px solid #cccccc;
+}
+
+#team3:disabled, #team3.disabled, #team4:disabled, #team4.disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    border: 2px solid #cccccc;
+}
+
+.team-container.active {
+    background-color: #e0f7fa; 
+    border: 2px solid #009688; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+button.btn-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button.btn-primary:active {
+    background-color: #0056b3; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+button.btn-primary:focus {
+    outline: none;
+    background-color: #0056b3;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
+}
+
+button.btn-primary.selected {
+    background-color: #28a745;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+#answerButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6c757d; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#answerButton:active {
+    background-color: #5a6268; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+#answerButton:focus {
+    outline: none;
+    background-color: #5a6268;
+    box-shadow: 0 0 5px 2px rgba(108, 117, 125, 0.6); 
+}
+
+#answerButton.clicked {
+    background-color: #28a745; 
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); 
+}
+
+#status-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+}
+
+#status-dot.active {
+    background-color: #4CAF50;
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+#status-dot.inactive {
+    background-color: #f44336;
+    animation: glow-red 1.5s ease-in-out infinite;
+}
+
+#status-dot-container {
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 20px;
+    color: white;
+    background-color: #333 ;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#mediaButton.play {
+    background-color: #4caf50;  /* green */
+}
+
+#mediaButton.stop {
+    background-color: #f44336;  /* red */
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #4CAF50;
+    }
+    50% {
+        box-shadow: 0 0 20px #4CAF50;
+    }
+    100% {
+        box-shadow: 0 0 5px #4CAF50;
+    }
+}
+
+@keyframes glow-red {
+    0% {
+        box-shadow: 0 0 5px #f44336;
+    }
+    50% {
+        box-shadow: 0 0 20px #f44336;
+    }
+    100% {
+        box-shadow: 0 0 5px #f44336;
+    }
+}
+

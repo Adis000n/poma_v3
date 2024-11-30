@@ -10,6 +10,9 @@ var pytanie_img_path;
 audio_element.setAttribute("hidden", true);
 wideo_element.setAttribute("hidden", true);
 pytanie_loader.setAttribute("hidden", true);
+user_interacted = false;
+clearUserInteracted();
+
 initializeWebSocket('ws://localhost:3000/ws', (data) => {
     const message = JSON.parse(data);
     if (message.timer) {
@@ -21,6 +24,8 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         } else if (timerStatus === "reset") {
             stopTimer(); 
             resetTimer();
+        } else if (timerStatus === "add"){
+            addTimer();
         }
     } else if (message.dane_pytanie) { 
         var pytanie = message.dane_pytanie; 
@@ -40,6 +45,14 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     }
     else if(message.play_media){
         play_media();
+    }
+    else if(message.backup_data_to_pytania){
+        var backup_data = message.backup_data_to_pytania;
+        backupAll(backup_data);
+    }
+    else if(message.check_if_user_interacted){
+            const message = { audio_status: user_interacted }; 
+            sendMessage(JSON.stringify(message));
     }
 });
 

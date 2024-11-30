@@ -8,15 +8,12 @@ include "../../db_connect.php";
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-file_put_contents('debug.log', "Raw input: " . $input . "\n", FILE_APPEND);
-file_put_contents('debug.log', "Parsed data: " . print_r($data, true) . "\n", FILE_APPEND);
 
 if (isset($data['punkty_druzyny'])) {
     $punkty_druzyny = $data['punkty_druzyny'];
 } else {
-    file_put_contents('debug.log', "Error: 'punkty_druzyny' key not found in data\n", FILE_APPEND);
-    echo "Error: 'punkty_druzyny' key not found in data";
-    exit;
+    echo json_encode(["status" => "error", "message" => "Nie udało się pobrać punktów drużyn."]);
+    return;
 }
 
 $stmt = $conn->prepare("UPDATE mvc_konkurs_druzyny SET punkty = ? WHERE id = ?");

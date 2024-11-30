@@ -1,5 +1,6 @@
 function clearAll(){
     resetTimer();
+    update_status_to_clear();
     numer_druzyny_div.innerHTML = "-";
     punkty_div.innerHTML = "-";
     kategoria_div.innerHTML = "-";
@@ -11,4 +12,11 @@ function clearAll(){
     wideo_element.querySelector("source").src = "";
     wideo_element.load();
     wideo_element.setAttribute("hidden", true);
+}
+
+function update_status_to_clear(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'php/update_clear_db.php', true);
+    xhr.send();
+    
 }

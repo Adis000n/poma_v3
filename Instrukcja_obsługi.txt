@@ -1,0 +1,75 @@
+  _____ _   _  _____ _______ _____  _    _ _  _______     _            ____  ____   _____ _     _    _  _____ _____ 
+ |_   _| \ | |/ ____|__   __|  __ \| |  | | |/ / ____|   | |  /\      / __ \|  _ \ / ____| |   | |  | |/ ____|_   _| 
+   | | |  \| | (___    | |  | |__) | |  | | ' / |        | | /  \    | |  | | |_) | (___ | |   | |  | | |  __  | |  
+   | | | . ` |\___ \   | |  |  _  /| |  | |  <| |    _   | |/ /\ \   | |  | |  _ < \___ \| |   | |  | | | |_ | | |  
+  _| |_| |\  |____) |  | |  | | \ \| |__| | . \ |___| |__| / ____ \  | |__| | |_) |____) | |___| |__| | |__| |_| |_ 
+ |_____|_| \_|_____/   |_|  |_|  \_\\____/|_|\_\_____\____/_/    \_\  \____/|____/|_____/|______\____/ \_____|_____|
+
+===========================================================================================================
+INSTRUKCJA INSTALACJI I KONFIGURACJI SYSTEMU
+
+1. WYMAGANIA WSTĘPNE
+-------------------
+• Node.js - najnowsza stabilna wersja (pobierz ze strony https://nodejs.org/)
+• XAMPP z Apache i MySQL
+• Visual Studio Code (lub podobne IDE)
+
+2. INSTALACJA ZALEŻNOŚCI
+-----------------------
+2.1. Otwórz projekt w Visual Studio Code
+2.2. W terminalu wykonaj następującą komendę:
+    npm install express express-ws body-parser path
+    
+3. KONFIGURACJA BAZY DANYCH
+--------------------------
+3.1. Zaimportuj bazę danych:
+    • Użyj dostarczonego pliku poma_v3.sql
+    • Alternatywnie, możesz użyć własnej bazy (wymagana nazwa: poma_v3)
+    • W przypadku innej nazwy bazy, zmodyfikuj plik db_connect.php
+
+4. KONFIGURACJA ŚCIEŻEK
+----------------------
+Dostosuj ścieżki w następujących plikach(localhost musi zostać nie może tam być localhost:3000):
+• admin/js/setup_variables.js
+
+4.1. KONFIGURACJA ALERTÓW
+------------------------
+W pliku setup_variables.js możesz skonfigurować typ wyświetlanych alertów:
+• use_sweetalert = true  - włącza stylizowane alerty SweetAlert
+• use_sweetalert = false - używa standardowych alertów przeglądarki
+
+5. URUCHOMIENIE SYSTEMU
+----------------------
+5.1. Uruchom serwer Node.js:
+    • W terminalu VS Code wykonaj: node server.js
+    • Sprawdź czy serwer działa pod adresem: http://localhost:3000
+    
+5.2. Uruchom XAMPP:
+    • Aktywuj moduł Apache
+    • Aktywuj moduł MySQL
+    
+5.3. Konfiguracja paneli:
+    • Panel administracyjny: http://localhost:3000/admin
+    • Pytania i plansza: otwórz przez standardowy lokalhost XAMPP
+    (UWAGA: NIE używaj portu 3000 dla pytań i planszy!)
+
+6. WERYFIKACJA DZIAŁANIA
+-----------------------
+6.1. Sprawdź status dźwięku:
+    • Otwórz stronę pytań
+    • Kliknij gdziekolwiek na stronie
+    • Upewnij się, że status na panelu admina zmienił się na zielony
+    
+UWAGA: Interakcja ze stroną pytań jest konieczna do poprawnego działania systemu audio!
+
+===========================================================================================================
+
+POZOSTAŁE WAŻNE RZECZY
+• Dla stabliności serwera zalecane jest restartowanie go i odświeżanie wsyzstkich pod stron przed każdą rundą
+• W przypadku informacji nie przesyłających się do serwera można zastopować serwer i uruchomić ponownie bez odświeżania stron (strony automatycznie łączą się ponownie)
+• Żeby zastopować serwer należy w terminalu kliknąc CTRL + C (tak jak kopiowanie ale nie zaznaczamy żadnego tekstu)
+
+
+
+
+

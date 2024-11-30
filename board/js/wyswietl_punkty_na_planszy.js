@@ -8,7 +8,7 @@ function AktualizacjaPunkty(tabela_punkty){
 
     tabela_punkty.forEach((value, index) => {
         if (contentDivs[index]) {
-            contentDivs[index].innerHTML = "Punkty: "+value;
+            contentDivs[index].innerHTML = value;
         }
     });
 

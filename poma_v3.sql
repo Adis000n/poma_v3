@@ -118,10 +118,10 @@ INSERT INTO `mvc_konkurs_pytania` (`id`, `kategoria`, `poziom`, `img_pytania`, `
 (35, 'technika', 1, 'baza/technika/1/t4.jpg', 'baza/technika/1/to4.jpg', 0, '', ''),
 (36, 'technika', 1, 'baza/technika/1/t5.jpg', 'baza/technika/1/to5.jpg', 0, '', '');
 
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('[value-1]','[value-2]','[value-3]');
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('[value-1]','[value-2]','[value-3]');
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('[value-1]','[value-2]','[value-3]');
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('[value-1]','[value-2]','[value-3]');
+INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('0','[value-2]','[value-3]');
+INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('1','[value-2]','[value-3]');
+INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('2','[value-2]','[value-3]');
+INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('3','[value-2]','[value-3]');
 --
 -- Indeksy dla zrzutów tabel
 --

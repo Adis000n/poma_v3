@@ -79,7 +79,7 @@
         .team4, .team3 {
             padding-bottom: 45px;
         }
-        .nazwa_druzny1 , .nazwa_druzny2 , .nazwa_druzny3 , .nazwa_druzny4 {
+        #nazwa_druzny1 , #nazwa_druzny2 , #nazwa_druzny3 , #nazwa_druzny4 {
             max-width: 420px; 
     word-wrap: break-word; 
     white-space: normal; 
@@ -146,6 +146,21 @@
             align-items: center;
             text-align: center;
         }
+          /* PUNKTY CZCIONKOA*/
+        #points1 {
+            color:aqua
+        }
+        #points2 {
+            color: rgb(249 128 128)
+        }
+        #points3{ 
+            color:yellow
+        }
+        #points4{
+            color:rgb(122 235 107)
+        }
+    /* _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+ 
     </style>
      <script>
         // Trzeba wysyłać wartości true / false (true - pokarze, false - zamknie)
@@ -166,31 +181,32 @@
 
     <div class="Plansza">
         <div class="team1">
-            <div>Drużyna 1</div>
-            <div id="nazwa_druzny1">Szkola Podstawowa Numer 27 W Bielsku-Białej</div>
-            <div id="points1">PKT: -</div>
+            <div>Drużyna 1:</div>
+            <div id="nazwa_druzny1"></div>
+            Punkty: -
+            <div id="points1"></div>
         </div>
 
         <div class="board">
-            <img src="../grafika/plansza.png" alt="Plansza gry">
+            <img src="plansza.png" alt="Plansza gry">
         </div>
 
         <div class="team2">
-            <div>Drużyna 2</div>
-            <div id="nazwa_druzny2">T</div> 
-            <div id="points2">PKT: -</div>
+            <div>Drużyna 2:</div>
+            <div id="nazwa_druzny2"></div> 
+            <div id="points2">  </div>
         </div>
 
         <div class="team3">
-            <div>Drużyna 3</div>
-            <div id="nazwa_druzny3">T</div>
-            <div id="points3">PKT: -</div>
+            <div>Drużyna 3:</div>
+            <div id="nazwa_druzny3"></div>
+            <div id="points3"></div>
         </div>
 
         <div class="team4">
-            <div>Drużyna 4</div>
-            <div id="nazwa_druzny4">T</div>
-            <div id="points4">PKT: -</div>
+            <div>Drużyna 4:</div>
+            <div id="nazwa_druzny4"></div>
+            <div id="points4"></div>
         </div>
     </div>
 

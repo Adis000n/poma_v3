@@ -1,11 +1,10 @@
 function updateSubmitButtonState() {
     const submitButton = document.getElementById('submitButton');
-    if (Pytanie.kategoria && Pytanie.punkty && Pytanie.numerDruzyny) {
-        submitButton.disabled = false;
-    } else {
-        submitButton.disabled = true;
+    if (submitButton) {
+        submitButton.disabled = !(Pytanie.kategoria && Pytanie.punkty && Pytanie.numerDruzyny);
     }
 }
+
 
 function selectOption(selectedButton, typ) {
     const buttons = selectedButton.closest('.btn-group').querySelectorAll('.btn');
@@ -23,8 +22,14 @@ function selectOption(selectedButton, typ) {
 }
 
 function submitPytanie() {
+    stopMedia(); 
     const message = { dane_pytanie: Pytanie }; 
     sendMessage(JSON.stringify(message));
     createAnswerButton();
     deletePytanieButton();
+    clearInterval(timerInterval);
+    currentTime = 30;
+    time.innerText = currentTime;
+    setButtonState({ start: false, stop: true, reset: true });
+    sendTimerMessage('reset');
 }
