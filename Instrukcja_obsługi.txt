@@ -30,7 +30,13 @@ INSTRUKCJA INSTALACJI I KONFIGURACJI SYSTEMU
 4. KONFIGURACJA ŚCIEŻEK
 ----------------------
 Dostosuj ścieżki w następujących plikach(localhost musi zostać nie może tam być localhost:3000):
-• admin/js/path_to_folder.js
+• admin/js/setup_variables.js
+
+4.1. KONFIGURACJA ALERTÓW
+------------------------
+W pliku setup_variables.js możesz skonfigurować typ wyświetlanych alertów:
+• use_sweetalert = true  - włącza stylizowane alerty SweetAlert
+• use_sweetalert = false - używa standardowych alertów przeglądarki
 
 5. URUCHOMIENIE SYSTEMU
 ----------------------

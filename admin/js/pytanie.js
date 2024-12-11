@@ -22,8 +22,14 @@ function selectOption(selectedButton, typ) {
 }
 
 function submitPytanie() {
+    stopMedia(); 
     const message = { dane_pytanie: Pytanie }; 
     sendMessage(JSON.stringify(message));
     createAnswerButton();
     deletePytanieButton();
+    clearInterval(timerInterval);
+    currentTime = 30;
+    time.innerText = currentTime;
+    setButtonState({ start: false, stop: true, reset: true });
+    sendTimerMessage('reset');
 }
