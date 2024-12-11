@@ -8,6 +8,8 @@
     <script src="js/main.js"></script>
     <script src="js/wyswietl_punkty_na_planszy.js"></script>
     <script src="js/wyswietl_nazwy_szkol.js"></script>
+    <script src="js/ustawienie_pionkow_rozpoczecie_konkursu.js"></script>
+    <script src="js/ustawianie_pionkow.js"></script>
     <style>
         body {
             background-color: black;
@@ -18,7 +20,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden
+           /* overflow: ?; */
             
         }
 
@@ -29,6 +31,7 @@
             width: 110%;
             height: 110%;
         }
+
 /* ZESPOLY _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
         .team1{
             position: absolute;
@@ -85,13 +88,13 @@
     white-space: normal; 
         }
 /* _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-        .board {
+        /* .board {
             display: flex;
             justify-content: center;
             align-items: center;
             grid-column: 2;
             grid-row: 2;
-        }
+        } */
 
         .board img {
             width:200%;
@@ -133,7 +136,29 @@
             color:rgb(122 235 107)
         }
     /* _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
- 
+ /* css kuby do wyjebana potem */
+ .pawn {
+    width: 4px;
+    height: 4px;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    position: absolute;
+    align-items: center;
+    box-shadow: none;
+    transition: 0.7s ease-in-out;
+    scale: 0.2;
+}
+#board {
+    width: 800px;
+    height: 800px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
     </style>
 </head>
 <body>
@@ -142,13 +167,19 @@
         <div class="team1">
             <div>Drużyna 1:</div>
             <div id="nazwa_druzny1"></div>
-            Punkty: -
+            Punkty: 
             <div id="points1"></div>
         </div>
 
         <div class="board">
-            <img src="plansza.png" alt="Plansza gry">
+            <img id="board" src="plansza.png" alt="Plansza gry">
         </div>
+        <div class="pawn" id="pawn1"><img src="../grafika/pawn4.png" alt="BRAKUJE ZDJĘĆ"></div>  
+        <div class="pawn" id="pawn2"><img src="../grafika/pawn4.png" alt="BRAKUJE ZDJĘĆ" ></div>  
+        <div class="pawn" id="pawn3"><img src="../grafika/pawn4.png" alt="BRAKUJE ZDJĘĆ" ></div>  
+        <div class="pawn" id="pawn4"><img src="../grafika/pawn4.png" alt="BRAKUJE ZDJĘĆ" ></div>  
+
+      
 
         <div class="team2">
             <div>Drużyna 2:</div>

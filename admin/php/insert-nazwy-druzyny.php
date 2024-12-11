@@ -25,5 +25,5 @@ foreach ($druzyny as $index => $team) {
 $stmt->close();
 $conn->close();
 
-echo "Dane zostały zapisane pomyślnie.";
+
 ?>

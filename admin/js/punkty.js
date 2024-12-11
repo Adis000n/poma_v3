@@ -21,7 +21,7 @@ sendMessage(JSON.stringify(message));
                 } catch (e) {
                     console.error("Failed to parse JSON response:", e);
                 }
-                console.log("chyba działa");
+              
             } else {
                 console.error("Request failed with status:", xhr4.status);
             }
