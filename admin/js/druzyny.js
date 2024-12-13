@@ -35,6 +35,8 @@ async function startevent() {
     button.disabled = disabled;
     button.classList.toggle('disabled', disabled);
   });
+
+  wysylanie();
 }
 
 
