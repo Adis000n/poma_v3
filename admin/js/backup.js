@@ -7,7 +7,7 @@ backupBtn.addEventListener('click', () => {
             send_backup_pytania(response);
         }
     };
-    xhr2.open('GET', `${PATH_TO_POMA}/admin/php/get-backup-batalia.php`, true); 
+    xhr2.open('GET', `${STORED_PATH_TO_POMA}/admin/php/get-backup-batalia.php`, true); 
     xhr2.send(); 
 
     var xhr = new XMLHttpRequest();
@@ -16,12 +16,12 @@ backupBtn.addEventListener('click', () => {
             var response = JSON.parse(xhr.responseText);
             ilosc_druzyn = response.ilosc_druzyn;
 
-            ['team3', 'team4'].forEach((id, index) => {
+            if(STORED_DISABLE_TEAMS){['team3', 'team4'].forEach((id, index) => {
                 const button = document.getElementById(id);
                 const disabled = ilosc_druzyn <= index + 2;
                 button.disabled = disabled;
                 button.classList.toggle('disabled', disabled);
-              });
+              });}
             
             druzyny = response.teams
                 .slice(0, parseInt(ilosc_druzyn))
@@ -34,7 +34,7 @@ backupBtn.addEventListener('click', () => {
             updateDisplay();
         }
     };
-    xhr.open('GET', `${PATH_TO_POMA}/admin/php/get-backup-druzyny.php`, true); 
+    xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/get-backup-druzyny.php`, true); 
     xhr.send();
 });
 

@@ -14,6 +14,6 @@ function wrongAnswer(){
 
 function updateStanToDone(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', `${PATH_TO_POMA}/admin/php/update-stan-done.php`, true);
+    xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/update-stan-done.php`, true);
     xhr.send();
 }

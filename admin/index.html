@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Poma</title>
-    <!-- <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/>  -->
     <link rel="stylesheet" href="style.css">
     <script src="../sweetalert/sweetalert2.all.min.js"></script>
 </head>
@@ -26,10 +25,17 @@
                     </div>
                 </div>
                 <div id="Dodaj_druzyny">
-                    <h2>Obsługa konkurus</h2>
+                    <h2>Obsługa konkursu</h2>
                     <button type="button" class="btn btn-success" onclick="startevent()">Rozpocznij konkurs</button><br>
                     <br>
-                    <button type="button" class="btn btn-dark" id="backup_btn">BACKUP</button>
+                    <div class="pushable" type="button" class="btn btn-warning" id="backup_btn">
+                        <span class="front">
+                          BACKUP
+                        </span>
+                      </div>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-dark" id="settings_btn">USTAWIENIA</button>
                 </div>
             </div>
         </div>
@@ -72,7 +78,29 @@
             </div>
         </div>
     </div>
+    <div id="settings">
+        <div>
+            <h2>Ustawienia</h2>
+            <div class="settings-group">
+                <label for="path-input">Ścieżka do POMA:</label>
+                <input type="text" id="path-input" class="settings-input">
+            </div>
+            <div class="settings-group">
+                <label for="sweetalert-toggle">Ładniejsze to do wrpowadzania przy rozpoczynaniu konkursu:</label>
+                <input type="checkbox" id="sweetalert-toggle" class="settings-toggle">
+            </div>
+            <div class="settings-group">
+                <label for="teams-toggle">Wyłącz przciski drużyn które nie grają:</label>
+                <input type="checkbox" id="teams-toggle" class="settings-toggle">
+            </div>
+            <div class="settings-buttons">
+                <button class="btn btn-warning" id="reset-settings">Reset do domyślnych</button>
+                <button class="btn btn-danger" id="close-settings">Zamknij</button>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="js/setup_variables.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
     <script  type="text/javascript" src="../ws_setup.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/audio_status.js"></script>
