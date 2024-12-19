@@ -4,12 +4,18 @@ function correctAnswer(){
     deleteWrongCorrectButtons();
     createPytanieButton();
     clearPytanieButtons();
+    if(STORED_DISABLE_TEAMS){
+        disableBtnsForNotActiveTeams(parseInt(GLOBAL_ILOSC_DRUZYN));
+    }
 }
 function wrongAnswer(){
     updateStanToDone();
     deleteWrongCorrectButtons();
     createPytanieButton();
     clearPytanieButtons();
+    if(STORED_DISABLE_TEAMS){
+        disableBtnsForNotActiveTeams(parseInt(GLOBAL_ILOSC_DRUZYN));
+    }
 }
 
 function updateStanToDone(){

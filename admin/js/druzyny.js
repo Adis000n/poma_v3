@@ -11,7 +11,7 @@ async function startevent() {
   const teamNames = await getTeamNames(ilosc_druzyn);
   if (!teamNames) return;
   druzyny = teamNames;
-
+  GLOBAL_ILOSC_DRUZYN = ilosc_druzyn;
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/update_ammount_teams.php?ilosc_druzyn=${ilosc_druzyn}`, true);
   xhr.send();
@@ -30,15 +30,8 @@ async function startevent() {
   xhr3.send(JSON.stringify(message));
 
   if(STORED_DISABLE_TEAMS){
-    ['team3', 'team4'].forEach((id, index) => {
-    const button = document.getElementById(id);
-    const disabled = ilosc_druzyn <= index + 2;
-    button.disabled = disabled;
-    button.classList.toggle('disabled', disabled);
-  });
-  
+    disableBtnsForNotActiveTeams(parseInt(ilosc_druzyn));
 }
-
   wysylanie();
 }
 

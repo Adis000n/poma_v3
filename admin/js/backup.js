@@ -1,43 +1,38 @@
-const backupBtn = document.getElementById("backup_btn");
-backupBtn.addEventListener('click', () => {
-    var xhr2 = new XMLHttpRequest();
-    xhr2.onreadystatechange = function () {
-        if (xhr2.readyState === 4 && xhr2.status === 200) {
-            var response = JSON.parse(xhr2.responseText);
-            send_backup_pytania(response);
-        }
-    };
-    xhr2.open('GET', `${STORED_PATH_TO_POMA}/admin/php/get-backup-batalia.php`, true); 
-    xhr2.send(); 
+    const backupBtn = document.getElementById("backup_btn");
+    backupBtn.addEventListener('click', () => {
+        var xhr2 = new XMLHttpRequest();
+        xhr2.onreadystatechange = function () {
+            if (xhr2.readyState === 4 && xhr2.status === 200) {
+                var response = JSON.parse(xhr2.responseText);
+                send_backup_pytania(response);
+            }
+        };
+        xhr2.open('GET', `${STORED_PATH_TO_POMA}/admin/php/get-backup-batalia.php`, true); 
+        xhr2.send(); 
+        var ilosc_druzyn;
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                ilosc_druzyn = response.ilosc_druzyn;
+                GLOBAL_ILOSC_DRUZYN = ilosc_druzyn;
+                if(STORED_DISABLE_TEAMS){
+                    disableBtnsForNotActiveTeams(parseInt(ilosc_druzyn));
+                }
+                druzyny = response.teams
+                    .slice(0, parseInt(ilosc_druzyn))
+                    .map(team => team.nazwa);
+                const message = { nazwy_druzyny: druzyny }; 
+                sendMessage(JSON.stringify(message));
 
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            ilosc_druzyn = response.ilosc_druzyn;
-
-            if(STORED_DISABLE_TEAMS){['team3', 'team4'].forEach((id, index) => {
-                const button = document.getElementById(id);
-                const disabled = ilosc_druzyn <= index + 2;
-                button.disabled = disabled;
-                button.classList.toggle('disabled', disabled);
-              });}
-            
-            druzyny = response.teams
-                .slice(0, parseInt(ilosc_druzyn))
-                .map(team => team.nazwa);
-            const message = { nazwy_druzyny: druzyny }; 
-            sendMessage(JSON.stringify(message));
-
-            tabela_punkty = response.teams.map(team => parseInt(team.punkty));
-            wysylanie();
-            updateDisplay();
-        }
-    };
-    xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/get-backup-druzyny.php`, true); 
-    xhr.send();
-});
-
+                tabela_punkty = response.teams.map(team => parseInt(team.punkty));
+                wysylanie();
+                updateDisplay();
+            }
+        };
+        xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/get-backup-druzyny.php`, true); 
+        xhr.send();
+    });
 
 
 function send_backup_pytania(backup_data) {

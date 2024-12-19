@@ -595,4 +595,22 @@ button.btn-primary.selected {
   }
 
 
+  .team-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 10px;
+}
 
+.team-overlay i {
+    font-size: 2em;
+    color: rgba(0, 0, 0, 0.6);
+}

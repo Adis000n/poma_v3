@@ -73,4 +73,57 @@ function clearPytanieButtons(){
     Pytanie.numerDruzyny = 0;
 }
 
+async function disableBtnsForNotActiveTeams(liczba_druzyn) {
+    liczba_druzyn = parseInt(liczba_druzyn);
+    
+    await new Promise(resolve => setTimeout(resolve, 0));
 
+    const teams = [3, 4];
+    for (const teamNumber of teams) {
+        const button = document.getElementById(`team${teamNumber}`);
+        const isDisabled = teamNumber > liczba_druzyn;
+        
+        if (button) {
+            button.disabled = isDisabled;
+            button.classList.toggle('disabled', isDisabled);
+        }
+
+        const teamContainer = document.querySelector(`#teams .team-container:nth-child(${teamNumber})`);
+        if (teamContainer) {
+            await handleTeamContainer(teamContainer, isDisabled);
+        }
+    }
+}
+
+async function handleTeamContainer(container, isDisabled) {
+    await new Promise(resolve => {
+        requestAnimationFrame(async () => {
+            container.style.position = 'relative';
+            container.style.opacity = isDisabled ? '0.7' : '1';
+
+            let overlay = container.querySelector('.team-overlay');
+            if (isDisabled && !overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'team-overlay';
+                overlay.innerHTML = '<i class="fas fa-lock"></i>';
+                container.appendChild(overlay);
+            } else if (!isDisabled && overlay) {
+                overlay.remove();
+            }
+
+            const teamNum = Array.from(container.parentElement.children).indexOf(container) + 1;
+            const teamInput = document.getElementById(`team_points_${teamNum}`);
+            if (teamInput) {
+                teamInput.disabled = isDisabled;
+            }
+
+            const teamButtons = container.querySelector('.team-buttons');
+            if (teamButtons) {
+                Array.from(teamButtons.getElementsByTagName('button')).forEach(button => {
+                    button.disabled = isDisabled;
+                });
+            }
+            resolve();
+        });
+    });
+}
