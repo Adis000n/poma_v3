@@ -2,6 +2,8 @@ let timerInterval;
 let currentTime = 30;
 let alarmSound = new Audio('js/bell-ring.mp3');
 let lastSeconds = new Audio('js/audio_clock-tick-long.mp3');
+lastSeconds.volume = 0.3;
+alarmSound.volume = 1;
 let alarmPlaying = false;
 
 function startTimer() {
@@ -51,6 +53,10 @@ function showEndMessage() {
         endMessage.style.fontSize = '3rem';
         endMessage.style.zIndex = '1000';
         document.body.appendChild(endMessage);
+        setTimeout(() => {
+            removeEndMessage();
+          }, 5000);
+        
     }
 }
 
