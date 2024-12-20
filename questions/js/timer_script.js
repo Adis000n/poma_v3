@@ -36,34 +36,55 @@ function resetTimer() {
 }
 
 function showEndMessage() {
-    if (!document.getElementById('end-message')) {
-        const endMessage = document.createElement('div');
+    if (!document.getElementById('end-message-container')) {
+        const container = document.createElement('div');
+        container.id = 'end-message-container';
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+        container.style.display = 'flex';
+        container.style.justifyContent = 'center';
+        container.style.alignItems = 'center';
+        container.style.zIndex = '1000';
+        container.style.opacity = '0';
+        container.style.transition = 'opacity 0.5s ease';
+
+        const endMessage = document.createElement('img');
         endMessage.id = 'end-message';
-        endMessage.innerText = 'KONIEC CZASU';
-        endMessage.style.position = 'fixed';
-        endMessage.style.top = '0';
-        endMessage.style.left = '0';
-        endMessage.style.width = '100%';
-        endMessage.style.height = '100%';
-        endMessage.style.display = 'flex';
-        endMessage.style.justifyContent = 'center';
-        endMessage.style.alignItems = 'center';
-        endMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-        endMessage.style.color = 'white';
-        endMessage.style.fontSize = '3rem';
-        endMessage.style.zIndex = '1000';
-        document.body.appendChild(endMessage);
+        endMessage.src = "../grafika/koniec-czasu.png";
+        endMessage.style.maxWidth = '90%';
+        endMessage.style.maxHeight = '90vh';
+        endMessage.style.objectFit = 'contain';
+        endMessage.style.display = 'block';
+        endMessage.style.transform = 'scale(0.9)';
+        endMessage.style.transition = 'transform 0.5s ease';
+
+        container.appendChild(endMessage);
+        document.body.appendChild(container);
+        
+
+        requestAnimationFrame(() => {
+            container.style.opacity = '1';
+            endMessage.style.transform = 'scale(1)';
+        });
+        
         setTimeout(() => {
             removeEndMessage();
-          }, 5000);
-        
+        }, 5300); 
     }
 }
 
 function removeEndMessage() {
-    const endMessage = document.getElementById('end-message');
-    if (endMessage) {
-        document.body.removeChild(endMessage);
+    const container = document.getElementById('end-message-container');
+    if (container) {
+        container.style.opacity = '0';
+        container.querySelector('#end-message').style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            document.body.removeChild(container);
+        }, 300);
     }
 }
 
