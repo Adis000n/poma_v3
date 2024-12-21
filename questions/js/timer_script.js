@@ -39,7 +39,6 @@ async function startTimer() {
             }
         } else {    
             clearInterval(timerInterval);
-            // Stop last seconds sound if it's still playing
             if (isLastSecondsPlaying) {
                 lastSeconds.pause();
                 lastSeconds.currentTime = 0;
@@ -111,7 +110,6 @@ function addTimer(){
     currentTime += 20;
     document.getElementById('timer').innerText = currentTime;
     
-    // If we were playing the last seconds sound, stop it
     if (wasUnderFiveSeconds) {
         lastSeconds.pause();
         lastSeconds.currentTime = 0;
