@@ -2,30 +2,65 @@ let timerInterval;
 let currentTime = 30;
 let alarmSound = new Audio('js/bell-ring.mp3');
 let lastSeconds = new Audio('js/audio_clock-tick-long.mp3');
+let isPaused = false;
+let isLastSecondsPlaying = false;
+let lastSecondsTimeLeft = 5000; 
+
+alarmSound.load();
+lastSeconds.load();
+
 lastSeconds.volume = 0.3;
 alarmSound.volume = 1;
 let alarmPlaying = false;
 
-function startTimer() {
-    timerInterval = setInterval(() => {
+async function startTimer() {
+    isPaused = false;
+    if (isLastSecondsPlaying && currentTime <= 5) {
+        await lastSeconds.play();
+        if (lastSecondsTimeLeft > 0) {
+            setTimeout(async () => {
+                if (!isPaused) {
+                    lastSeconds.pause();
+                    lastSeconds.currentTime = 0;
+                    isLastSecondsPlaying = false;
+                    alarmPlaying = false;
+                }
+            }, lastSecondsTimeLeft);
+        }
+    }
+    
+    timerInterval = setInterval(async () => {
         if (currentTime > 0) {
             currentTime--;
             document.getElementById('timer').innerText = currentTime;
 
-
             if (currentTime <= 5 && !alarmPlaying) {
-                playLastSecondsAlarm(); 
+                await playLastSecondsAlarm();
             }
-        } else {
+        } else {    
             clearInterval(timerInterval);
-            showEndMessage(); 
-            playAlarm();
+            // Stop last seconds sound if it's still playing
+            if (isLastSecondsPlaying) {
+                lastSeconds.pause();
+                lastSeconds.currentTime = 0;
+                isLastSecondsPlaying = false;
+                alarmPlaying = false;
+            }
+            Promise.all([
+                playAlarm(),
+                showEndMessage()
+            ]);
         }
     }, 1000);
 }
 
 function stopTimer() {
+    isPaused = true;
     clearInterval(timerInterval);
+    if (isLastSecondsPlaying) {
+        lastSeconds.pause();
+        lastSecondsTimeLeft = 5000 - (lastSeconds.currentTime * 1000);
+    }
 }
 
 function resetTimer() {
@@ -35,79 +70,75 @@ function resetTimer() {
     stopAlarm();
 }
 
-function showEndMessage() {
-    if (!document.getElementById('end-message-container')) {
-        const container = document.createElement('div');
-        container.id = 'end-message-container';
-        container.style.position = 'fixed';
-        container.style.top = '0';
-        container.style.left = '0';
-        container.style.width = '100%';
-        container.style.height = '100%';
-        container.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-        container.style.display = 'flex';
-        container.style.justifyContent = 'center';
-        container.style.alignItems = 'center';
-        container.style.zIndex = '1000';
-        container.style.opacity = '0';
-        container.style.transition = 'opacity 0.5s ease';
-
-        const endMessage = document.createElement('img');
-        endMessage.id = 'end-message';
-        endMessage.src = "../grafika/koniec-czasu.png";
-        endMessage.style.maxWidth = '90%';
-        endMessage.style.maxHeight = '90vh';
-        endMessage.style.objectFit = 'contain';
-        endMessage.style.display = 'block';
-        endMessage.style.transform = 'scale(0.9)';
-        endMessage.style.transition = 'transform 0.5s ease';
-
-        container.appendChild(endMessage);
-        document.body.appendChild(container);
-        
-
-        requestAnimationFrame(() => {
-            container.style.opacity = '1';
-            endMessage.style.transform = 'scale(1)';
-        });
-        
-        setTimeout(() => {
-            removeEndMessage();
-        }, 5300); 
-    }
-}
-
-function removeEndMessage() {
+async function showEndMessage() {
     const container = document.getElementById('end-message-container');
-    if (container) {
-        container.style.opacity = '0';
-        container.querySelector('#end-message').style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            document.body.removeChild(container);
-        }, 300);
+    const endMessage = document.getElementById('end-message');
+    
+    container.style.display = 'flex';
+    container.style.opacity = '1';
+    endMessage.style.transform = 'scale(1)';
+    
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    await removeEndMessage();
+}
+
+async function removeEndMessage() {
+    const container = document.getElementById('end-message-container');
+    const endMessage = document.getElementById('end-message');
+    
+    container.style.opacity = '0';
+    endMessage.style.transform = 'scale(0.9)';
+    await new Promise(resolve => setTimeout(resolve, 100));
+    container.style.display = 'none';
+}
+
+async function playAlarm() {
+    try {
+        alarmSound.currentTime = 0;
+        await alarmSound.play();
+    } catch (error) {
+        console.error('Error playing alarm:', error);
     }
 }
 
-function playAlarm() {
-    alarmSound.play(); 
-}
-
-function stopAlarm() {
+async function stopAlarm() {
     alarmSound.pause();
-    alarmSound.currentTime = 0; 
+    alarmSound.currentTime = 0;
 }
 
 function addTimer(){
+    const wasUnderFiveSeconds = currentTime <= 5;
     currentTime += 20;
     document.getElementById('timer').innerText = currentTime;
+    
+    // If we were playing the last seconds sound, stop it
+    if (wasUnderFiveSeconds) {
+        lastSeconds.pause();
+        lastSeconds.currentTime = 0;
+        isLastSecondsPlaying = false;
+        alarmPlaying = false;
+        lastSecondsTimeLeft = 5000;
+    }
 }
 
-function playLastSecondsAlarm() {
-    alarmPlaying = true; 
-    lastSeconds.play();
-    setTimeout(() => {
-        lastSeconds.pause();
-        lastSeconds.currentTime = 0; 
-        alarmPlaying = false; 
-    }, 5000);
+async function playLastSecondsAlarm() {
+    alarmPlaying = true;
+    isLastSecondsPlaying = true;
+    lastSecondsTimeLeft = 5000;
+    try {
+        await lastSeconds.play();
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        if (!isPaused) {
+            lastSeconds.pause();
+            lastSeconds.currentTime = 0;
+            lastSecondsTimeLeft = 0;
+        }
+        isLastSecondsPlaying = false;
+        alarmPlaying = false;
+    } catch (error) {
+        console.error('Error playing last seconds alarm:', error);
+        isLastSecondsPlaying = false;
+        alarmPlaying = false;
+        lastSecondsTimeLeft = 0;
+    }
 }

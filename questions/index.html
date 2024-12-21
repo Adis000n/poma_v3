@@ -218,6 +218,31 @@
             align-items: center;
             text-align: center;
         }
+        #end-message-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            /* Only transition opacity when hiding */
+            transition: opacity 0.3s ease-out;
+        }
+
+        #end-message {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+            transform: scale(1);
+            /* Only transition transform when hiding */
+            transition: transform 0.3s ease-out;
+        }
     </style>
     <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
     <script>
@@ -236,6 +261,9 @@
 </head>
 <body>
     <div id="overlay"></div>
+    <div id="end-message-container">
+        <img id="end-message" src="../grafika/koniec-czasu.png">
+    </div>
     <table>
         <tr>
             <td rowspan="4">
