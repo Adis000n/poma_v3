@@ -252,10 +252,13 @@
             overlay.style.display = show ? 'flex' : 'none';
         }
         // Trzeba wysyłać druzynę (Numer drużyny), booster który został wylosowany
-        function pokazBooster(team, booster) {
+        function pokazBooster(booster) {
             const overlay = document.getElementById('overlay');
-            overlay.innerHTML = `<div class="overlay-content">${team} otrzymała bonus:<br> ${booster} <br>`;
+            overlay.innerHTML = `<div class="overlay-content">Otrzymano bonus:<br> ${booster} <br>`;
             toggleOverlay(true);
+            setTimeout(function(){
+                toggleOverlay(false);
+            }, 5000);
         }
     </script>
 </head>

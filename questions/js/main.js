@@ -54,6 +54,28 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
             const message = { audio_status: user_interacted }; 
             sendMessage(JSON.stringify(message));
     }
+    else if(message.booster){
+        if(message.booster == 1){
+            const booster = "Podpowiedź publiczności";
+            pokazBooster(booster);
+        } else if(message.booster == 2){
+            const booster = "+1 Punkt";
+            pokazBooster(booster);
+        } else if(message.booster == 3){
+            const booster = "Pytanie za 3 punkty";
+            pokazBooster(booster);
+        } else if(message.booster == 4){
+            const booster = "Wybór kategorii";
+            pokazBooster(booster)
+        } else if(message.booster == 5){
+            const booster = "Dodatkowy czas";
+            pokazBooster(booster);
+        } else if (message.booster == 6){
+            const booster = "Kolejka przepada";
+            pokazBooster(booster);
+        }
+        
+    }
 });
 
 
