@@ -13,18 +13,18 @@ function setPosition(elementId, x, y) {
 }
 function Pozycja1(tabela_punkty) {
     const positions = [
-        { x: 330, y: 330 },
-        { x: 240, y: 328 },
-        { x: 163, y: 328 },
-        { x: 86, y: 328 },
-        { x: 86, y: 250 },
-        { x: 86, y: 172 },
-        { x: 164, y: 172 },
-        { x: 242, y: 172 },
-        { x: 242, y: 94 },
-        { x: 242, y: 20 },
-        { x: 164, y: 20 },
-        { x: 66, y: 20 }
+        { x: 445, y: 404 },//0
+        { x: 389, y: 404 },//1
+        { x: 337.5, y: 404 },//2
+        { x: 286, y: 404 },//3
+        { x: 286, y: 312.5 },//4
+        { x: 286, y: 221 },//5
+        { x: 337.5, y: 221 },//6
+        { x: 389, y: 221 },//7
+        { x: 389, y: 135 },//8
+        { x: 389, y: 44 },//9
+        { x: 337.5, y: 44 },//10
+        { x: 286, y: 44 }//11
     ];
 
     // if (tabela_punkty[0] === 0) {
@@ -36,44 +36,46 @@ function Pozycja1(tabela_punkty) {
     setPosition('pawn1', position.x, position.y);
   
 }
-function Pozycja2(team2) {
-    const positions = [
-        { x: 430, y: 330 },
-        { x: 520, y: 328 },
-        { x: 598, y: 328 },
-        { x: 675, y: 328 },
-        { x: 675, y: 250 },
-        { x: 675, y: 172 },
-        { x: 597, y: 172 },
-        { x: 519, y: 172 },
-        { x: 519, y: 94 },
-        { x: 520, y: 20 },
-        { x: 598, y: 20 },
-        { x: 696, y: 20 }
-    ];
+function Pozycja2(tabela_punkty) {
+const positions = [
+    { x: 512.5, y: 415 },
+    { x: 632.5, y: 398 },
+    { x: 710.5, y: 398 },
+    { x: 787.5, y: 398 },
+    { x: 787.5, y: 320 },
+    { x: 787.5, y: 242 },
+    { x: 709.5, y: 242 },
+    { x: 631.5, y: 242 },
+    { x: 631.5, y: 164 },
+    { x: 632.5, y: 90 },
+    { x: 710.5, y: 90 },
+    { x: 808.5, y: 90 }
+];
 
     // if (team2 === 0) {
     //     document.getElementById('pawn2').querySelector('img').removeAttribute('hidden');
     //     document.getElementById('pawn2').style.boxShadow = '0 0 10px 20px rgba(0, 0, 0, 0.363)';
     // }
 
-    const position = positions[Math.min(team2, positions.length - 1)];
+    const position = positions[Math.min(tabela_punkty[1], positions.length - 1)];
     setPosition('pawn2', position.x, position.y);
 }
-function Pozycja3(team3) {
+function Pozycja3(tabela_punkty) {
+
+
     const positions = [
-        { x: 330, y: 430 },
-        { x: 240, y: 432 },
-        { x: 163, y: 432 },
-        { x: 86, y: 432 },
-        { x: 86, y: 510 },
-        { x: 86, y: 588 },
-        { x: 164, y: 588 },
-        { x: 242, y: 588 },
-        { x: 242, y: 666 },
-        { x: 242, y: 740 },
-        { x: 164, y: 740 },
-        { x: 66, y: 740 }
+        { x: 442.5, y: 525 },
+        { x: 352.5, y: 502 },
+        { x: 275.5, y: 502 },
+        { x: 198.5, y: 502 },
+        { x: 198.5, y: 580 },
+        { x: 198.5, y: 658 },
+        { x: 276.5, y: 658 },
+        { x: 354.5, y: 658 },
+        { x: 354.5, y: 736 },
+        { x: 354.5, y: 810 },
+        { x: 276.5, y: 810 },
+        { x: 178.5, y: 810 }
     ];
 
     // if (team3 === 0 && !tylko_dwie) {
@@ -81,23 +83,23 @@ function Pozycja3(team3) {
     //     document.getElementById('pawn3').style.boxShadow = '0 0 10px 20px rgba(0, 0, 0, 0.363)';
     // }
 
-    const position = positions[Math.min(team3, positions.length - 1)];
+    const position = positions[Math.min(tabela_punkty[2], positions.length - 1)];
     setPosition('pawn3', position.x, position.y);
 }
-function Pozycja4(team4) {
+function Pozycja4(tabela_punkty) {
     const positions = [
-        { x: 430, y: 430 },
-        { x: 520, y: 432 },
-        { x: 597, y: 432 },
-        { x: 675, y: 432 },
-        { x: 675, y: 510 },
-        { x: 675, y: 588 },
-        { x: 597, y: 588 },
-        { x: 519, y: 588 },
-        { x: 519, y: 664 },
-        { x: 519, y: 740 },
-        { x: 598, y: 740 },
-        { x: 696, y: 740 }
+        { x: 512.5, y: 525 },
+        { x: 632.5, y: 502 },
+        { x: 709.5, y: 502 },
+        { x: 787.5, y: 502 },
+        { x: 787.5, y: 580 },
+        { x: 787.5, y: 658 },
+        { x: 709.5, y: 658 },
+        { x: 631.5, y: 658 },
+        { x: 631.5, y: 736 },
+        { x: 631.5, y: 810 },
+        { x: 709.5, y: 810 },
+        { x: 808.5, y: 810 }
     ];
 
     // if (team4 === 0 && !tylko_trzy) {
@@ -105,6 +107,6 @@ function Pozycja4(team4) {
     //     document.getElementById('pawn4').style.boxShadow = '0 0 10px 20px rgba(0, 0, 0, 0.363)';
     // }
 
-    const position = positions[Math.min(team4, positions.length - 1)];
+    const position = positions[Math.min(tabela_punkty[3], positions.length - 1)];
     setPosition('pawn4', position.x, position.y);
 }
