@@ -16,14 +16,41 @@ function sendTimerMessage(action) {
 }
 setButtonState({ start: false, stop: true, reset: true });
 startBtn.addEventListener('click', () => {
-    timerInterval = setInterval(() => {
-        if (currentTime > 0) {
-            currentTime--;
-            time.innerText = currentTime;
-        } else {
-            clearInterval(timerInterval);
-        }
-    }, 1000);
+    clearInterval(timerInterval);
+    
+    if (currentTime > 5) {
+        timerInterval = setInterval(() => {
+            if (currentTime > 0) {
+                currentTime--;
+                time.innerText = currentTime;
+                
+                if (currentTime === 5) {
+                    clearInterval(timerInterval);
+
+                    timerInterval = setInterval(() => {
+                        if (currentTime > 0) {
+                            currentTime -= 0.1;
+                            currentTime = Math.round(currentTime * 10) / 10;
+                            time.innerText = currentTime.toFixed(1);
+                        } else {
+                            clearInterval(timerInterval);
+                        }
+                    }, 100);
+                }
+            }
+        }, 1000);
+    } else {
+        timerInterval = setInterval(() => {
+            if (currentTime > 0) {
+                currentTime -= 0.1;
+                currentTime = Math.round(currentTime * 10) / 10;
+                time.innerText = currentTime.toFixed(1);
+            } else {
+                clearInterval(timerInterval);
+            }
+        }, 100);
+    }
+    
     setButtonState({ start: true, stop: false, reset: false });
     sendTimerMessage('start');
 });
@@ -41,7 +68,34 @@ resetBtn.addEventListener('click', () => {
 });
 
 addBtn.addEventListener('click', () => {
-    currentTime += 20;
+    const wasUnderFiveSeconds = currentTime <= 5;
+    currentTime = Math.floor(currentTime) + 20; // First round current time, then add 20
     time.innerText = currentTime;
+    
+    // If timer is running (stop button is enabled), restart with correct interval
+    if (!stopBtn.disabled) {
+        clearInterval(timerInterval);
+        // Set new interval with 1-second steps since we're now above 5 seconds
+        timerInterval = setInterval(() => {
+            if (currentTime > 0) {
+                currentTime--;
+                time.innerText = currentTime;
+                
+                if (currentTime === 5) {
+                    clearInterval(timerInterval);
+                    // Switch to decimal counting
+                    timerInterval = setInterval(() => {
+                        if (currentTime > 0) {
+                            currentTime -= 0.1;
+                            currentTime = Math.round(currentTime * 10) / 10;
+                            time.innerText = currentTime.toFixed(1);
+                        } else {
+                            clearInterval(timerInterval);
+                        }
+                    }, 100);
+                }
+            }
+        }, 1000);
+    }
     sendTimerMessage('add');
 });
