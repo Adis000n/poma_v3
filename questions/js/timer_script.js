@@ -15,6 +15,9 @@ let alarmPlaying = false;
 
 async function startTimer() {
     isPaused = false;
+    clearInterval(timerInterval);
+    
+    // Handle last seconds sound if already playing
     if (isLastSecondsPlaying && currentTime <= 5) {
         await lastSeconds.play();
         if (lastSecondsTimeLeft > 0) {
@@ -29,28 +32,44 @@ async function startTimer() {
         }
     }
     
-    timerInterval = setInterval(async () => {
-        if (currentTime > 0) {
-            currentTime--;
-            document.getElementById('timer').innerText = currentTime;
+    // Choose interval based on current time
+    if (currentTime > 5) {
+        timerInterval = setInterval(() => {
+            if (currentTime > 5) {
+                currentTime--;
+                document.getElementById('timer').innerText = currentTime;
+                
+                if (currentTime === 5) {
+                    clearInterval(timerInterval);
+                    startTimer();
+                }
+            }
+        }, 1000);
+    } else {
+        timerInterval = setInterval(async () => {
+            if (currentTime > 0) {
+                currentTime -= 0.1;
+                currentTime = Math.round(currentTime * 10) / 10;
+                document.getElementById('timer').innerText = currentTime.toFixed(1);
 
-            if (currentTime <= 5 && !alarmPlaying) {
-                await playLastSecondsAlarm();
+                if (currentTime <= 5 && !alarmPlaying) {
+                    await playLastSecondsAlarm();
+                }
+            } else {
+                clearInterval(timerInterval);
+                if (isLastSecondsPlaying) {
+                    lastSeconds.pause();
+                    lastSeconds.currentTime = 0;
+                    isLastSecondsPlaying = false;
+                    alarmPlaying = false;
+                }
+                Promise.all([
+                    playAlarm(),
+                    showEndMessage()
+                ]);
             }
-        } else {    
-            clearInterval(timerInterval);
-            if (isLastSecondsPlaying) {
-                lastSeconds.pause();
-                lastSeconds.currentTime = 0;
-                isLastSecondsPlaying = false;
-                alarmPlaying = false;
-            }
-            Promise.all([
-                playAlarm(),
-                showEndMessage()
-            ]);
-        }
-    }, 1000);
+        }, 100);
+    }
 }
 
 function stopTimer() {
@@ -67,6 +86,7 @@ function resetTimer() {
     document.getElementById('timer').innerText = currentTime;
     removeEndMessage(); 
     stopAlarm();
+    clearInterval(timerInterval);
 }
 
 async function showEndMessage() {
@@ -107,7 +127,7 @@ async function stopAlarm() {
 
 function addTimer(){
     const wasUnderFiveSeconds = currentTime <= 5;
-    currentTime += 20;
+    currentTime = Math.floor(currentTime + 20);
     document.getElementById('timer').innerText = currentTime;
     
     if (wasUnderFiveSeconds) {
@@ -117,6 +137,10 @@ function addTimer(){
         alarmPlaying = false;
         lastSecondsTimeLeft = 5000;
     }
+    
+    // Restart timer with new time
+    clearInterval(timerInterval);
+    startTimer();
 }
 
 async function playLastSecondsAlarm() {

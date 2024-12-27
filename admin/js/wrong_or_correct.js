@@ -4,7 +4,7 @@ function correctAnswer(){
     deleteWrongCorrectButtons();
     createPytanieButton();
     clearPytanieButtons();
-    if(STORED_DISABLE_TEAMS){
+    if(STORED_DISABLE_TEAMS  && GLOBAL_ILOSC_DRUZYN != 0){
         disableBtnsForNotActiveTeams(parseInt(GLOBAL_ILOSC_DRUZYN));
     }
 }
@@ -13,7 +13,7 @@ function wrongAnswer(){
     deleteWrongCorrectButtons();
     createPytanieButton();
     clearPytanieButtons();
-    if(STORED_DISABLE_TEAMS){
+    if(STORED_DISABLE_TEAMS && GLOBAL_ILOSC_DRUZYN != 0){
         disableBtnsForNotActiveTeams(parseInt(GLOBAL_ILOSC_DRUZYN));
     }
 }
