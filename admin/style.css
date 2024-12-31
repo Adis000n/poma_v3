@@ -122,7 +122,6 @@ button.btn-warning {
 #pytanie_all_buttons, #show_all_time_buttons {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
 }
 
 #pytanie_all_buttons .btn, #show_all_time_buttons .btn {
@@ -466,7 +465,7 @@ button.btn-primary.selected {
     background-color: #333 ;
     display: flex;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 #mediaButton.play {
