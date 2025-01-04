@@ -1,3 +1,5 @@
+var druzyny=[]
+
 function isJSON(message) { 
     try {
         JSON.parse(message);
@@ -12,7 +14,7 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         const message = JSON.parse(data);
             if(message.nazwy_druzyny){
                 // console.log(message.nazwy_druzyny);
-                var druzyny=[]
+                
                 druzyny= message.nazwy_druzyny;
                 console.table(druzyny) //tutaj frond endowcy macie tabelke z drużynami 
                 NazwyUpdate(druzyny)

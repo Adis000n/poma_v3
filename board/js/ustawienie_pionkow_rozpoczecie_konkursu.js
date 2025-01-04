@@ -1,8 +1,6 @@
 function Pionkienabled() {
-    document.getElementById('pawn1').querySelector('img').removeAttribute('hidden');
-    document.getElementById('pawn2').querySelector('img').removeAttribute('hidden');
-    document.getElementById('pawn3').querySelector('img').removeAttribute('hidden');
-    document.getElementById('pawn4').querySelector('img').removeAttribute('hidden');
-    console.log("działa")
+    for(i=1;i<=druzyny.length;i++){
+        document.getElementById(`pawn${i}`).querySelector('img').removeAttribute('hidden');
+    }
     }     
 
