@@ -48,11 +48,13 @@ function resetSettings() {
 settingsBtn.addEventListener('click', () => {
     settingsDiv.style.display = 'flex';
     loadSettings();
+    loadAdditional();
 });
 
 closeBtn.addEventListener('click', () => {
     settingsDiv.style.display = 'none';
     saveSettings();
+    closeAdditional();
 });
 
 resetBtn2.addEventListener('click', resetSettings);
