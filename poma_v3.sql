@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 22, 2024 at 11:05 PM
+-- Generation Time: Sty 09, 2025 at 09:21 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -20,6 +20,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `poma_v3`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `id_pytan_logs`
+--
+
+CREATE TABLE `id_pytan_logs` (
+  `id` int(11) NOT NULL,
+  `id_pytania` int(11) NOT NULL,
+  `time_pin` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -45,7 +57,7 @@ CREATE TABLE `mvc_konkurs_batalia` (
 --
 
 INSERT INTO `mvc_konkurs_batalia` (`id`, `kategoria`, `poziom`, `ilosc_druzyn`, `nr_druzyny`, `img_odpowiedzi`, `img_pytania`, `media`, `media_typ`, `stan`) VALUES
-(1, 'informatyka', 1, 4, 1, 'baza/informatyka/1/io35.jpg', 'baza/informatyka/1/i35.jpg', '', '', 'pytanie');
+(1, 'informatyka', 2, 2, 3, 'baza/informatyka/2/ido29.jpg', 'baza/informatyka/2/id29.jpg', '', '', 'done');
 
 -- --------------------------------------------------------
 
@@ -58,6 +70,16 @@ CREATE TABLE `mvc_konkurs_druzyny` (
   `nazwa` varchar(255) NOT NULL,
   `punkty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `mvc_konkurs_druzyny`
+--
+
+INSERT INTO `mvc_konkurs_druzyny` (`id`, `nazwa`, `punkty`) VALUES
+(1, 'asd', 2),
+(2, 'asdasdas', 2),
+(3, 'cc', 0),
+(4, 'xx', 0);
 
 -- --------------------------------------------------------
 
@@ -118,13 +140,15 @@ INSERT INTO `mvc_konkurs_pytania` (`id`, `kategoria`, `poziom`, `img_pytania`, `
 (35, 'technika', 1, 'baza/technika/1/t4.jpg', 'baza/technika/1/to4.jpg', 0, '', ''),
 (36, 'technika', 1, 'baza/technika/1/t5.jpg', 'baza/technika/1/to5.jpg', 0, '', '');
 
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('0','[value-2]','[value-3]');
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('1','[value-2]','[value-3]');
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('2','[value-2]','[value-3]');
-INSERT INTO `mvc_konkurs_druzyny`(`id`, `nazwa`, `punkty`) VALUES ('3','[value-2]','[value-3]');
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `id_pytan_logs`
+--
+ALTER TABLE `id_pytan_logs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `mvc_konkurs_batalia`
@@ -149,6 +173,12 @@ ALTER TABLE `mvc_konkurs_pytania`
 --
 
 --
+-- AUTO_INCREMENT for table `id_pytan_logs`
+--
+ALTER TABLE `id_pytan_logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `mvc_konkurs_batalia`
 --
 ALTER TABLE `mvc_konkurs_batalia`
@@ -158,7 +188,7 @@ ALTER TABLE `mvc_konkurs_batalia`
 -- AUTO_INCREMENT for table `mvc_konkurs_druzyny`
 --
 ALTER TABLE `mvc_konkurs_druzyny`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `mvc_konkurs_pytania`
