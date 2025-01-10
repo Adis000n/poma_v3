@@ -86,6 +86,19 @@
                     <button type="button" class="btn btn-info" onclick="submitTeamData(5)" >Dodatkowy czas</button>
                     <button type="button" class="btn btn-info" onclick="submitTeamData(6)" >Kolejka przepada</button>
                 </div>
+                <div id="custom-pytanie">
+                    <h3>Wyświetlanie pytania z ID</h3>
+                    <h4 class="mt-4">Id pytania:</h4>
+                    <input type="number" id="numer_pytania">
+                    <h4 class="mt-4">Numer Drużyny:</h4>
+                    <div class="btn-group btn-group-toggle" role="group" aria-label="Numer Druzyny buttons">
+                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="1" id="team1Custom">1</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="2" id="team2Custom">2</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="3" id="team3Custom">3</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="4" id="team4Custom">4</button>
+                    </div>
+                    <button onclick="getCustomPytanieInfo()">Wyświetl</button>
+                </div>
             </div>
         </div>
     </div>
@@ -125,5 +138,6 @@
     <script type="text/javascript" src="js/czysczenie_pytan.js"></script>
     <script type="text/javascript" src="js/media.js"></script>
     <script type="text/javascript" src="js/boostery.js"></script>
+    <script type="text/javascript" src="js/custom_pytanie.js"></script>
 </body>
 </html>
