@@ -76,6 +76,20 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         }
         
     }
+    else if(message.dane_custom_pytanie){
+        var customPytanie = message.dane_custom_pytanie; 
+        clearAllCustom();
+        pytanie_loader.removeAttribute("hidden");
+        setTimeout(() => {
+            pytanie_loader.setAttribute("hidden", true);
+            console.log(customPytanie);
+            showCustomPytanie_img(customPytanie);
+            showCustomPytanie_data(customPytanie);
+        }, "1000");
+    }
+    else if (message.is_custom_answer_clicked){
+        showOdpowiedz_img(pytanie_img_path)
+    }
 });
 
 

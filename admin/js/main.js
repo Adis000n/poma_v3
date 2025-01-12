@@ -62,6 +62,57 @@ function deleteWrongCorrectButtons(){
     div_pytania.removeChild(wrong_button);
 }
 
+var div_custom_pytania = document.getElementById("pytanie_all_custom_buttons");
+var pytanie_custom_button,answer_custom_button,correct_custom_button,wrong_custom_button;
+createCustomPytanieButton();
+
+function createCustomPytanieButton(){
+    pytanie_custom_button = document.createElement('button');
+    pytanie_custom_button.id = "submitCustomButton";
+    pytanie_custom_button.type = "button";
+    pytanie_custom_button.className = "btn btn-primary";
+    pytanie_custom_button.innerHTML = "Wyświetl pytanie";
+    pytanie_custom_button.disabled = true;
+    pytanie_custom_button.setAttribute("onclick", "submitCustomPytanie()");
+    div_custom_pytania.appendChild(pytanie_custom_button);
+}
+function createCustomAnswerButton(){
+    answer_custom_button = document.createElement('button');
+    answer_custom_button.id = "answerCustomButton";
+    answer_custom_button.type = "button";
+    answer_custom_button.className = "btn btn-secondary";
+    answer_custom_button.innerHTML = "Wyświetl odpowiedź";
+    answer_custom_button.setAttribute("onclick", "showCustomAnswer()");
+    div_custom_pytania.appendChild(answer_custom_button);
+}
+function createCustomWrongCorrectButtons(){
+    correct_custom_button = document.createElement('button');
+    correct_custom_button.id = "correctCustomAnswerButton";
+    correct_custom_button.type = "button";
+    correct_custom_button.className = "btn btn-success";
+    correct_custom_button.innerHTML = "Poprawna Odpowiedź";
+    correct_custom_button.setAttribute("onclick", "correctCustomAnswer()");
+        div_custom_pytania.appendChild(correct_custom_button);
+    wrong_custom_button = document.createElement('button');
+    wrong_custom_button.id = "wrongCustomAnswerButton";
+    wrong_custom_button.type = "button";
+    wrong_custom_button.className = "btn btn-danger";
+    wrong_custom_button.innerHTML = "Zła Odpowiedź";
+    wrong_custom_button.setAttribute("onclick", "wrongCustomAnswer()");
+    div_custom_pytania.appendChild(wrong_custom_button);
+}
+
+function deleteCustomPytanieButton(){
+    div_custom_pytania.removeChild(pytanie_custom_button);
+}
+function deleteCustomAnswerButton(){
+    div_custom_pytania.removeChild(answer_custom_button);
+}
+function deleteCustomWrongCorrectButtons(){
+    div_custom_pytania.removeChild(correct_custom_button);
+    div_custom_pytania.removeChild(wrong_custom_button);
+}
+
 function clearPytanieButtons(){
     const allButtons = document.querySelectorAll('.btn-group .btn');
     allButtons.forEach(function(button) {
@@ -86,6 +137,14 @@ async function disableBtnsForNotActiveTeams(liczba_druzyn) {
         if (button) {
             button.disabled = isDisabled;
             button.classList.toggle('disabled', isDisabled);
+        }
+
+        const button2 = document.getElementById(`team${teamNumber}Custom`);
+        const isDisabled2 = teamNumber > liczba_druzyn;
+        
+        if (button2) {
+            button2.disabled = isDisabled2;
+            button2.classList.toggle('disabled', isDisabled2);
         }
 
         const teamContainer = document.querySelector(`#teams .team-container:nth-child(${teamNumber})`);
