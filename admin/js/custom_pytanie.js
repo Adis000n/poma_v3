@@ -15,6 +15,11 @@ function selectCustomOption(selectedButton, type) {
 }
 
 function submitCustomPytanie() {
+    if(!SERVER_RUNNING) {
+        showToast('warning', 'Serwer jest rozłączony. Nie można wysłać pytania.');
+        return;
+    }
+
     const pytanieId = document.getElementById('numer_pytania').value;
     var xhr22 = new XMLHttpRequest();
     xhr22.open('GET', `${STORED_PATH_TO_POMA}/questions/php/update_clear_db.php`, true);

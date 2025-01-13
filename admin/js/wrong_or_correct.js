@@ -19,7 +19,11 @@ function wrongAnswer(){
 }
 
 function updateStanToDone(){
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/update-stan-done.php`, true);
-    xhr.send();
+    if(SERVER_RUNNING){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/update-stan-done.php`, true);
+        xhr.send();
+    } else {
+        showToast('warning', 'Serwer jest rozłączony. Nie można zaktualizować stanu.');
+    }
 }

@@ -1,5 +1,6 @@
-    const backupBtn = document.getElementById("backup_btn");
+const backupBtn = document.getElementById("backup_btn");
     backupBtn.addEventListener('click', () => {
+        if(SERVER_RUNNING){
         var xhr2 = new XMLHttpRequest();
         xhr2.onreadystatechange = function () {
             if (xhr2.readyState === 4 && xhr2.status === 200) {
@@ -32,6 +33,10 @@
         };
         xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/get-backup-druzyny.php`, true); 
         xhr.send();
+        }
+        else{
+            showToast('warning', 'Serwer jest rozłączony. Nie można wykonać kopii zapasowej bazy danych.');
+        }
     });
 
 

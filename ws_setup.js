@@ -5,6 +5,28 @@ let reconnectInterval = 1000;
 let maxReconnectInterval = 20000; 
 let reconnectAttempts = 0;
 
+SERVER_RUNNING = false;
+
+function showToast(type, message) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+        width: '400px',
+        padding: '1.25em',
+        background: type === 'success' ? '#4CAF50' : type === 'warning' ? '#ff3333' : '#333',
+        color: type === 'success' ? '#000' : '#fff',
+        html: `<h1 style="margin: 0; font-size: 1.5em;">${message}</h1>`
+    });
+
+    Toast.fire({
+        icon: type,
+        title: ''
+    });
+}
+
 function connectWebSocket(url, onMessageCallback) {
     ws = new WebSocket(url);
 
@@ -13,6 +35,8 @@ function connectWebSocket(url, onMessageCallback) {
         isConnected = true;
         reconnectInterval = 1000; 
         reconnectAttempts = 0; 
+        showToast('success', 'WebSocket połączony');
+        SERVER_RUNNING =true;
 
         // Send any queued messages
         while (messageQueue.length > 0) {
@@ -22,12 +46,15 @@ function connectWebSocket(url, onMessageCallback) {
 
     ws.onclose = () => {
         console.log('WebSocket connection closed');
+        SERVER_RUNNING = false;
         isConnected = false;
+        showToast('warning', 'WebSocket odłączony');
         handleReconnect(url, onMessageCallback);
     };
 
     ws.onerror = (error) => {
         console.error('WebSocket error:', error);
+        showToast('error', 'WebSocket Error');
         ws.close(); 
     };
 

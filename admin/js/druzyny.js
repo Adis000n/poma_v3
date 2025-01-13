@@ -1,7 +1,5 @@
 var druzyny = [];
 
-
-
 async function startevent() {
   druzyny = [];
   
@@ -12,29 +10,34 @@ async function startevent() {
   if (!teamNames) return;
   druzyny = teamNames;
   GLOBAL_ILOSC_DRUZYN = ilosc_druzyn;
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/update_ammount_teams.php?ilosc_druzyn=${ilosc_druzyn}`, true);
-  xhr.send();
 
-  const message = { nazwy_druzyny: druzyny };
-  sendMessage(JSON.stringify(message));
-  
-  const xhr3 = new XMLHttpRequest();
-  xhr3.open('POST', `${STORED_PATH_TO_POMA}/admin/php/insert-nazwy-druzyny.php`, true);
-  xhr3.setRequestHeader('Content-Type', 'application/json');
-  xhr3.onreadystatechange = function() {
-    if (xhr3.readyState === 4 && xhr3.status === 200) {
-      // wszystko jest pomyślnie
-    }
-  };
-  xhr3.send(JSON.stringify(message));
+  if(SERVER_RUNNING){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `${STORED_PATH_TO_POMA}/admin/php/update_ammount_teams.php?ilosc_druzyn=${ilosc_druzyn}`, true);
+    xhr.send();
+
+    const message = { nazwy_druzyny: druzyny };
+    sendMessage(JSON.stringify(message));
+    
+    const xhr3 = new XMLHttpRequest();
+    xhr3.open('POST', `${STORED_PATH_TO_POMA}/admin/php/insert-nazwy-druzyny.php`, true);
+    xhr3.setRequestHeader('Content-Type', 'application/json');
+    xhr3.onreadystatechange = function() {
+      if (xhr3.readyState === 4 && xhr3.status === 200) {
+        // wszystko jest pomyślnie
+      }
+    };
+    xhr3.send(JSON.stringify(message));
+  } else {
+    showToast('warning', 'Serwer jest rozłączony. Nie można zapisać danych drużyn.');
+    return;
+  }
 
   if(STORED_DISABLE_TEAMS){
     disableBtnsForNotActiveTeams(parseInt(ilosc_druzyn));
 }
   wysylanie();
 }
-
 
 async function getTeamCount() {
   if (STORED_USE_SWEETALERT) {
