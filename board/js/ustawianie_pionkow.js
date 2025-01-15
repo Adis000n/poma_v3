@@ -1,112 +1,88 @@
-
 function setPosition(elementId, x, y) {
     const element = document.getElementById(elementId);
-    const boardWidth = document.getElementById('board').offsetWidth;
-    const boardHeight = document.getElementById('board').offsetHeight;
-    console.log(boardWidth, boardHeight);
-
-    const percentageX = (x / boardWidth) * 100;
-    const percentageY = (y / boardHeight) * 100;
-
-    element.style.left = percentageX + '%';
-    element.style.top = percentageY + '%';
+    element.style.left = x + '%';
+    element.style.top = y + '%';
 }
+
 function Pozycja1(tabela_punkty) {
     const positions = [
-        { x: 445, y: 404 },//0
-        { x: 389, y: 404 },//1
-        { x: 337.5, y: 404 },//2
-        { x: 286, y: 404 },//3
-        { x: 286, y: 312.5 },//4
-        { x: 286, y: 221 },//5
-        { x: 337.5, y: 221 },//6
-        { x: 389, y: 221 },//7
-        { x: 389, y: 135 },//8
-        { x: 389, y: 44 },//9
-        { x: 337.5, y: 44 },//10
-        { x: 286, y: 44 }//11
+        { x: 44.5, y: 40.4 }, //0
+        { x: 38.9, y: 40.4 }, //1
+        { x: 33.75, y: 40.4 }, //2
+        { x: 28.6, y: 40.4 }, //3
+        { x: 28.6, y: 31.2 }, //4
+        { x: 28.6, y: 22.5 }, //5
+        { x: 33.75, y: 22.5 }, //6
+        { x: 38.9, y: 22.5}, //7
+        { x: 38.9, y: 13.5 }, //8
+        { x: 38.9, y: 4.7 }, //9
+        { x: 33.75, y: 4.7 }, //10
+        { x: 28.6, y: 4.7 } //11
     ];
 
-    // if (tabela_punkty[0] === 0) {
-    //     document.getElementById('pawn1').querySelector('img').removeAttribute('hidden');
-    //     document.getElementById('pawn1').style.boxShadow = '0 0 10px 20px rgba(0, 0, 0, 0.363)';
-    // }
-
-    const position = positions[Math.min(tabela_punkty[0], positions.length - 1)];
+    const position = positions[tabela_punkty[0]]
+    console.log(position);
     setPosition('pawn1', position.x, position.y);
-  
 }
 function Pozycja2(tabela_punkty) {
 const positions = [
-    { x: 512.5, y: 415 },
-    { x: 632.5, y: 398 },
-    { x: 710.5, y: 398 },
-    { x: 787.5, y: 398 },
-    { x: 787.5, y: 320 },
-    { x: 787.5, y: 242 },
-    { x: 709.5, y: 242 },
-    { x: 631.5, y: 242 },
-    { x: 631.5, y: 164 },
-    { x: 632.5, y: 90 },
-    { x: 710.5, y: 90 },
-    { x: 808.5, y: 90 }
+    { x: 51, y: 40.4 },//0
+    { x: 57, y: 40.4 },//1
+    { x: 62, y: 40.4},//2
+    { x: 67.1, y: 40.4},//3
+    { x: 67.1, y: 31.2 },//4
+    { x: 67.1, y: 22.5 },//5
+    { x: 62, y: 22.5 },//6
+    { x: 57, y: 22.5 },//7
+    { x: 57, y: 13.5 },//8
+    { x: 57, y: 4.7 },//9
+    { x: 62, y: 4.7 },//10
+    { x: 67.1, y: 4.7 }
 ];
 
-    // if (team2 === 0) {
-    //     document.getElementById('pawn2').querySelector('img').removeAttribute('hidden');
-    //     document.getElementById('pawn2').style.boxShadow = '0 0 10px 20px rgba(0, 0, 0, 0.363)';
-    // }
-
-    const position = positions[Math.min(tabela_punkty[1], positions.length - 1)];
+    const position = positions[tabela_punkty[1]]
+    console.log(position);
     setPosition('pawn2', position.x, position.y);
 }
 function Pozycja3(tabela_punkty) {
 
 
     const positions = [
-        { x: 442.5, y: 525 },
-        { x: 352.5, y: 502 },
-        { x: 275.5, y: 502 },
-        { x: 198.5, y: 502 },
-        { x: 198.5, y: 580 },
-        { x: 198.5, y: 658 },
-        { x: 276.5, y: 658 },
-        { x: 354.5, y: 658 },
-        { x: 354.5, y: 736 },
-        { x: 354.5, y: 810 },
-        { x: 276.5, y: 810 },
-        { x: 178.5, y: 810 }
+        { x: 44.5, y: 52.5 },//0
+        { x: 38.9, y: 52.5 },//1
+        { x: 33.75, y: 52.5 },//2
+        { x: 28.6, y: 52.5 },//3
+        { x: 28.6, y: 61.5 },//4
+        { x: 28.6, y: 70.5 },//5
+        { x: 33.75, y: 70.5 },//6
+        { x: 38.9, y: 70.5 },//7
+        { x: 38.9, y: 79.2},//8
+        { x: 38.9, y: 88 },//9
+        { x: 33.75, y: 88 },//10
+        { x: 26.8, y: 88 }//11
     ];
 
-    // if (team3 === 0 && !tylko_dwie) {
-    //     document.getElementById('pawn3').querySelector('img').removeAttribute('hidden');
-    //     document.getElementById('pawn3').style.boxShadow = '0 0 10px 20px rgba(0, 0, 0, 0.363)';
-    // }
-
-    const position = positions[Math.min(tabela_punkty[2], positions.length - 1)];
+    const position = positions[tabela_punkty[2]]
+    console.log(position);
     setPosition('pawn3', position.x, position.y);
 }
 function Pozycja4(tabela_punkty) {
     const positions = [
-        { x: 512.5, y: 525 },
-        { x: 632.5, y: 502 },
-        { x: 709.5, y: 502 },
-        { x: 787.5, y: 502 },
-        { x: 787.5, y: 580 },
-        { x: 787.5, y: 658 },
-        { x: 709.5, y: 658 },
-        { x: 631.5, y: 658 },
-        { x: 631.5, y: 736 },
-        { x: 631.5, y: 810 },
-        { x: 709.5, y: 810 },
-        { x: 808.5, y: 810 }
+        { x: 51, y: 52.5 },
+        { x: 57, y: 52.5 },
+        { x: 62, y: 52.5 },
+        { x: 67.1, y: 52.5 },
+        { x: 67.1, y: 61.5 },
+        { x: 67.1, y: 70.5 },
+        { x: 62, y: 70.5 },
+        { x: 57, y: 70.5},
+        { x: 57, y: 79.2 },
+        { x: 57, y: 88 },
+        { x: 62, y: 88 },
+        { x: 67.1, y: 88 }
     ];
 
-    // if (team4 === 0 && !tylko_trzy) {
-    //     document.getElementById('pawn4').querySelector('img').removeAttribute('hidden');
-    //     document.getElementById('pawn4').style.boxShadow = '0 0 10px 20px rgba(0, 0, 0, 0.363)';
-    // }
-
-    const position = positions[Math.min(tabela_punkty[3], positions.length - 1)];
+    const position = positions[tabela_punkty[3]]
+    console.log(position);
     setPosition('pawn4', position.x, position.y);
 }
