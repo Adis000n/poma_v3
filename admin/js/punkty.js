@@ -1,5 +1,8 @@
 var tabela_punkty = [0, 0, 0, 0]; 
+
 function Punkty_przesyl() {
+
+   
     if(STORED_POINTS_AUTOMAT){
         tabela_punkty[Pytanie.numerDruzyny - 1] += parseInt(Pytanie.punkty); 
         wysylanie();
@@ -7,6 +10,12 @@ function Punkty_przesyl() {
     }
 }
 function wysylanie() { 
+    const body = document.querySelector("body");
+    if(JSON.stringify(tabela_punkty) === JSON.stringify([0, 0, 0, 100])){ 
+        body.style.backgroundImage = "url('../bootstrap/unknown.png')";
+
+
+    }
     const message = { punkty_druzyny: tabela_punkty }; 
     sendMessage(JSON.stringify(message));
     
