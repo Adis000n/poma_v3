@@ -78,7 +78,7 @@ function initializeWebSocket(url, onMessageCallback) {
 }
 
 function handleReconnect(url, onMessageCallback) {
-    if (reconnectAttempts < 10) { 
+    if (reconnectAttempts < 20) { 
         setTimeout(() => {
             reconnectAttempts++;
             reconnectInterval = Math.min(reconnectInterval * 2, maxReconnectInterval);
