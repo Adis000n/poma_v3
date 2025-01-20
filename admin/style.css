@@ -437,7 +437,7 @@ button.btn-primary.selected {
     box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); 
 }
 
-#status-dot {
+#status-dot, #server-dot {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -448,17 +448,17 @@ button.btn-primary.selected {
     position: relative;
 }
 
-#status-dot.active {
+#status-dot.active, #server-dot.pushable:active   {
     background-color: #4CAF50;
     animation: glow 1.5s ease-in-out infinite;
 }
 
-#status-dot.inactive {
+#status-dot.inactive, #server-dot.inactive {
     background-color: #f44336;
     animation: glow-red 1.5s ease-in-out infinite;
 }
 
-#status-dot-container {
+#status-dot-container, #server-dot-container {
     border-radius: 10px;
     padding: 5px;
     padding-left: 20px;

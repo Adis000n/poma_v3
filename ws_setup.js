@@ -6,7 +6,6 @@ let maxReconnectInterval = 20000;
 let reconnectAttempts = 0;
 
 SERVER_RUNNING = false;
-server_status(false);
 
 function showToast(type, message) {
     const Toast = Swal.mixin({
@@ -38,7 +37,6 @@ function connectWebSocket(url, onMessageCallback) {
         reconnectAttempts = 0; 
         showToast('success', 'WebSocket połączony');
         SERVER_RUNNING =true;
-        server_status(true);
 
         // Send any queued messages
         while (messageQueue.length > 0) {
@@ -49,7 +47,6 @@ function connectWebSocket(url, onMessageCallback) {
     ws.onclose = () => {
         console.log('WebSocket connection closed');
         SERVER_RUNNING = false;
-        server_status(false);
         isConnected = false;
         showToast('warning', 'WebSocket odłączony');
         handleReconnect(url, onMessageCallback);
@@ -81,7 +78,7 @@ function initializeWebSocket(url, onMessageCallback) {
 }
 
 function handleReconnect(url, onMessageCallback) {
-    if (reconnectAttempts < 20) { 
+    if (reconnectAttempts < 10) { 
         setTimeout(() => {
             reconnectAttempts++;
             reconnectInterval = Math.min(reconnectInterval * 2, maxReconnectInterval);
