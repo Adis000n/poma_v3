@@ -87,6 +87,13 @@ function resetTimer() {
     removeEndMessage(); 
     stopAlarm();
     clearInterval(timerInterval);
+    
+    // Reset last seconds countdown states
+    isLastSecondsPlaying = false;
+    lastSecondsTimeLeft = 5000;
+    alarmPlaying = false;
+    lastSeconds.pause();
+    lastSeconds.currentTime = 0;
 }
 
 async function showEndMessage() {
