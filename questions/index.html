@@ -211,12 +211,44 @@
             font-size: 50px;
             background-color: white;
             color: black;
+            font-weight: bold;
             padding: 20px;
             border-radius: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+        .overlay-content1 {
+            width: 50%;
+            height: 20%;
+            font-size: 60px;
+            font-weight: bold;
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .overlay-background {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 30%;
+            height: 28%;
+            font-size: 50px;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-image: url('./kolo.png');
         }
         #end-message-container {
             position: fixed;
@@ -247,6 +279,11 @@
     <link href="../bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
     <script>
         // Trzeba wysyłać wartości true / false (true - pokarze, false - zamknie)
+        function showBoostersWheele(){
+            const overlay = document.getElementById('overlay');
+            overlay.innerHTML = `<div class="overlay-background"><div class="overlay-content1">Losowanie<br>Bonusu</div></div>`;
+            toggleOverlay(true)
+        }
         function toggleOverlay(show) {
             const overlay = document.getElementById('overlay');
             overlay.style.display = show ? 'flex' : 'none';
@@ -255,7 +292,6 @@
         function pokazBooster(booster) {
             const overlay = document.getElementById('overlay');
             overlay.innerHTML = `<div class="overlay-content">Otrzymano bonus:<br> ${booster} <br>`;
-            toggleOverlay(true);
             setTimeout(function(){
                 toggleOverlay(false);
             }, 5000);

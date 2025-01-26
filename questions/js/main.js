@@ -76,6 +76,11 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         }
         
     }
+    else if(message.wheele){
+        if(message.wheele == true){
+            showBoostersWheele()
+        }
+    }
     else if(message.dane_custom_pytanie){
         var customPytanie = message.dane_custom_pytanie; 
         clearAllCustom();
