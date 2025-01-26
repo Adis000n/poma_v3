@@ -29,8 +29,26 @@ function AktualizacjaPunkty(tabela_punkty){
             const message = {wheele: showWheele};
             sendMessage(JSON.stringify(message));
         }
-        if(tabela_punkty[i]==6 && boost==1){
+        if(tabela_punkty[i]==6 &&  boost==0){
             boosters[i].innerHTML=2;
+            let showWheele = true;
+            const message = {wheele: showWheele};
+            sendMessage(JSON.stringify(message));
+        }
+        if(tabela_punkty[i]==6 &&  boost==1){
+            boosters[i].innerHTML=2;
+            let showWheele = true;
+            const message = {wheele: showWheele};
+            sendMessage(JSON.stringify(message));
+        }
+        if(tabela_punkty[i]==8 && boost==0){
+            boosters[i].innerHTML=3;
+            let showWheele = true;
+            const message = {wheele: showWheele};
+            sendMessage(JSON.stringify(message));
+        }
+        if(tabela_punkty[i]==8 && boost==1){
+            boosters[i].innerHTML=3;
             let showWheele = true;
             const message = {wheele: showWheele};
             sendMessage(JSON.stringify(message));
