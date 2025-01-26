@@ -1,8 +1,8 @@
 let ws;
 let messageQueue = [];
 let isConnected = false;
-let reconnectInterval = 1000; 
-let maxReconnectInterval = 20000; 
+let reconnectInterval = 1000;
+let maxReconnectInterval = 5000;
 let reconnectAttempts = 0;
 
 function connectWebSocket(url, onMessageCallback) {
@@ -11,10 +11,9 @@ function connectWebSocket(url, onMessageCallback) {
     ws.onopen = () => {
         console.log('Connected to WebSocket');
         isConnected = true;
-        reconnectInterval = 1000; 
-        reconnectAttempts = 0; 
+        reconnectInterval = 1000;
+        reconnectAttempts = 0;
 
-        // Send any queued messages
         while (messageQueue.length > 0) {
             ws.send(messageQueue.shift());
         }
@@ -26,15 +25,15 @@ function connectWebSocket(url, onMessageCallback) {
         handleReconnect(url, onMessageCallback);
     };
 
-    ws.onerror = (error) => {
-        console.error('WebSocket error:', error);
-        ws.close(); 
-    };
-
     ws.onmessage = (event) => {
         if (onMessageCallback) {
             onMessageCallback(event.data);
         }
+    };
+    
+    ws.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        ws.close();
     };
 }
 

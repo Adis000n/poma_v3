@@ -2,7 +2,7 @@ let ws;
 let messageQueue = [];
 let isConnected = false;
 let reconnectInterval = 1000; 
-let maxReconnectInterval = 20000; 
+let maxReconnectInterval = 5000; 
 let reconnectAttempts = 0;
 
 SERVER_RUNNING = false;
