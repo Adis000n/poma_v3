@@ -80,6 +80,9 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         if(message.wheele == true){
             showBoostersWheele()
         }
+        if(message.wheele == false){
+            toggleOverlay(false)
+        }
     }
     else if(message.dane_custom_pytanie){
         var customPytanie = message.dane_custom_pytanie; 
