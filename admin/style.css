@@ -469,6 +469,10 @@ button.btn-primary.selected {
     margin-top: 20px;
 }
 
+#server-dot-container {
+    position: relative;
+}
+
 #mediaButton.play {
     background-color: #4caf50;  /* green */
 }
@@ -613,4 +617,29 @@ button.btn-primary.selected {
 .team-overlay i {
     font-size: 2em;
     color: rgba(0, 0, 0, 0.6);
+}
+
+.popover {
+    display: none;
+    position: absolute;
+    color: #000;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 200px;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background: #fff;
+    border: #333 solid 2px;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.client-status {
+    margin: 5px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    min-width: 120px;
 }

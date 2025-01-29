@@ -36,6 +36,13 @@ function connectWebSocket(url, onMessageCallback) {
         isConnected = true;
         reconnectInterval = 1000; 
         reconnectAttempts = 0; 
+
+        // Send client identification
+        ws.send(JSON.stringify({
+            type: 'identification',
+            clientName: 'admin'
+        }));
+
         showToast('success', 'WebSocket połączony');
         SERVER_RUNNING =true;
         server_status(true);
