@@ -13,9 +13,6 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     }
 });
 
-function updateConnectionStatuses(status) {
-
-}
 
 var Pytanie = {
     kategoria: '',
