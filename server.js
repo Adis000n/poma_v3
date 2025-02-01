@@ -12,7 +12,8 @@ let clientCounter = 0;  // Add counter at the top level
 const connectedClients = {
   admin: false,
   board: false,
-  questions: false
+  questions: false,
+  overtime: false,
 };
 
 function broadcastConnectionStatus() {

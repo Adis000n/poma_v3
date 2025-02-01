@@ -43,8 +43,7 @@ function updateServerPopover(status) {
 
 function updateConnectionStatuses(status) {
     const statusDot = document.getElementById('server-dot');
-    // Consider connected if any client is connected
-    const isAnyConnected = status.admin || status.board || status.questions;
+    const isAnyConnected = status.admin || status.board || status.questions || status.overtime;
     
     if (isAnyConnected) {
         statusDot.classList.remove('inactive');
@@ -58,8 +57,10 @@ function updateConnectionStatuses(status) {
     const adminStatus = document.getElementById('admin-status');
     const boardStatus = document.getElementById('board-status');
     const questionsStatus = document.getElementById('questions-status');
+    const overtimeStatus = document.getElementById('overtime-status');
 
     adminStatus.textContent = status.admin ? '✅' : '❌';
     boardStatus.textContent = status.board ? '✅' : '❌';
+    overtimeStatus.textContent = status.overtime ? '✅' : '❌';
     questionsStatus.textContent = status.questions ? '✅' : '❌';
 }
