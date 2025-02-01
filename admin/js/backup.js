@@ -1,6 +1,12 @@
+function schowajkolo(){
+        let showWheele = false;
+        const message = {wheele: showWheele};
+        sendMessage(JSON.stringify(message));
+}
 const backupBtn = document.getElementById("backup_btn");
     backupBtn.addEventListener('click', () => {
         if(SERVER_RUNNING){
+        schowajkolo(); // restart
         var xhr2 = new XMLHttpRequest();
         xhr2.onreadystatechange = function () {
             if (xhr2.readyState === 4 && xhr2.status === 200) {

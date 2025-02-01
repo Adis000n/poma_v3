@@ -11,6 +11,18 @@ function set_audio_status(status) {
 message3 = { check_if_user_interacted: true }; 
     sendMessage(JSON.stringify(message3));
 
+const serverDotContainer = document.getElementById('server-dot-container');
+const serverPopover = document.getElementById('server-popover');
+
+serverDotContainer.addEventListener('click', (e) => {
+    serverPopover.style.display = serverPopover.style.display === 'block' ? 'none' : 'block';
+});
+
+document.addEventListener('click', (e) => {
+    if (!serverDotContainer.contains(e.target)) {
+        serverPopover.style.display = 'none';
+    }
+});
 
 function server_status(status){
     const statusDot = document.getElementById('server-dot');
@@ -21,4 +33,34 @@ function server_status(status){
         statusDot.classList.remove('active');
         statusDot.classList.add('inactive');
     }
+    updateServerPopover(status);
+}
+
+// Update popover content when server status changes
+function updateServerPopover(status) {
+    // This function can be removed if not needed for other purposes
+}
+
+function updateConnectionStatuses(status) {
+    const statusDot = document.getElementById('server-dot');
+    const isAnyConnected = status.admin || status.board || status.questions || status.overtime;
+    
+    if (isAnyConnected) {
+        statusDot.classList.remove('inactive');
+        statusDot.classList.add('active');
+    } else {
+        statusDot.classList.remove('active');
+        statusDot.classList.add('inactive');
+    }
+
+    // Update popover content
+    const adminStatus = document.getElementById('admin-status');
+    const boardStatus = document.getElementById('board-status');
+    const questionsStatus = document.getElementById('questions-status');
+    const overtimeStatus = document.getElementById('overtime-status');
+
+    adminStatus.textContent = status.admin ? '✅' : '❌';
+    boardStatus.textContent = status.board ? '✅' : '❌';
+    overtimeStatus.textContent = status.overtime ? '✅' : '❌';
+    questionsStatus.textContent = status.questions ? '✅' : '❌';
 }

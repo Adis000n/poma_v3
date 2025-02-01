@@ -80,6 +80,9 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         if(message.wheele == true){
             showBoostersWheele()
         }
+        if(message.wheele == false){
+            toggleOverlay(false)
+        }
     }
     else if(message.dane_custom_pytanie){
         var customPytanie = message.dane_custom_pytanie; 
@@ -94,6 +97,10 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     }
     else if (message.is_custom_answer_clicked){
         showOdpowiedz_img(pytanie_img_path)
+    }else if(message.powieksz){
+        PowiekszZdj();
+    }else if(message.pomniejsz){
+        PomniejszZdj();
     }
 });
 

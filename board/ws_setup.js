@@ -14,6 +14,12 @@ function connectWebSocket(url, onMessageCallback) {
         reconnectInterval = 1000; 
         reconnectAttempts = 0; 
 
+        // Send client identification
+        ws.send(JSON.stringify({
+            type: 'identification',
+            clientName: 'board'
+        }));
+
         // Send any queued messages
         while (messageQueue.length > 0) {
             ws.send(messageQueue.shift());

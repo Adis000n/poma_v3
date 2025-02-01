@@ -8,6 +8,27 @@ const wsInstance = expressWs(app);
 
 let clientCounter = 0;  // Add counter at the top level
 
+// Add connection tracking
+const connectedClients = {
+  admin: false,
+  board: false,
+  questions: false,
+  overtime: false,
+};
+
+function broadcastConnectionStatus() {
+  const statusMessage = JSON.stringify({
+    type: 'connectionStatus',
+    status: connectedClients
+  });
+  
+  wsInstance.getWss().clients.forEach(client => {
+    if (client.readyState === client.OPEN) {
+      client.send(statusMessage);
+    }
+  });
+}
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
@@ -20,28 +41,43 @@ app.use(express.static(path.join(__dirname, '')));
 
 app.ws('/ws', (ws, req) => {
   let isAlive = true;
-  const clientId = ++clientCounter;  
+  let clientId = ++clientCounter;
+  let clientName = null;
+  
   console.log(`Client ${clientId} connected`);
   
   const pingInterval = setInterval(() => {
     if (!isAlive) {
-      console.log(`Client ${clientId} not responding - terminating`);
+      console.log(`Client ${clientName || clientId} not responding - terminating`);
       ws.terminate();
       return;
     }
     
     isAlive = false;
-    console.log(`Sending ping to client ${clientId}`);
+    console.log(`Sending ping to client ${clientName || clientId}`);
     ws.ping();
-  }, 30000); 
+  }, 30000);
 
   ws.on('pong', () => {
-    console.log(`Received pong from client ${clientId}`);
+    console.log(`Received pong from client ${clientName || clientId}`);
     isAlive = true;
   });
 
   ws.on('message', (message) => {
-    console.log('Received message:', message);
+    try {
+      const data = JSON.parse(message);
+      if (data.type === 'identification') {
+        clientName = data.clientName;
+        connectedClients[clientName] = true;
+        console.log(`Client ${clientId} identified as ${clientName}`);
+        broadcastConnectionStatus();
+        return;
+      }
+    } catch (e) {
+      // If message is not JSON or doesn't have type field, treat as regular message
+    }
+
+    console.log(`Received message from ${clientName || clientId}:`, message);
     wsInstance.getWss().clients.forEach(client => {
       if (client !== ws && client.readyState === ws.OPEN) {
         client.send(message);
@@ -51,7 +87,11 @@ app.ws('/ws', (ws, req) => {
 
   ws.on('close', () => {
     clearInterval(pingInterval);
-    console.log('WebSocket connection closed');
+    if (clientName) {
+      connectedClients[clientName] = false;
+      broadcastConnectionStatus();
+    }
+    console.log(`Client ${clientName || clientId} disconnected`);
   });
 });
 

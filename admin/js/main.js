@@ -1,9 +1,18 @@
 initializeWebSocket('ws://localhost:3000/ws', (data) => {
-    const message = JSON.parse(data);
-    if (message.audio_status !== undefined) {
+    try {
+        const message = JSON.parse(data);
+        
+        if (message.type === 'connectionStatus') {
+            // Handle connection status updates
+            updateConnectionStatuses(message.status);
+        } else if (message.audio_status !== undefined) {
             set_audio_status(message.audio_status);
+        }
+    } catch (e) {
+        console.error('Error parsing message:', e);
     }
 });
+
 
 var Pytanie = {
     kategoria: '',
