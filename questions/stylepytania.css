@@ -226,6 +226,7 @@ span {
     width: 1100px;
     height: 300px;
     font-size: 50px;
+    border: 4mm solid rgba(255, 166, 0, 0.747) !important;
     background-color: white;
     color: black;
     font-weight: bold;
@@ -260,6 +261,7 @@ span {
     height: 28%;
     font-size: 50px;
     background-color: white;
+    border: 4mm solid rgba(255, 166, 0, 0.747) !important;
     color: black;
     padding: 20px;
     border-radius: 15px;
