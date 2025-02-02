@@ -54,15 +54,15 @@ function updateDisplay() {
         const teamDiv = document.createElement("div");
         teamDiv.className = "team-container";
 
-        // HTML dla każdej drużyny 
+        // HTML for each team with fixed onclick attributes
         teamDiv.innerHTML = `
-                    <div class="team-header lexend-800" >Drużyna ${teamNumber}</div>
+                    <div class="team-header lexend-800">Drużyna ${teamNumber}</div>
                     <input type="number" id="team_points_${teamNumber}" class="team-input" value="${points}" onchange="manualChange(${teamNumber})">
                     <div class="team-buttons">
-                        <button class="btn-negative onclick="changePoints(${teamNumber}">-1</button>
-                        <button class="btn-positive onclick="changePoints(${teamNumber}">+1</button>
-                        <button class="btn-negative onclick="changePoints(${teamNumber}">-2</button>
-                        <button class="btn-positive onclick="changePoints(${teamNumber}">+2</button>
+                        <button class="btn-negative" onclick="changePoints(${teamNumber}, -1)">-1</button>
+                        <button class="btn-positive" onclick="changePoints(${teamNumber}, 1)">+1</button>
+                        <button class="btn-negative" onclick="changePoints(${teamNumber}, -2)">-2</button>
+                        <button class="btn-positive" onclick="changePoints(${teamNumber}, 2)">+2</button>
                     </div>
         `;
         teamsContainer.appendChild(teamDiv);

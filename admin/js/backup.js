@@ -86,18 +86,18 @@ function clear_buttons_select_pytanie(backup_data){
     }
 
     if (backup_data.kategoria) {
-        const kategoriaButtons = document.querySelectorAll('.btn-group[aria-label="Kategoria buttons"] .btn');
+        const kategoriaButtons = document.querySelectorAll('.category-button');
         kategoriaButtons.forEach(button => {
-            if (button.textContent.trim().toLowerCase() === backup_data.kategoria.toLowerCase()) {
+            if (button.value.toLowerCase() === backup_data.kategoria.toLowerCase()) {
                 selectOption(button, 'kategoria');
             }
         });
     }
 
     if (backup_data.poziom) {
-        const punktyButtons = document.querySelectorAll('.btn-group[aria-label="Punkty buttons"] .btn');
+        const punktyButtons = document.querySelectorAll('.points-button');
         const correctButton = Array.from(punktyButtons).find(button => 
-            Number(button.textContent.trim()) === Number(backup_data.poziom)
+            Number(button.value) === Number(backup_data.poziom)
         );
 
         if (correctButton) {
@@ -106,9 +106,9 @@ function clear_buttons_select_pytanie(backup_data){
     }
 
     if (backup_data.nr_druzyny) {
-        const druzynyButtons = document.querySelectorAll('.btn-group[aria-label="Numer Druzyny buttons"] .btn');
+        const druzynyButtons = document.querySelectorAll('.team-button');
         const correctButton = Array.from(druzynyButtons).find(button => 
-            Number(button.textContent.trim()) === Number(backup_data.nr_druzyny)
+            Number(button.value) === Number(backup_data.nr_druzyny)
         );
 
         if (correctButton) {
