@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <script src="../sweetalert/sweetalert2.all.min.js"></script>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div id="admin-outside-layer">
+        <div id="inside-layer">
+            <div id="header">
+                <div id="left-header">
+                    <button class="header-button lexend-800" id="start-competiton" onclick="startevent()">Start Konkursu</button>
+                    <button class="header-button lexend-800" id="backup_btn"> Back Up </button>
+                </div>
+                <div id="title" class="lexend-800">MECHANICzna Pomarańcza</div>
+                <div id="right-header">
+                    <div id="status-dot-container" class="lexend-800">
+                        <div id="status-dot" class="inactive"></div> Status Dźwięku
+                    </div>
+                    <div id="server-dot-container" class="lexend-800">
+                        <div id="server-dot" class="inactive"></div> Status Serwera
+                    </div>
+                    <img src="img\gear.png" alt="Ustawienia" id="settings_btn">
+                </div>
+            </div>
+            <div id="teams">
+                <div class="team-container">
+                    <div class="team-header lexend-800" >Drużyna 1</div>
+                    <input type="number" id="team_points_1" class="team-input" value="0">
+                    <div class="team-buttons">
+                        <button class="btn-negative">-1</button>
+                        <button class="btn-positive">+1</button>
+                        <button class="btn-negative">-2</button>
+                        <button class="btn-positive">+2</button>
+                    </div>
+                </div>
+                <div class="team-container">
+                    <div class="team-header lexend-800" >Drużyna 2</div>
+                    <input type="number" id="team_points_2" class="team-input" value="0">
+                    <div class="team-buttons">
+                        <button class="btn-negative">-1</button>
+                        <button class="btn-positive">+1</button>
+                        <button class="btn-negative">-2</button>
+                        <button class="btn-positive">+2</button>
+                    </div>
+                </div>
+                <div class="team-container">
+                    <div class="team-header lexend-800" >Drużyna 3</div>
+                    <input type="number" id="team_points_3" class="team-input" value="0">
+                    <div class="team-buttons">
+                        <button class="btn-negative">-1</button>
+                        <button class="btn-positive">+1</button>
+                        <button class="btn-negative">-2</button>
+                        <button class="btn-positive">+2</button>
+                    </div>
+                </div>
+                <div class="team-container">
+                    <div class="team-header lexend-800" >Drużyna 4</div>
+                    <input type="number" id="team_points_4" class="team-input" value="0">
+                    <div class="team-buttons">
+                        <button class="btn-negative">-1</button>
+                        <button class="btn-positive">+1</button>
+                        <button class="btn-negative">-2</button>
+                        <button class="btn-positive">+2</button>
+                    </div>
+                </div>
+            </div>
+            <div id="lower-admin-container">
+                <div id="pytania" class="lexend-800">
+                    <div id="question-header" class="lexend-800">Formularz Pytań</div>
+                    <div id="category">
+                        <div class="question-label">Kategoria:</div>
+                        <div class="button-group" role="group" aria-label="Kategoria buttons">
+                            <button type="button" class="category-button btn lexend-800 unchecked" onclick="selectOption(this, 'kategoria')" value="chemia">Chemia</button>
+                            <button type="button" class="category-button btn lexend-800 unchecked" onclick="selectOption(this, 'kategoria')" value="informatyka">Informatyka</button>
+                            <button type="button" class="category-button btn lexend-800 unchecked" onclick="selectOption(this, 'kategoria')" value="fizyka">Fizyka</button>
+                            <button type="button" class="category-button btn lexend-800 unchecked" onclick="selectOption(this, 'kategoria')" value="matematyka">Matematyka</button>
+                            <button type="button" class="category-button btn lexend-800 unchecked" onclick="selectOption(this, 'kategoria')" value="technika">Technika</button>
+                            <button type="button" class="category-button btn lexend-800 unchecked" onclick="selectOption(this, 'kategoria')" value="niespodzianka">Niespodzianka</button>
+                            <button type="button" class="category-button btn lexend-800 unchecked" onclick="selectOption(this, 'kategoria')" value="bonus">Bonus</button>
+                        </div>
+                    </div>
+                    <div id="points">
+                        <div class="question-label">Punkty:</div>
+                        <div class="button-group" role="group" aria-label="Punkty buttons">
+                            <button type="button" class="points-button btn lexend-800 unchecked" onclick="selectOption(this, 'punkty')" value="1">1</button>
+                            <button type="button" class="points-button btn lexend-800 unchecked" onclick="selectOption(this, 'punkty')" value="2">2</button>
+                            <button type="button" class="points-button btn lexend-800 unchecked" onclick="selectOption(this, 'punkty')" value="3">3</button>
+                        </div>
+                    </div>
+                    <div id="teamid">
+                        <div class="question-label">Numer Drużyny:</div>
+                        <div class="button-group" role="group" aria-label="Numer Druzyny buttons">
+                            <button type="button" class="team-button btn lexend-800 unchecked" onclick="selectOption(this, 'numerDruzyny')" value="1" >1</button>
+                            <button type="button" class="team-button btn lexend-800 unchecked" onclick="selectOption(this, 'numerDruzyny')" value="2" >2</button>
+                            <button type="button" class="team-button btn lexend-800 unchecked" onclick="selectOption(this, 'numerDruzyny')" value="3" id="team3">3</button>
+                            <button type="button" class="team-button btn lexend-800 unchecked" onclick="selectOption(this, 'numerDruzyny')" value="4" id="team4">4</button>
+                        </div>
+                    </div>
+                    <div id="pytanie_all_buttons">
+                        
+                    </div>
+                    <div id="show_all_time_buttons">
+                        <button id="mediaButton" type="button" class="play lexend-800" onclick="start_stop_media()">Play Media</button>
+                        <button id="clearButton" type="button" class="clear-question lexend-800" onclick="clear_pytania()">Wyczyść pytania</button>
+                    </div>
+                </div>
+                <div id="right-part">
+                    <div id="high-part">
+                        <div id="timer">
+                            <div id="timer-header" class="lexend-800">Timer</div>
+                            <div id="timer-buttons">
+                                <img src="img/play-button.png" alt="Play Button" class="timer-button" id="start_btn">
+                                <img src="img/pause-button.png" alt="Pause Button" class="timer-button" id="stop_btn">
+                                <img src="img/plus.png" alt="Add Time Button" class="timer-button" id="add_btn">
+                                <img src="img/refresh.png" alt="Restart Button" class="timer-button" id="reset_btn">
+                            </div>
+                            <div id="time" class="lexend-800">30</div>
+                        </div>
+                        <div id="power-up" class="lexend-800">
+                            <div id="power-up-header">Power Up</div>
+                            <div id="power-up-buttons" role="group">
+                                <button type="button" class="power-up-button" onclick="submitTeamData(1)">Podpowiedź publiczności</button>
+                                <button type="button" class="power-up-button" onclick="submitTeamData(2)" >+1 Punkt</button>
+                                <button type="button" class="power-up-button" onclick="submitTeamData(3)" >Pytanie za 3 punkty</button>
+                                <button type="button" class="power-up-button" onclick="submitTeamData(4)" >Wybór kategorii</button>
+                                <button type="button" class="power-up-button" onclick="submitTeamData(5)" >Dodatkowy czas</button>
+                                <button type="button" class="power-up-button" onclick="submitTeamData(6)" >Kolejka przepada</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lower-part">
+                        <div id="custom-pytanie" class="lexend-800">
+                            <div id="custom-pytanie-header">Wyświetlanie Pytania z ID</div>
+                            <div class="custom-label">Id pytania:</div>
+                            <input type="number" id="numer_pytania">
+                            <div class="custom-label">Numer Drużyny:</div>
+                            <div class="custom-team-buttons btn-group" role="group" aria-label="Numer Druzyny buttons">
+                                <button type="button" class="custom-team-button btn unchecked" onclick="selectCustomOption(this, 'customTeam')" value="1" >1</button>
+                                <button type="button" class="custom-team-button btn unchecked" onclick="selectCustomOption(this, 'customTeam')" value="2" >2</button>
+                                <button type="button" class="custom-team-button btn unchecked" onclick="selectCustomOption(this, 'customTeam')" value="3" id="team3Custom">3</button>
+                                <button type="button" class="custom-team-button btn unchecked" onclick="selectCustomOption(this, 'customTeam')" value="4" id="team4Custom">4</button>
+                            </div>
+                            <div id="pytanie_all_custom_buttons">
+                            </div>
+                        </div>
+                        <div id="imgscaler" class="lexend-800">
+                            <div id="custom-pytanie-header">Powiększ/Pomniejsz Zdjęcie</div>
+                            <div id="scaler-buttons">
+                                <img src="img/plus.png" alt="Add" class="scale-button" id="pow_btn" onclick="powieksz()">
+                                <img src="img/minus-button.png" alt="Minus" class="scale-button" id="pom_btn" onclick="pomniejsz()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="settings">
+        <div id="settings-div">
+            <h2>Ustawienia</h2>
+            <div class="settings-group">
+                <label for="path-input">Ścieżka do POMA:</label>
+                <input type="text" id="path-input" class="settings-input">
+            </div>
+            <div class="settings-group">
+                <label for="sweetalert-toggle">Ładniejsze to do wrpowadzania przy rozpoczynaniu konkursu:</label>
+                <input type="checkbox" id="sweetalert-toggle" class="settings-toggle">
+            </div>
+            <div class="settings-group">
+                <label for="teams-toggle">Wyłącz przciski drużyn które nie grają:</label>
+                <input type="checkbox" id="teams-toggle" class="settings-toggle">
+            </div>
+            <div class="settings-group">
+                <label for="points-automat-toggle">Automatcznie dodwanie punktów</label>
+                <input type="checkbox" id="points-automat-toggle" class="settings-toggle">
+            </div>
+            <div class="settings-buttons">
+                <button class="btn btn-warning" id="reset-settings">Reset do domyślnych</button>
+                <button class="btn btn-danger" id="close-settings">Zamknij</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/setup_variables.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script  type="text/javascript" src="ws_setup.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/punkty.js"></script>
+    <script type="text/javascript" src="js/backup.js"></script>
+    <script type="text/javascript" src="js/statusy.js"></script>
+    <script type="text/javascript" src="js/timer.js"></script>
+    <script type="text/javascript" src="js/pytanie.js"></script>
+    <script type="text/javascript" src="js/odpowiedz.js"></script>
+    <script type="text/javascript" src="js/druzyny.js"></script>
+    <script type="text/javascript" src="js/wrong_or_correct.js"></script>
+    <script type="text/javascript" src="js/czysczenie_pytan.js"></script>
+    <script type="text/javascript" src="js/media.js"></script>
+    <script type="text/javascript" src="js/boostery.js"></script>
+    <script type="text/javascript" src="js/custom_pytanie.js"></script>
+    <script type="text/javascript" src="js/custom_odpowiedz.js"></script>
+    <script type="text/javascript" src="js/powieksz_pomniejsz.js"></script>
+</body>
+</html>

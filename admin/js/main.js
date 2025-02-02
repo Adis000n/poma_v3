@@ -19,7 +19,7 @@ function createPytanieButton(){
     pytanie_button = document.createElement('button');
     pytanie_button.id = "submitButton";
     pytanie_button.type = "button";
-    pytanie_button.className = "btn btn-primary";
+    pytanie_button.className = "display-question lexend-800";
     pytanie_button.innerHTML = "Wyświetl pytanie";
     pytanie_button.disabled = true;
     pytanie_button.setAttribute("onclick", "submitPytanie()");
@@ -29,7 +29,7 @@ function createAnswerButton(){
     answer_button = document.createElement('button');
     answer_button.id = "answerButton";
     answer_button.type = "button";
-    answer_button.className = "btn btn-secondary";
+    answer_button.className = "display-question lexend-800";
     answer_button.innerHTML = "Wyświetl odpowiedź";
     answer_button.setAttribute("onclick", "showAnswer()");
     div_pytania.appendChild(answer_button);
@@ -70,7 +70,7 @@ function createCustomPytanieButton(){
     pytanie_custom_button = document.createElement('button');
     pytanie_custom_button.id = "submitCustomButton";
     pytanie_custom_button.type = "button";
-    pytanie_custom_button.className = "btn btn-primary";
+    pytanie_custom_button.className = "custom-pytanie-submit";
     pytanie_custom_button.innerHTML = "Wyświetl pytanie";
     pytanie_custom_button.disabled = true;
     pytanie_custom_button.setAttribute("onclick", "submitCustomPytanie()");
@@ -80,7 +80,7 @@ function createCustomAnswerButton(){
     answer_custom_button = document.createElement('button');
     answer_custom_button.id = "answerCustomButton";
     answer_custom_button.type = "button";
-    answer_custom_button.className = "btn btn-secondary";
+    answer_custom_button.className = "custom-pytanie-submit";
     answer_custom_button.innerHTML = "Wyświetl odpowiedź";
     answer_custom_button.setAttribute("onclick", "showCustomAnswer()");
     div_custom_pytania.appendChild(answer_custom_button);
@@ -114,10 +114,10 @@ function deleteCustomWrongCorrectButtons(){
 }
 
 function clearPytanieButtons(){
-    const allButtons = document.querySelectorAll('.btn-group .btn');
+    const allButtons = document.querySelectorAll('.button-group .btn');
     allButtons.forEach(function(button) {
-        button.classList.remove('btn-primary');
-        button.classList.add('btn-outline-primary');
+        button.classList.remove('checked');
+        button.classList.add('unchecked');
     });
     Pytanie.kategoria = '';
     Pytanie.punkty = 0;

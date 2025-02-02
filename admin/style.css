@@ -1,442 +1,106 @@
-body {
-    font-family: Arial, sans-serif;
+.lexend-800 {
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+*{
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    height: 90vh;
-
 }
 
-#grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 20px;
-    padding: 20px;
-    width: 85%;
-    height: 90%;
-    margin: auto;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-#lewy, #prawy {
-    padding: 20px;
-    background-color: #eaeaea;
-    border-radius: 10px;
-    height: 90%;
-}
-
-#teams {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.teams-table > div {
-    background-color: #3e3e3e;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 18px;
-}
-
-button.btn-success, button.btn-danger, button.btn-warning, button.btn-add {
+body{
+    background-color: #CA5242;
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-button.btn-success {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-}
-
-button.btn-danger {
-    background-color: #f44336;
-    color: white;
-    border: none;
-}
-
-button.btn-warning {
-    background-color: #ff9800;
-    color: white;
-    border: none;
-}
-
-#timer {
-    margin-top: 20px;
-}
-
-#timer h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    text-align: center;
-    color: #333;
-}
-
-#Dodaj_druzyny h2 {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #333;
-    text-align: center;
-}
-
-#pytania {
-    margin-bottom: 20px;
-    height: 70%;
-}
-
-#pytania h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.btn-group {
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
 }
-
-.btn-group .btn-outline-primary {
-    flex: 1;
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
-    background-color: #3e3e3e;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.btn-group .btn-outline-primary:hover {
-    background-color: #5a5a5a;
-}
-
-#pytanie_all_buttons, #show_all_time_buttons {
-    display: flex;
-    gap: 10px;
-}
-
-#pytanie_all_buttons .btn, #show_all_time_buttons .btn {
-    flex: 1;
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-}
-
-#pytanie_all_buttons .btn-lightblue {
-    background-color: #2196f3;
-}
-
-#pytanie_all_buttons .btn-darkblue {
-    background-color: #3f51b5; 
-}
-
-#pytanie_all_buttons .btn-turquoise {
-    background-color: #009688; 
-}
-
-#pytanie_all_buttons .btn-lightblue:hover, #pytanie_all_buttons .btn-darkblue:hover, #pytanie_all_buttons .btn-turquoise:hover {
-    opacity: 0.9;
-}
-
-/* Przyciski na dole */
-button#mediaButton, button#clearButton {
-    background-color: #3e3e3e;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-button#mediaButton:hover, button#clearButton:hover {
-    background-color: #5a5a5a;
-}
-
-button.btn-dark {
-    background-color: #007bff;
-    color: white;
-    border-radius: 10px;
-    font-size: 14px;
-    padding: 10px;
-}
-
-button.btn-info {
-    background-color: #17a2b8;
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-button {
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-#teams {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px; 
-    padding: 20px;
-    justify-items: center; 
-}
-
-.team-container {
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%; 
-}
-
-.team-header {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 10px;
-}
-
-.team-input {
-    width: 80px;
-    padding: 5px;
+.apply-button{
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    background-color: #57C83F;
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
     font-size: 16px;
-    text-align: center;
-    border: 1px solid #ccc;
+    color: white;
+    border: 3px solid black;
     border-radius: 5px;
-    margin-bottom: 15px;
+    left: 45.5%;
+    top: 38%;
 }
-
-.team-buttons {
+#admin-outside-layer{
+    width: 90%;
+    position: relative;
+    background-color: rgb(240, 240, 240);
+    height: 95%;
+    border-radius: 20pt;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
     justify-content: center;
 }
-
-.team-buttons .btn-negative {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.team-buttons .btn-negative:hover {
-    background-color: #d32f2f;
-}
-
-.team-buttons .btn-positive {
-    background-color: #4caf50; 
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.team-buttons .btn-positive:hover {
-    background-color: #388e3c;
-}
-
-.apply-button {
-    grid-column: span 2; 
-    background-color: #2196f3;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    justify-self: center; 
-    transition: background-color 0.3s;
-}
-
-.apply-button:hover {
-    background-color: #1976d2; 
-}
-
-#timer h2,
-#Dodaj_druzyny h2 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-#timer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 10px;
-}
-
-#timer button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-}
-
-#timer .btn-success {
-    background-color: #28a745;
-}
-
-#timer .btn-danger {
-    background-color: #dc3545;
-}
-
-#timer .btn-add {
-    background-color: #17a2b8;
-}
-
-#timer .btn-warning {
-    background-color: #ffc107;
-}
-
-#Dodaj_druzyny {
+#inside-layer{
+    width: 98%;
+    height: 96%;
+    background-color: #FFFFFF;
+    position: relative;
+    border-radius: 15pt;
+    padding: 10pt;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+#header{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #E3F9DF;
+    width: 100%;
+    height: 4%;
+    border-radius: 10pt;
+    display: flex;
+    padding: 10pt;  
+    justify-content: space-between;
+    border: 3px solid black;
+}
+#left-header{
+    display: flex;
+    width: 33%;
+    justify-content: space-between;
+}
+#right-header{
+    display: flex;
+    width: 33%;
+    justify-content: space-between;
+}
+.header-button{
+    border: 3px solid black;
+    border-radius: 5pt;
+    width: 40%;
+    font-size: 16px;
+}
+#title{
+    width: 33%;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    font-size: 20px;
 }
-
-#Dodaj_druzyny button {
-    width: 90%;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
+#start-competiton{
+    background-color: #7BC66B;
 }
-
-#Dodaj_druzyny .btn-success {
-    background-color: #28a745;
+#backup_btn{
+    background-color: #EA0000;
 }
-
-#Dodaj_druzyny .btn-dark {
-    background-color: #343a40;
+#status-dot-container, #server-dot-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#gridlewy{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-#submitButton,#submitCustomButton {
-    background-color: #007bff;
-    color: white; 
-    border: 2px solid #007bff; 
-    border-radius: 6px; 
-    padding: 10px 20px;
-    font-size: 16px; 
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#submitButton:hover:not([disabled]),#submitCustomButton:hover:not([disabled]) {
-    background-color: white; 
-    color: #007bff; 
-}
-
-#submitButton:disabled,#submitCustomButton:disabled {
-    background-color: #cccccc;
-    color: #666666; 
-    cursor: not-allowed;
-    border: 2px solid #cccccc;
-}
-
-#team3:disabled, #team3Custom.disabled, #team4:disabled, #team4Custom.disabled {
-    background-color: #cccccc;
-    color: #666666;
-    cursor: not-allowed;
-    border: 2px solid #cccccc;
-}
-
-.team-container.active {
-    background-color: #e0f7fa; 
-    border: 2px solid #009688; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-}
-button.btn-primary {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-button.btn-primary:active {
-    background-color: #0056b3; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-}
-
-button.btn-primary:focus {
-    outline: none;
-    background-color: #0056b3;
-    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
-}
-
-button.btn-primary.selected {
-    background-color: #28a745;
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
-}
-#answerButton,#answerCustomButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #6c757d; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-#answerButton:active,#answerCustomButton:active {
-    background-color: #5a6268; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-}
-
-#answerButton:focus,#answerCustomButton:focus {
-    outline: none;
-    background-color: #5a6268;
-    box-shadow: 0 0 5px 2px rgba(108, 117, 125, 0.6); 
-}
-
-#answerButton.clicked,#answerCustomButton.clicked{
-    background-color: #28a745; 
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); 
-}
-
 #status-dot, #server-dot {
     width: 25px;
     height: 25px;
@@ -457,160 +121,413 @@ button.btn-primary.selected {
     background-color: #f44336;
     animation: glow-red 1.5s ease-in-out infinite;
 }
-
-#status-dot-container, #server-dot-container {
-    border-radius: 10px;
-    padding: 5px;
-    padding-left: 20px;
-    color: white;
-    background-color: #333 ;
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
-
-#mediaButton.play {
-    background-color: #4caf50;  /* green */
-}
-
-#mediaButton.stop {
-    background-color: #f44336;  /* red */
-}
-
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 5px #4CAF50;
-    }
-    50% {
-        box-shadow: 0 0 20px #4CAF50;
-    }
-    100% {
-        box-shadow: 0 0 5px #4CAF50;
-    }
-}
-
-@keyframes glow-red {
-    0% {
-        box-shadow: 0 0 5px #f44336;
-    }
-    50% {
-        box-shadow: 0 0 20px #f44336;
-    }
-    100% {
-        box-shadow: 0 0 5px #f44336;
-    }
-}
-
-#settings {
-    display: flex;
-    position: fixed;  /* Changed from absolute to fixed */
-    top: 0;
-    left: 0;
+#teams{
+    margin-top: 1%;
+    position: relative;
     width: 100%;
-    height: 100vh;  /* Changed to 100vh */
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    height: 23%;
+    display: flex;
+    justify-content: space-between;
+}
+.team-container{
+    position: relative;
+    width: 15%;
+    height: 80%;
+    border: 5px solid black;
     justify-content: center;
     align-items: center;
-}
-
-#settings > div {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
-    margin: 0;  /* Remove margin */
-    position: static;  /* Remove positioning */
-    transform: none;  /* Remove transform */
-}
-
-#settings h2 {
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
-.settings-group {
-    margin-bottom: 1.5rem;
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1%;
+    border-radius: 20pt;
 }
-
-.settings-group label {
-    min-width: 150px;
-    color: #555;
+.team-container:nth-child(1){
+    background-color: #00B2EC;
 }
-
-.settings-input {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+.team-container:nth-child(2){
+    background-color: #DA4242;
+    margin-right: 15%;
 }
-
-.settings-toggle {
-    width: 18px;
-    height: 18px;
+.team-container:nth-child(3){
+    background-color: #F8CD4E;
 }
-
-.settings-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    margin-top: 2rem;
+.team-container:nth-child(4){
+    background-color: #18C15F;
 }
-
-  .pushable {
-    width: 90%;
-    background: hsl(340deg 100% 32%);
-    border-radius: 12px;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline-offset: 4px;
-  }
-  .front {
-    text-align: center;
-    display: block;
-    padding: 12px 42px;
-    border-radius: 12px;
-    font-size: 1.25rem;
-    background: hsl(345deg 100% 47%);
+.team-header{
     color: white;
-    transform: translateY(-6px);
-    transition: 0.1s;
-  }
-
-  .pushable:hover .front {
-    transform: translateY(-10px);
-    transition: 0.1s;
-  }
-
-  .pushable:active .front {
-    transform: translateY(+3px);
-    transition: 0.1s;
-  }
-
-
-  .team-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: center;
+    /* -webkit-text-stroke: 1px black */
+}
+.team-input{
+    width: 40%;
+    height: 20%;
+    margin-bottom: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+}
+.team-buttons{
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    z-index: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.btn-negative{
+    width: 33%;
+    height: 10%;
+    background-color: #DA4343;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+    border-radius: 5pt;
+    font-size: 16px;
+}
+.btn-positive{
+    width: 33%;
+    height: 10%;
+    background-color: #57C83F;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+    border-radius: 5pt;
+    font-size: 16px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#lower-admin-container{
+    width: 100%;
+    height: 65%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+#pytania{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    border: 1px solid black;
+    /* padding: 1%; */
+    background-color: rgb(240, 240, 240);
+    height: 100%;
     border-radius: 10px;
 }
-
-.team-overlay i {
-    font-size: 2em;
-    color: rgba(0, 0, 0, 0.6);
+#question-header{
+    display: flex;
+    background-color: #004ABA;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 8%;
+    border-radius: 9px 9px 0 0;
+    color: white;
+    border: 1px solid black;
+}
+.question-label{
+    margin: 3% 1% 3% 3%;
+    font-size: 20px;
+}
+.category-button{
+    color: white;
+    padding: 1%;
+    border-radius: 5pt;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 3%;
+    margin-bottom: 1%;
+}
+.points-button{
+    color: white;
+    padding: 1%;
+    border-radius: 5pt;
+    justify-content: space-between;
+    width: 28%;
+    margin-left: 3%;
+    margin-bottom: 1%;
+}
+.team-button{
+    color: white;
+    padding: 1%;
+    border-radius: 5pt;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 3%;
+    margin-bottom: 1%;
+}
+.unchecked{
+    background-color: black
+}
+.checked{
+    background-color: #004ABA;
+}
+.display-question{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    padding: 1%;
+    background-color: #004ABA;
+    color: white;
+    opacity: 0.3;
+    border: 3px solid black;
+    border-radius: 5pt;
+    margin-top: 2%;
+    font-size: 20px;
+}
+#show_all_time_buttons{
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+#pytanie_all_buttons, #pytanie_all_custom_buttons{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#mediaButton, #clearButton, #correctAnswerButton, #wrongAnswerButton{
+    width: 40%;
+    font-size: 16px;
+    border: 3px solid black;
+    color: white;
+    padding: 1%;
+    border-radius: 5pt;
+    margin-top: 2%;
+}
+#mediaButton, #clearButton{
+    margin-top: 4%;
+}
+#clearButton{
+    margin-left: 15%;
+    background-color: #6B16E3;
+}
+.play{
+    background-color: #7BC66B;
+}
+.stop{
+    background-color: #EA0000;
+}
+#answerButton{
+    background-color: rgb(255, 0, 0);
+    opacity: 1;
+}
+#correctAnswerButton{
+    background-color: #57C83F;
+    margin-right: 15%;
+}
+#wrongAnswerButton{
+    background-color: #EA0000;
+}
+#right-part{
+    width: 45%;
+    height: 100%;
+}
+#high-part{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+#timer{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(240, 240, 240);
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#timer-buttons{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.timer-button{
+    height: 100px;
+    width: 100px;
+    margin: 10px 10px 10px 10px;
+}
+#time{
+    padding: 3%;
+    background-color: #004ABA;
+    color: white;
+    font-size: 26px;
+    border-radius: 15px;
+    text-align: center;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+}
+#timer-header{
+    display: flex;
+    background-color: #004ABA;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 10%;
+    border-radius: 9px 9px 0 0;
+    color: white;
+    border: 1px solid black;
+}
+#power-up{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(240, 240, 240);
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#power-up-header{
+    display: flex;
+    background-color: #004ABA;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 10%;
+    border-radius: 9px 9px 0 0;
+    color: white;
+    border: 1px solid black;
+}
+#power-up-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.power-up-button{
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    background-color: black;
+    color: white;
+    width: 85%;
+    padding: 2%;
+    font-size: 12pt;
+    margin: 2% auto;
+    border-radius: 10px;
+}
+#lower-part{
+    width: 100%;
+    height: 37%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#custom-pytanie{
+    width: 55%;
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#custom-pytanie-header{
+    display: flex;
+    background-color: #004ABA;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 15%;
+    border-radius: 9px 9px 0 0;
+    color: white;
+    border: 1px solid black;
+}
+.custom-team-button{
+    color: white;
+    padding: 1%;
+    border-radius: 5pt;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 3%;
+    margin-bottom: 1%;
+}
+#numer_pytania{
+    border: 2px solid black;
+    margin: 1% 1% 1% 3%;
+}
+.custom-label{
+    margin-left: 3%;
+    margin-top: 2%;
+}
+.custom-pytanie-submit{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    padding: 1%;
+    background-color: #004ABA;
+    color: white;
+    opacity: 0.3;
+    border: 3px solid black;
+    border-radius: 5pt;
+    margin-top: 5%;
+    font-size: 18px;
+}
+#answerCustomButton{
+    background-color: #ff0000;
+    opacity: 1;
+}
+#correctCustomAnswerButton, #wrongCustomAnswerButton{
+    width: 40%;
+    font-size: 12px;
+    border: 3px solid black;
+    color: white;
+    padding: 1.5%;
+    border-radius: 5pt;
+    margin-top: 4%;
+}
+#correctCustomAnswerButton{
+    background-color: #57C83F;
+    margin-right: 10%;
+}
+#wrongCustomAnswerButton{
+    background-color: #EA0000;
+}
+#imgscaler{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(240, 240, 240);
+    height: 100%;
+    border-radius: 10px;
+    margin-left: 4%;
+    border: 1px solid black;
+}
+.scale-button{
+    height: 100px;
+    width: 100px;
+}
+#scaler-buttons{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: center;
+    align-items: center;
+}
+#pow_btn{
+    margin-right: 10px;
 }

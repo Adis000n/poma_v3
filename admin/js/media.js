@@ -4,7 +4,7 @@ window.isPlaying = false;
 function stopMedia() {
     isPlaying = false;
     const mediaButton = document.getElementById('mediaButton');
-    mediaButton.innerHTML = "Play Media ▶️";
+    mediaButton.innerHTML = "Play Media";
     mediaButton.classList.remove('stop');
     mediaButton.classList.add('play');
 }
@@ -14,11 +14,11 @@ function start_stop_media(){
     const mediaButton = document.getElementById('mediaButton');
     
     if (isPlaying) {
-        mediaButton.innerHTML = "Stop Media ⏸️";
+        mediaButton.innerHTML = "Stop Media";
         mediaButton.classList.remove('play');
         mediaButton.classList.add('stop');
     } else {
-        mediaButton.innerHTML = "Play Media ▶️";
+        mediaButton.innerHTML = "Play Media ";
         mediaButton.classList.remove('stop');
         mediaButton.classList.add('play');
     }

@@ -2,19 +2,24 @@ function updateSubmitButtonState() {
     const submitButton = document.getElementById('submitButton');
     if (submitButton) {
         submitButton.disabled = !(Pytanie.kategoria && Pytanie.punkty && Pytanie.numerDruzyny);
+        if (Pytanie.kategoria && Pytanie.punkty && Pytanie.numerDruzyny){
+            submitButton.style.opacity = 1;
+        }else{
+            submitButton.style.opacity = 0.3;
+        }
     }
 }
 
 
 function selectOption(selectedButton, typ) {
-    const buttons = selectedButton.closest('.btn-group').querySelectorAll('.btn');
+    const buttons = selectedButton.closest('.button-group').querySelectorAll('.btn');
     buttons.forEach(function(button) {
-        button.classList.remove('btn-primary');
-        button.classList.add('btn-outline-primary');
+        button.classList.remove('checked');
+        button.classList.add('unchecked');
     });
 
-    selectedButton.classList.remove('btn-outline-primary');
-    selectedButton.classList.add('btn-primary');
+    selectedButton.classList.remove('unchecked');
+    selectedButton.classList.add('checked');
 
     Pytanie[typ] = selectedButton.value;
 

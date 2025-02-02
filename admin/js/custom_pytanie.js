@@ -3,12 +3,12 @@ let selectedCustomTeam = null;
 function selectCustomOption(selectedButton, type) {
     const buttons = selectedButton.closest('.btn-group').querySelectorAll('.btn');
     buttons.forEach(function(button) {
-        button.classList.remove('btn-primary');
-        button.classList.add('btn-outline-primary');
+        button.classList.remove('checked');
+        button.classList.add('unchecked');
     });
 
-    selectedButton.classList.remove('btn-outline-primary');
-    selectedButton.classList.add('btn-primary');
+    selectedButton.classList.remove('unchecked');
+    selectedButton.classList.add('checked');
     selectedCustomTeam = selectedButton.value;
 
     updateCustomSubmitButtonState();
@@ -58,6 +58,11 @@ function updateCustomSubmitButtonState() {
     
     const isValid = selectedCustomTeam !== null && pytanieId.trim() !== '';
     submitButton.disabled = !isValid;
+    if (isValid){
+        submitButton.style.opacity = 1
+    } else{
+        submitButton.style.opacity = 0.3
+    }
 }
 
 document.getElementById('numer_pytania').addEventListener('input', updateCustomSubmitButtonState);
