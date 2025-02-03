@@ -102,6 +102,9 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     }else if(message.pomniejsz){
         PomniejszZdj();
     }
+    else if(message.winningTeam){
+        displayWinningTeam(message.winningTeam);
+    }
 });
 
 

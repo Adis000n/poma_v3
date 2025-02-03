@@ -59,6 +59,12 @@ function AktualizacjaPunkty(tabela_punkty){
             const message = {wheele: showWheele};
             sendMessage(JSON.stringify(message));
         }
+        if(tabela_punkty[i] == 11) {
+            const teamNameElement = document.getElementById(`nazwa_druzny${i + 1}`);
+            const teamName = teamNameElement ? teamNameElement.textContent : `Drużyna ${i + 1}`;
+            const message = { winningTeam: teamName };
+            sendMessage(JSON.stringify(message));
+        }
     }
 
 }
