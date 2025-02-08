@@ -9,7 +9,7 @@ html {
     font-family: 'Roboto', sans-serif;
     background-size: 150% 150%;
     background-color: linear-gradient(#a3a3a327, #ebebeb3a);
-    animation: gradient-animation 8s infinite;
+    animation: gradient-animation 32s infinite;
     color: #444;
 }
 

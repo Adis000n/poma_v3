@@ -1,8 +1,6 @@
 <?php
 include "../../db_connect.php";
-header("Access-Control-Allow-Origin: http://localhost:3000");
-header("Access-Control-Allow-Methods: GET, POST");
-header("Access-Control-Allow-Headers: Content-Type");
+
 if (isset($_GET['pytanieId'])&& isset($_GET['numer_druzyny'])) {
     $pytanieId = $_GET['pytanieId'];
     $numer_druzyny  = $_GET['numer_druzyny'];
