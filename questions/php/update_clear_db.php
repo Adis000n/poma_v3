@@ -1,4 +1,8 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Headers: *");
+header('Access-Control-Allow-Credentials: true');
 include "../../db_connect.php";
 $update_query = "UPDATE `mvc_konkurs_batalia` SET `stan`='clear',`img_pytania`='', `media`='', `media_typ`='', `poziom`='', `kategoria`='', `nr_druzyny`='', `img_odpowiedzi`='' WHERE `id`=1";
 $update_stmt = mysqli_prepare($conn, $update_query);
