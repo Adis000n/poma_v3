@@ -1,0 +1,152 @@
+body, html { 
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+}
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.Plansza {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    width: 110%;
+    height: 110%;
+}
+
+/* ZESPOLY _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.team1, .team2, .team3, .team4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.team1{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto;
+}
+
+.team2{
+    text-align: right;
+    position: absolute;
+    left: auto;
+    top: 0;
+    right: 0;
+    bottom: auto;
+}
+.team3{
+    position: absolute;
+    left: 0;
+    top: auto;
+    right: auto;
+    bottom: 0;
+}
+
+.team4{
+    text-align: right;
+    position: absolute;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+}
+.team1 { grid-column: 1;
+    grid-row: 1; }
+.team2 { grid-column: 3;
+    grid-row: 1; }
+.team3 { grid-column: 1;
+    grid-row: 3; }
+
+.team4 {
+    grid-column: 3;
+    grid-row: 3;   
+}
+.team4, .team3 {
+    padding-bottom: 45px;
+}
+#nazwa_druzny1 , #nazwa_druzny2 , #nazwa_druzny3 , #nazwa_druzny4 {
+    max-width: 420px; 
+    word-wrap: break-word; 
+    white-space: normal; 
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+/* _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+.board img {
+    width:200%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#nazwa_druzny1 {
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color:aqua
+}
+#nazwa_druzny2 {
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: rgb(249 128 128)
+}
+#nazwa_druzny3 {
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color:yellow
+}
+#nazwa_druzny4 {
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color:rgb(122 235 107)
+}
+  /* PUNKTY CZCIONKOA*/
+#points1 {
+    color:aqua
+}
+#points2 {
+    color: rgb(249 128 128)
+}
+#points3{ 
+    color:yellow
+}
+#points4{
+    color:rgb(122 235 107)
+}
+/* _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* css kuby do wywalenia potem */
+.pawn {
+width: 12px;
+height: 12px;
+top: 0;
+left: 0;
+border-radius: 50%;
+position: absolute;
+align-items: center;
+box-shadow: none;
+transition: 0.7s ease-in-out;
+scale: 0.375;}
+#board {
+width: 1000px;
+height: 1000px;
+position: fixed;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+margin: auto;
+}

@@ -12,6 +12,12 @@ html {
     animation: gradient-animation 32s infinite;
     color: #444;
 }
+.orbitron-800 {
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
 
 body {
     background:
@@ -91,8 +97,11 @@ td {
 }
 
 #timer {
-    font-size: 3.5rem;
-    font-weight: bold;
+    font-size: 4.5rem;
+    font-weight: 800;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     color: #dc3545;
     animation: pulse 1s infinite;
 }
