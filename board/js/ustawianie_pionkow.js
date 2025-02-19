@@ -1,12 +1,17 @@
-function setPosition(elementId, x, y) {
+function setPosition(elementId, x, y, positionIndex) {
     const element = document.getElementById(elementId);
+    const size = positionIndex === 0 ? "12px" : "8px";
+    element.style.width = size;
+    element.style.width = size;
+    element.style.height = size;
+    element.style.scale = positionIndex === 0 ? "0.35" : "0.25";
     element.style.left = x + '%';
     element.style.top = y + '%';
 }
 
 function Pozycja1(tabela_punkty) {
     const positions = [
-        { x: 44.5, y: 40.4 }, //0
+        { x: 43.8, y: 39.0 }, //0
         { x: 38.9, y: 40.4 }, //1
         { x: 33.75, y: 40.4 }, //2
         { x: 28.6, y: 40.4 }, //3
@@ -22,11 +27,11 @@ function Pozycja1(tabela_punkty) {
 
     const position = positions[tabela_punkty[0]]
     console.log(position);
-    setPosition('pawn1', position.x, position.y);
+    setPosition('pawn1', position.x, position.y, tabela_punkty[0]);
 }
 function Pozycja2(tabela_punkty) {
 const positions = [
-    { x: 51, y: 40.4 },//0
+    { x: 50.4, y: 39.0 },//0
     { x: 57, y: 40.4 },//1
     { x: 62, y: 40.4},//2
     { x: 67.1, y: 40.4},//3
@@ -42,13 +47,13 @@ const positions = [
 
     const position = positions[tabela_punkty[1]]
     console.log(position);
-    setPosition('pawn2', position.x, position.y);
+    setPosition('pawn2', position.x, position.y, tabela_punkty[1]);
 }
 function Pozycja3(tabela_punkty) {
 
 
     const positions = [
-        { x: 44.5, y: 52.5 },//0
+        { x: 43.8, y: 50.8 },//0
         { x: 38.9, y: 52.5 },//1
         { x: 33.75, y: 52.5 },//2
         { x: 28.6, y: 52.5 },//3
@@ -64,11 +69,11 @@ function Pozycja3(tabela_punkty) {
 
     const position = positions[tabela_punkty[2]]
     console.log(position);
-    setPosition('pawn3', position.x, position.y);
+    setPosition('pawn3', position.x, position.y, tabela_punkty[2]);
 }
 function Pozycja4(tabela_punkty) {
     const positions = [
-        { x: 51, y: 52.5 },
+        { x: 50.4, y: 50.8 },
         { x: 57, y: 52.5 },
         { x: 62, y: 52.5 },
         { x: 67.1, y: 52.5 },
@@ -84,5 +89,5 @@ function Pozycja4(tabela_punkty) {
 
     const position = positions[tabela_punkty[3]]
     console.log(position);
-    setPosition('pawn4', position.x, position.y);
+    setPosition('pawn4', position.x, position.y, tabela_punkty[3]);
 }
