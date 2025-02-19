@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plansza - Poma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
     <script src="ws_setup.js"></script>
     <script src="js/main.js"></script>
     <script src="js/wyswietl_punkty_na_planszy.js"></script>
@@ -11,21 +12,19 @@
     <script src="js/ustawienie_pionkow_rozpoczecie_konkursu.js"></script>
     <script src="js/ustawianie_pionkow.js"></script>
     <style> 
-    body, html { 
-        overflow-y: hidden; 
-        overflow-x: hidden; 
-}
+        body, html { 
+            overflow-y: hidden; 
+            overflow-x: hidden; 
+        }
         body {
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-           /* overflow: ?; */
-            
         }
 
         .Plansza {
@@ -37,50 +36,53 @@
         }
 
 /* ZESPOLY _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+        .team1, .team2, .team3, .team4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 45px;
+        }
+
         .team1{
             position: absolute;
-    left: 0;
-    top: 0;
-    right: auto;
-    bottom: auto;
-    font-size: 45px;
-    
-
+            left: 0;
+            top: 0;
+            right: auto;
+            bottom: auto;
         }
 
         .team2{
             text-align: right;
-    position: absolute;
-    left: auto;
-    top: 0;
-    right: 0;
-    bottom: auto;
-    font-size: 45px;
+            position: absolute;
+            left: auto;
+            top: 0;
+            right: 0;
+            bottom: auto;
         }
         .team3{
             position: absolute;
-    left: 0;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    font-size: 45px;
+            left: 0;
+            top: auto;
+            right: auto;
+            bottom: 0;
         }
+        
         .team4{
             text-align: right;
-    position: absolute;
-    left: auto;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    font-size: 45px;
-
+            position: absolute;
+            left: auto;
+            top: auto;
+            right: 0;
+            bottom: 0;
         }
-        .team1 { grid-column: 1; grid-row: 1; }
-        .team2 { grid-column: 3; grid-row: 1; }
-        .team3 { grid-column: 1; grid-row: 3; }
+        .team1 { grid-column: 1;
+            grid-row: 1; }
+        .team2 { grid-column: 3;
+            grid-row: 1; }
+        .team3 { grid-column: 1;
+            grid-row: 3; }
         
         .team4 {
-            grid-column: 3;  
+            grid-column: 3;
             grid-row: 3;   
         }
         .team4, .team3 {
@@ -88,8 +90,10 @@
         }
         #nazwa_druzny1 , #nazwa_druzny2 , #nazwa_druzny3 , #nazwa_druzny4 {
             max-width: 420px; 
-    word-wrap: break-word; 
-    white-space: normal; 
+            word-wrap: break-word; 
+            white-space: normal; 
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
         }
 /* _--------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
