@@ -6,7 +6,10 @@ function AktualizacjaPunkty(tabela_punkty){
 
     tabela_punkty.forEach((value, index) => {
         if (contentDivs[index]) {
-            contentDivs[index].innerHTML =value;
+            if (!contentDivs[index].querySelector('.digit')) {
+                setupCounter(contentDivs[index], value);
+            }
+            animateCounter(contentDivs[index], value);
         }
     });
 
