@@ -8,7 +8,6 @@
     toggleOverlay(true)
 }
 function toggleOverlay(show) {
-    console.log("backup moment");
     const overlay = document.getElementById('overlay');
     overlay.style.display = show ? 'flex' : 'none';
 }
