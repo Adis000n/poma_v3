@@ -25,5 +25,8 @@ function updateStanToDone(){
         xhr.send();
     } else {
         showToast('warning', 'Serwer jest rozłączony. Nie można zaktualizować stanu.');
+        setTimeout(() => {
+            updateStanToDone();
+        }, 1000);
     }
 }

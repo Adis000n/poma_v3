@@ -1,6 +1,7 @@
- // Trzeba wysyłać wartości true / false (true - pokarze, false - zamknie)
+// Trzeba wysyłać wartości true / false (true - pokarze, false - zamknie)
  var powerup = new Audio('js/audio_powerup.mp3');
  var powerup2 = new Audio('js/audio_powerup2.mp3');
+ var overlayV = true;
  function showBoostersWheele() {
     powerup.play();
     const overlay = document.getElementById('overlay');
@@ -8,6 +9,17 @@
     toggleOverlay(true)
 }
 function toggleOverlay(show) {
+    if(show == false){
+        overlayV = false;
+        setTimeout(() => {
+            overlayV = true;
+        }, 3000);
+    }
+    
+    if (!overlayV && show) {
+        return; // Prevent showing overlay while overlayV is false
+    }
+    
     const overlay = document.getElementById('overlay');
     overlay.style.display = show ? 'flex' : 'none';
 }

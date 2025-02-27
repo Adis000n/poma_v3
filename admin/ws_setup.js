@@ -4,6 +4,8 @@ let isConnected = false;
 let reconnectInterval = 1000; 
 let maxReconnectInterval = 5000; 
 let reconnectAttempts = 0;
+let connectedClients = {};
+let isReconnecting = false;
 
 SERVER_RUNNING = false;
 server_status(false);
@@ -13,7 +15,7 @@ function showToast(type, message) {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 5000,
+        timer: 1000,
         timerProgressBar: true,
         width: '400px',
         padding: '1.25em',
@@ -28,6 +30,18 @@ function showToast(type, message) {
     });
 }
 
+function areRequiredClientsConnected() {
+    return (connectedClients.board || connectedClients.overtime) && connectedClients.questions ;
+}
+
+function processMessageQueue() {
+    if (isConnected && areRequiredClientsConnected()) {
+        while (messageQueue.length > 0) {
+            ws.send(messageQueue.shift());
+        }
+    }
+}
+
 function connectWebSocket(url, onMessageCallback) {
     ws = new WebSocket(url);
 
@@ -37,20 +51,20 @@ function connectWebSocket(url, onMessageCallback) {
         reconnectInterval = 1000; 
         reconnectAttempts = 0; 
 
-        // Send client identification
         ws.send(JSON.stringify({
             type: 'identification',
             clientName: 'admin'
         }));
 
         showToast('success', 'WebSocket połączony');
-        SERVER_RUNNING =true;
+        SERVER_RUNNING = true;
         server_status(true);
 
-        // Send any queued messages
-        while (messageQueue.length > 0) {
-            ws.send(messageQueue.shift());
+        if (isReconnecting) {
+            applyPoints();
+            isReconnecting = false;
         }
+        // Message queue will be processed when required clients connect
     };
 
     ws.onclose = () => {
@@ -69,17 +83,22 @@ function connectWebSocket(url, onMessageCallback) {
     };
 
     ws.onmessage = (event) => {
-        if (onMessageCallback) {
+        const data = JSON.parse(event.data);
+        if (data.type === 'connectionStatus') {
+            connectedClients = data.status;
+            processMessageQueue();
+        } else if (onMessageCallback) {
             onMessageCallback(event.data);
         }
     };
 }
 
 function sendMessage(message) {
-    if (isConnected) {
+    if (isConnected && areRequiredClientsConnected()) {
         ws.send(message);
     } else {
         messageQueue.push(message);
+        showToast('warning', 'Wiadomość dodana do kolejki - oczekiwanie na połączenie klientów');
     }
 }
 
@@ -89,6 +108,7 @@ function initializeWebSocket(url, onMessageCallback) {
 
 function handleReconnect(url, onMessageCallback) {
     if (reconnectAttempts < 20) { 
+        isReconnecting = true;
         setTimeout(() => {
             reconnectAttempts++;
             reconnectInterval = Math.min(reconnectInterval * 2, maxReconnectInterval);
