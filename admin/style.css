@@ -431,6 +431,42 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 2% auto;
     border-radius: 10px;
 }
+
+/* Win buttons styling */
+#win-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 3% auto;
+}
+
+.win-button {
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    color: white;
+    width: 48%;
+    padding: 2%;
+    font-size: 12pt;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+#win-team1-button {
+    background-color: #00B2EC;
+}
+
+#win-team2-button {
+    background-color: #DA4242;
+}
+
+/* Add to existing styles */
+.win-button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 #lower-part{
     width: 100%;
     height: 37%;
