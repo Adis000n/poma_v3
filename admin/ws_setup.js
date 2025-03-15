@@ -8,7 +8,6 @@ let connectedClients = {};
 let isReconnecting = false;
 
 SERVER_RUNNING = false;
-server_status(false);
 
 function showToast(type, message) {
     const Toast = Swal.mixin({
