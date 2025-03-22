@@ -9,13 +9,13 @@ html,body{
     padding: 0; 
 }
 #druzyna1{
-    background-color: #FF0000;
+    background-color: #D32F2F;
     background-image: url(../grafika/Background-red.png);
-    background:linear-gradient(rgba(255,0,0,0.4),rgba(255,0,0,0.4)),url(../grafika/Background-red.png);
+    background:linear-gradient(rgba(211,47,47,0.3),rgba(211,47,47,0.3)),url(../grafika/Background-red.png);
 }
 #druzyna2{
-    background-color: #0000FF;
-    background:linear-gradient(rgba(0,0,255,0.4),rgba(0,0,255,0.4)),url(../grafika/Background-blue.png);
+    background-color: #1976D2;
+    background:linear-gradient(rgba(25,118,210,0.3),rgba(25,118,210,0.3)),url(../grafika/Background-blue.png);
 }
 #nazwa_druzny1,#nazwa_druzny2{
     text-align: center;
