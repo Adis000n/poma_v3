@@ -3,8 +3,20 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
         const message = JSON.parse(data);
         
         if (message.type === 'connectionStatus') {
-            // Handle connection status updates
+            connectedClients = message.status;
+            processMessageQueue();
             updateConnectionStatuses(message.status);
+            if(connectedClients.board && connectedClients.overtime){
+                Swal.fire({
+                    title: 'Board i Overtime są połączone',
+                    icon: 'info',
+                    confirmButtonText: 'OK',
+                    background: '#eee',
+                    color: '#000',
+                    width: '400px',
+                    padding: '1.25em'
+                });
+            }
         } else if (message.audio_status !== undefined) {
             set_audio_status(message.audio_status);
         }
