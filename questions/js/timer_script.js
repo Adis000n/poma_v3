@@ -9,7 +9,7 @@ let lastSecondsTimeLeft = 5000;
 alarmSound.load();
 lastSeconds.load();
 
-lastSeconds.volume = 0.3;
+lastSeconds.volume = 0.25;
 alarmSound.volume = 1;
 let alarmPlaying = false;
 
