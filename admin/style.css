@@ -655,3 +655,66 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: flex-end;
     margin-top: 2rem;
 }
+
+/* Disabled button styles */
+.header-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-negative:disabled,
+.btn-positive:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.category-button:disabled,
+.points-button:disabled,
+.team-button:disabled,
+.custom-team-button:disabled {
+    background-color: #666666;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.power-up-button:disabled {
+    background-color: #666666;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#mediaButton:disabled,
+#clearButton:disabled,
+#correctAnswerButton:disabled,
+#wrongAnswerButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.display-question:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.custom-pytanie-submit:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.timer-control-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.timer-control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.timer-control-btn:disabled img {
+    filter: grayscale(100%);
+}
