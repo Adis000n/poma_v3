@@ -1,0 +1,55 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)),
+        url("grafika/confetti.jpg");
+    background-size: 150% 150%;
+    background-position: center;
+    color: #444;
+    animation: gradient-animation 32s infinite;
+}
+
+.orbitron-800 {
+    font-family: "Orbitron", serif;
+    font-weight: 800;
+}
+
+div {
+    width: 1000px;
+    width: 1000px;
+    max-width: 1200px;
+    padding: 20px;
+    background: rgba(249, 249, 249, 0.9);
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 0% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
