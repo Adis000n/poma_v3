@@ -9,13 +9,12 @@ html,body{
     padding: 0; 
 }
 #druzyna1{
-    background-color: #D32F2F;
-    background-image: url(../grafika/Background-red.png);
-    background:linear-gradient(rgba(211,47,47,0.3),rgba(211,47,47,0.3)),url(../grafika/Background-red.png);
+    background: rgb(241,112,112);
+    background: radial-gradient(circle, rgba(241,112,112,1) 0%, rgba(236,66,66,1) 85%, #ec3f3f 100%);
 }
 #druzyna2{
-    background-color: #1976D2;
-    background:linear-gradient(rgba(25,118,210,0.3),rgba(25,118,210,0.3)),url(../grafika/Background-blue.png);
+    background: rgb(112,158,241);
+    background: radial-gradient(circle, rgba(112,158,241,1) 0%, rgba(66,134,236,1) 85%, #3f86ec 100%);
 }
 #nazwa_druzny1,#nazwa_druzny2{
     text-align: center;
@@ -73,4 +72,24 @@ html,body{
     top: 0%;
     translate: 0% 0%;
     transition: translate 1000ms cubic-bezier(.1, .67, 0, 1);
+}
+
+#logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
