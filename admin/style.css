@@ -5,12 +5,12 @@
     font-style: normal;
 }
 
-*{
+* {
     margin: 0;
     font-family: Arial;
 }
 
-body{
+body {
     background-color: #CA5242;
     width: 100%;
     height: 100%;
@@ -19,7 +19,8 @@ body{
     justify-content: center;
     position: absolute;
 }
-.apply-button{
+
+.apply-button {
     position: absolute;
     width: 150px;
     height: 40px;
@@ -35,7 +36,8 @@ body{
     left: 45.5%;
     top: 38%;
 }
-#admin-outside-layer{
+
+#admin-outside-layer {
     width: 90%;
     position: relative;
     background-color: rgb(240, 240, 240);
@@ -45,7 +47,8 @@ body{
     align-items: center;
     justify-content: center;
 }
-#inside-layer{
+
+#inside-layer {
     width: 98%;
     height: 96%;
     background-color: #FFFFFF;
@@ -56,7 +59,8 @@ body{
     flex-wrap: wrap;
     align-content: flex-start;
 }
-#header{
+
+#header {
     margin-left: auto;
     margin-right: auto;
     background-color: #E3F9DF;
@@ -64,45 +68,55 @@ body{
     height: 4%;
     border-radius: 10pt;
     display: flex;
-    padding: 10pt;  
+    padding: 10pt;
     justify-content: space-between;
     border: 3px solid black;
 }
-#left-header{
+
+#left-header {
     display: flex;
     width: 33%;
     justify-content: space-between;
 }
-#right-header{
+
+#right-header {
     display: flex;
     width: 33%;
     justify-content: space-between;
 }
-.header-button{
+
+.header-button {
     border: 3px solid black;
     border-radius: 5pt;
     width: 40%;
     font-size: 16px;
 }
-#title{
+
+#title {
     width: 33%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
 }
-#start-competiton{
+
+#start-competiton {
     background-color: #7BC66B;
 }
-#backup_btn{
+
+#backup_btn {
     background-color: #EA0000;
 }
-#status-dot-container, #server-dot-container{
+
+#status-dot-container,
+#server-dot-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#status-dot, #server-dot {
+
+#status-dot,
+#server-dot {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -113,16 +127,19 @@ body{
     position: relative;
 }
 
-#status-dot.active, #server-dot.pushable:active   {
+#status-dot.active,
+#server-dot.pushable:active {
     background-color: #4CAF50;
     animation: glow 1.5s ease-in-out infinite;
 }
 
-#status-dot.inactive, #server-dot.inactive {
+#status-dot.inactive,
+#server-dot.inactive {
     background-color: #f44336;
     animation: glow-red 1.5s ease-in-out infinite;
 }
-#teams{
+
+#teams {
     margin-top: 1%;
     position: relative;
     width: 100%;
@@ -130,7 +147,8 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.team-container{
+
+.team-container {
     position: relative;
     width: 15%;
     height: 80%;
@@ -142,20 +160,25 @@ body{
     padding: 1%;
     border-radius: 20pt;
 }
-.team-container:nth-child(1){
+
+.team-container:nth-child(1) {
     background-color: #00B2EC;
 }
-.team-container:nth-child(2){
+
+.team-container:nth-child(2) {
     background-color: #DA4242;
     margin-right: 15%;
 }
-.team-container:nth-child(3){
+
+.team-container:nth-child(3) {
     background-color: #F8CD4E;
 }
-.team-container:nth-child(4){
+
+.team-container:nth-child(4) {
     background-color: #18C15F;
 }
-.team-header{
+
+.team-header {
     color: white;
     width: 100%;
     font-size: 24px;
@@ -164,7 +187,8 @@ body{
     text-align: center;
     /* -webkit-text-stroke: 1px black */
 }
-.team-input{
+
+.team-input {
     width: 40%;
     height: 20%;
     margin-bottom: 5%;
@@ -176,15 +200,16 @@ body{
     font-style: normal;
     text-align: center;
 }
-.team-buttons{
+
+.team-buttons {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    
 }
-.btn-negative{
+
+.btn-negative {
     width: 33%;
     height: 10%;
     background-color: #DA4343;
@@ -198,7 +223,8 @@ body{
     border-radius: 5pt;
     font-size: 16px;
 }
-.btn-positive{
+
+.btn-positive {
     width: 33%;
     height: 10%;
     background-color: #57C83F;
@@ -212,19 +238,22 @@ body{
     border-radius: 5pt;
     font-size: 16px;
 }
-input[type=number]::-webkit-inner-spin-button, 
+
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-#lower-admin-container{
+
+#lower-admin-container {
     width: 100%;
     height: 65%;
     margin-top: 1%;
     display: flex;
     justify-content: space-between;
 }
-#pytania{
+
+#pytania {
     display: flex;
     flex-direction: column;
     width: 45%;
@@ -234,7 +263,8 @@ input[type=number]::-webkit-outer-spin-button {
     height: 100%;
     border-radius: 10px;
 }
-#question-header{
+
+#question-header {
     display: flex;
     background-color: #004ABA;
     justify-content: center;
@@ -245,11 +275,13 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     border: 1px solid black;
 }
-.question-label{
+
+.question-label {
     margin: 3% 1% 3% 3%;
     font-size: 20px;
 }
-.category-button{
+
+.category-button {
     color: white;
     padding: 1%;
     border-radius: 5pt;
@@ -258,7 +290,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 3%;
     margin-bottom: 1%;
 }
-.points-button{
+
+.points-button {
     color: white;
     padding: 1%;
     border-radius: 5pt;
@@ -267,7 +300,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 3%;
     margin-bottom: 1%;
 }
-.team-button{
+
+.team-button {
     color: white;
     padding: 1%;
     border-radius: 5pt;
@@ -276,13 +310,16 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 3%;
     margin-bottom: 1%;
 }
-.unchecked{
+
+.unchecked {
     background-color: black
 }
-.checked{
+
+.checked {
     background-color: #004ABA;
 }
-.display-question{
+
+.display-question {
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -296,17 +333,24 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 2%;
     font-size: 20px;
 }
-#show_all_time_buttons{
+
+#show_all_time_buttons {
     justify-content: space-between;
     align-items: center;
     text-align: center;
 }
-#pytanie_all_buttons, #pytanie_all_custom_buttons{
+
+#pytanie_all_buttons,
+#pytanie_all_custom_buttons {
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-#mediaButton, #clearButton, #correctAnswerButton, #wrongAnswerButton{
+
+#mediaButton,
+#clearButton,
+#correctAnswerButton,
+#wrongAnswerButton {
     width: 40%;
     font-size: 16px;
     border: 3px solid black;
@@ -315,41 +359,52 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 5pt;
     margin-top: 2%;
 }
-#mediaButton, #clearButton{
+
+#mediaButton,
+#clearButton {
     margin-top: 4%;
 }
-#clearButton{
+
+#clearButton {
     margin-left: 15%;
     background-color: #6B16E3;
 }
-.play{
+
+.play {
     background-color: #7BC66B;
 }
-.stop{
+
+.stop {
     background-color: #EA0000;
 }
-#answerButton{
+
+#answerButton {
     background-color: rgb(255, 0, 0);
     opacity: 1;
 }
-#correctAnswerButton{
+
+#correctAnswerButton {
     background-color: #57C83F;
     margin-right: 15%;
 }
-#wrongAnswerButton{
+
+#wrongAnswerButton {
     background-color: #EA0000;
 }
-#right-part{
+
+#right-part {
     width: 45%;
     height: 100%;
 }
-#high-part{
+
+#high-part {
     width: 100%;
     height: 60%;
     display: flex;
     justify-content: space-between;
 }
-#timer{
+
+#timer {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -358,19 +413,22 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 10px;
     border: 1px solid black;
 }
-#timer-buttons{
+
+#timer-buttons {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
-.timer-button{
+
+.timer-button {
     height: 100px;
     width: 100px;
     margin: 10px 10px 10px 10px;
 }
-#time{
+
+#time {
     padding: 3%;
     background-color: #004ABA;
     color: white;
@@ -382,7 +440,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-right: auto;
     margin-top: 3%;
 }
-#timer-header{
+
+#timer-header {
     display: flex;
     background-color: #004ABA;
     justify-content: center;
@@ -393,7 +452,8 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     border: 1px solid black;
 }
-#power-up{
+
+#power-up {
     width: 48%;
     display: flex;
     flex-direction: column;
@@ -402,7 +462,8 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 10px;
     border: 1px solid black;
 }
-#power-up-header{
+
+#power-up-header {
     display: flex;
     background-color: #004ABA;
     justify-content: center;
@@ -413,12 +474,14 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     border: 1px solid black;
 }
-#power-up-buttons{
+
+#power-up-buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.power-up-button{
+
+.power-up-button {
     font-family: "Lexend", serif;
     font-optical-sizing: auto;
     font-weight: 800;
@@ -467,7 +530,7 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: not-allowed;
 }
 
-#lower-part{
+#lower-part {
     width: 100%;
     height: 37%;
     margin-top: 3%;
@@ -475,14 +538,16 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: row;
     flex-wrap: wrap;
 }
-#custom-pytanie{
+
+#custom-pytanie {
     width: 55%;
     height: 100%;
     background-color: rgb(240, 240, 240);
     border: 1px solid black;
     border-radius: 10px;
 }
-#custom-pytanie-header{
+
+#custom-pytanie-header {
     display: flex;
     background-color: #004ABA;
     justify-content: center;
@@ -493,7 +558,8 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     border: 1px solid black;
 }
-.custom-team-button{
+
+.custom-team-button {
     color: white;
     padding: 1%;
     border-radius: 5pt;
@@ -502,15 +568,18 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 3%;
     margin-bottom: 1%;
 }
-#numer_pytania{
+
+#numer_pytania {
     border: 2px solid black;
     margin: 1% 1% 1% 3%;
 }
-.custom-label{
+
+.custom-label {
     margin-left: 3%;
     margin-top: 2%;
 }
-.custom-pytanie-submit{
+
+.custom-pytanie-submit {
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -524,11 +593,14 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 5%;
     font-size: 18px;
 }
-#answerCustomButton{
+
+#answerCustomButton {
     background-color: #ff0000;
     opacity: 1;
 }
-#correctCustomAnswerButton, #wrongCustomAnswerButton{
+
+#correctCustomAnswerButton,
+#wrongCustomAnswerButton {
     width: 40%;
     font-size: 12px;
     border: 3px solid black;
@@ -537,14 +609,17 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 5pt;
     margin-top: 4%;
 }
-#correctCustomAnswerButton{
+
+#correctCustomAnswerButton {
     background-color: #57C83F;
     margin-right: 10%;
 }
-#wrongCustomAnswerButton{
+
+#wrongCustomAnswerButton {
     background-color: #EA0000;
 }
-#imgscaler{
+
+#imgscaler {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -554,18 +629,21 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 4%;
     border: 1px solid black;
 }
-.scale-button{
+
+.scale-button {
     height: 100px;
     width: 100px;
 }
-#scaler-buttons{
+
+#scaler-buttons {
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
     justify-content: center;
     align-items: center;
 }
-#pow_btn{
+
+#pow_btn {
     margin-right: 10px;
 }
 
@@ -596,11 +674,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 #settings {
     display: flex;
-    position: fixed;  /* Changed from absolute to fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;  /* Changed to 100vh */
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     justify-content: center;
@@ -614,9 +692,9 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 500px;
-    margin: 0;  /* Remove margin */
-    position: static;  /* Remove positioning */
-    transform: none;  /* Remove transform */
+    margin: 0;
+    position: static;
+    transform: none;
 }
 
 #settings h2 {
@@ -717,4 +795,51 @@ input[type=number]::-webkit-outer-spin-button {
 
 .timer-control-btn:disabled img {
     filter: grayscale(100%);
+}
+
+/* Settings buttons styling */
+#settings-div button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: "Lexend", serif;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+#settings-div .btn-warning {
+    background-color: #ffc107;
+    color: #000;
+    border-color: #ffc107;
+}
+
+#settings-div .btn-warning:hover {
+    background-color: #ffb300;
+    border-color: #ffb300;
+}
+
+#settings-div .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+#settings-div .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+#settings-div button:not(.btn-warning):not(.btn-danger) {
+    background-color: #e9ecef;
+    color: #212529;
+    border: 1px solid #ced4da;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#settings-div button:not(.btn-warning):not(.btn-danger):hover {
+    background-color: #dde2e6;
+    border-color: #bec3c9;
 }
