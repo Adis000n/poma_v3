@@ -71,7 +71,7 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
             const booster = "Dodatkowy czas";
             pokazBooster(booster);
         } else if (message.booster == 6){
-            const booster = "Kolejka przepada";
+            const booster = "Utrata kolejki";
             pokazBooster(booster);
         }
         

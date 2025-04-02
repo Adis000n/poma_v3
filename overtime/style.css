@@ -8,20 +8,27 @@ html,body{
     margin: 0;
     padding: 0; 
 }
-#druzyna1{
-    background-color: #FF0000;
-    background-image: url(../grafika/Background-red.png);
-    background:linear-gradient(rgba(255,0,0,0.4),rgba(255,0,0,0.4)),url(../grafika/Background-red.png);
+body{
+    background-image: url('../grafika/back2.png');
+}
+/* #druzyna1{
+    background: rgb(241,112,112);
+    background: radial-gradient(circle, rgba(241,112,112,1) 0%, rgba(236,66,66,1) 85%, #ec3f3f 100%);
 }
 #druzyna2{
-    background-color: #0000FF;
-    background:linear-gradient(rgba(0,0,255,0.4),rgba(0,0,255,0.4)),url(../grafika/Background-blue.png);
-}
+    background: rgb(112,158,241);
+    background: radial-gradient(circle, rgba(112,158,241,1) 0%, rgba(66,134,236,1) 85%, #3f86ec 100%);
+} */
 #nazwa_druzny1,#nazwa_druzny2{
-    text-align: center;
+    text-align: left;
+    margin-left: 7%;
     font-size: 80px;
-    color: white;
+    color: black;
     padding-top: 20px;
+}
+#nazwa_druzny2{
+    text-align: right;
+    margin-right: 7%;
 }
 .overtimed{
     justify-content: center;
@@ -32,14 +39,23 @@ html,body{
     align-content: center;
 }
 #punkty{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: center; */
     margin-top: 150px;
-    color: white;
+    color: black;
+}
+.punkty1{
+    margin-left: 7%;
+}
+.punkty2{
+    width: 100%;
+    margin-left: -10%;
 }
 #points1,#points2{
+    width: 100%;
+    text-align: right;
     margin-left: 25px;
     font-weight: 800;
     font-family: "Orbitron", sans-serif;
@@ -49,7 +65,20 @@ html,body{
     height: 8rem;
     line-height: 8rem;
 }
-
+#points2{
+    width: 100%;
+    text-align: right;
+    margin-right: 10%;
+    margin-left: 0;
+    font-weight: 800;
+    font-family: "Orbitron", sans-serif;
+    font-size: 100px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    height: 8rem;
+    line-height: 8rem;
+}
 .digit {
     width: 6rem;
     position: relative;
@@ -73,4 +102,24 @@ html,body{
     top: 0%;
     translate: 0% 0%;
     transition: translate 1000ms cubic-bezier(.1, .67, 0, 1);
+}
+
+#logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }

@@ -4,11 +4,10 @@ let isConnected = false;
 let reconnectInterval = 1000; 
 let maxReconnectInterval = 5000; 
 let reconnectAttempts = 0;
-let connectedClients = {};
+connectedClients = {};
 let isReconnecting = false;
 
 SERVER_RUNNING = false;
-server_status(false);
 
 function showToast(type, message) {
     const Toast = Swal.mixin({
@@ -83,11 +82,7 @@ function connectWebSocket(url, onMessageCallback) {
     };
 
     ws.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        if (data.type === 'connectionStatus') {
-            connectedClients = data.status;
-            processMessageQueue();
-        } else if (onMessageCallback) {
+        if (onMessageCallback) {
             onMessageCallback(event.data);
         }
     };

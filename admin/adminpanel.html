@@ -81,10 +81,18 @@
                         <div id="timer">
                             <div id="timer-header" class="lexend-800">Timer</div>
                             <div id="timer-buttons">
-                                <img src="img/play-button.png" alt="Play Button" class="timer-button" id="start_btn">
-                                <img src="img/pause-button.png" alt="Pause Button" class="timer-button" id="stop_btn">
-                                <img src="img/plus.png" alt="Add Time Button" class="timer-button" id="add_btn">
-                                <img src="img/refresh.png" alt="Restart Button" class="timer-button" id="reset_btn">
+                                <button class="timer-control-btn" id="start_btn">
+                                    <img src="img/play-button.png" alt="Play Button" class="timer-button">
+                                </button>
+                                <button class="timer-control-btn" id="stop_btn">
+                                    <img src="img/pause-button.png" alt="Pause Button" class="timer-button">
+                                </button>
+                                <button class="timer-control-btn" id="add_btn">
+                                    <img src="img/plus.png" alt="Add Time Button" class="timer-button">
+                                </button>
+                                <button class="timer-control-btn" id="reset_btn">
+                                    <img src="img/refresh.png" alt="Restart Button" class="timer-button">
+                                </button>
                             </div>
                             <div id="time" class="lexend-800">30</div>
                         </div>
@@ -166,6 +174,12 @@
                 <button class="btn btn-warning" id="reset-settings">Reset do domyślnych</button>
                 <button class="btn btn-danger" id="close-settings">Zamknij</button>
             </div>
+            <button onclick="toAutorzy()">
+                Autorzy
+            </button>
+            <button onclick="toStart()">
+                Strona tytułowa
+            </button>
         </div>
     </div>
 

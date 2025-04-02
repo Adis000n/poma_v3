@@ -22,7 +22,8 @@ function Pozycja1(tabela_punkty) {
         { x: 38.9, y: 13.5 }, //8
         { x: 38.9, y: 4.7 }, //9
         { x: 33.75, y: 4.7 }, //10
-        { x: 28.6, y: 4.7 } //11
+        { x: 28.6, y: 4.7 },//11
+        { x: 28.6, y: 4.7 } //12 ale dalej meta
     ];
 
     const position = positions[tabela_punkty[0]]
@@ -42,7 +43,8 @@ const positions = [
     { x: 57, y: 13.5 },//8
     { x: 57, y: 4.7 },//9
     { x: 62, y: 4.7 },//10
-    { x: 67.1, y: 4.7 }
+    { x: 67.1, y: 4.7 },//11
+    { x: 67.1, y: 4.7 }//12 ale dalej meta
 ];
 
     const position = positions[tabela_punkty[1]]
@@ -64,7 +66,8 @@ function Pozycja3(tabela_punkty) {
         { x: 38.9, y: 79.2},//8
         { x: 38.9, y: 88 },//9
         { x: 33.75, y: 88 },//10
-        { x: 26.8, y: 88 }//11
+        { x: 26.8, y: 88 },//11
+        { x: 26.8, y: 88 }//12 ale dalej meta
     ];
 
     const position = positions[tabela_punkty[2]]
@@ -84,7 +87,8 @@ function Pozycja4(tabela_punkty) {
         { x: 57, y: 79.2 },
         { x: 57, y: 88 },
         { x: 62, y: 88 },
-        { x: 67.1, y: 88 }
+        { x: 67.1, y: 88 },
+        { x: 67.1, y: 88 }//12 ale dalej meta
     ];
 
     const position = positions[tabela_punkty[3]]

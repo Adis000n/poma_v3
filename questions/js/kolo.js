@@ -1,6 +1,10 @@
 // Trzeba wysyłać wartości true / false (true - pokarze, false - zamknie)
  var powerup = new Audio('js/audio_powerup.mp3');
  var powerup2 = new Audio('js/audio_powerup2.mp3');
+ var fail = new Audio('js/fail.mp3');
+ powerup.volume = 1;
+ powerup2.volume = 0.9;
+ fail.volume = 0.25;
  var overlayV = true;
  function showBoostersWheele() {
     powerup.play();
@@ -25,7 +29,12 @@ function toggleOverlay(show) {
 }
 // Trzeba wysyłać druzynę (Numer drużyny), booster który został wylosowany
 function pokazBooster(booster) {
-    powerup2.play();
+    if(booster == "Utrata kolejki"){
+        fail.play();
+    }else{
+        powerup2.play();
+    }
+    
     const overlay = document.getElementById('overlay');
     overlay.innerHTML = `<div class="overlay-content">Otrzymano bonus:<br> ${booster} <br>`;
     setTimeout(function () {
