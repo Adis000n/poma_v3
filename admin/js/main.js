@@ -209,7 +209,7 @@ async function handleTeamContainer(container, isDisabled) {
 }
 
 function toAutorzy(){
-    window.open("../../autorzy.html", '_blank', 'noopener,noreferrer');
+    window.open("o_nas/index.html", '_blank', 'noopener,noreferrer');
 }
 function toStart(){
     window.open("../../test.html", '_blank', 'noopener,noreferrer');
