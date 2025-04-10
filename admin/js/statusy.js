@@ -63,4 +63,22 @@ function updateConnectionStatuses(status) {
     boardStatus.textContent = status.board ? '✅' : '❌';
     overtimeStatus.textContent = status.overtime ? '✅' : '❌';
     questionsStatus.textContent = status.questions ? '✅' : '❌';
+
+    if(status.overtime){
+        if(STORED_DISABLE_TEAMS){
+            const button1 = document.getElementById('pointBtn1');
+            const button3 = document.getElementById('pointBtn3');
+            button1.disabled = true;
+            button1.classList.toggle('disabled', true);
+            button3.disabled = true;
+            button3.classList.toggle('disabled', true);
+        }
+    }else{
+        const button1 = document.getElementById('pointBtn1');
+        const button3 = document.getElementById('pointBtn3');
+        button1.disabled = false;
+        button1.classList.toggle('disabled', false);
+        button3.disabled = false;
+        button3.classList.toggle('disabled', false);
+    }
 }
