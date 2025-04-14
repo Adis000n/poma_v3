@@ -5,7 +5,7 @@ let lastSeconds = new Audio('js/audio_clock-tick-long.mp3');
 let isPaused = false;
 let isLastSecondsPlaying = false;
 let lastSecondsTimeLeft = 5000; 
-
+console.log("timer loaded");
 alarmSound.load();
 lastSeconds.load();
 

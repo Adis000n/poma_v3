@@ -64,6 +64,10 @@ function updateConnectionStatuses(status) {
     overtimeStatus.textContent = status.overtime ? '✅' : '❌';
     questionsStatus.textContent = status.questions ? '✅' : '❌';
 
+    if(status.questions){
+        const message = { volumes: {tick: STORED_TICK_VOL,bell: STORED_BELL_VOL, powerup: STORED_POWERUP_1_VOL, powerup2:STORED_POWERUP_2_VOL,fail:STORED_FAIL_VOL,trabka: STORED_TRABKA_VOL} };
+        sendMessage(JSON.stringify(message));
+    }
     if(status.overtime){
         if(STORED_DISABLE_TEAMS){
             const button1 = document.getElementById('pointBtn1');

@@ -1,12 +1,17 @@
 // Trzeba wysyłać wartości true / false (true - pokarze, false - zamknie)
- var powerup = new Audio('js/audio_powerup.mp3');
- var powerup2 = new Audio('js/audio_powerup2.mp3');
- var fail = new Audio('js/fail.mp3');
- powerup.volume = 1;
- powerup2.volume = 0.9;
- fail.volume = 0.25;
- var overlayV = true;
- function showBoostersWheele() {
+var powerup = new Audio('js/audio_powerup.mp3');
+var powerup2 = new Audio('js/audio_powerup2.mp3');
+var fail = new Audio('js/fail.mp3');
+
+powerup.load();
+powerup2.load();
+fail.load();
+
+powerup.volume = 1;
+powerup2.volume = 0.9;
+fail.volume = 0.25;
+var overlayV = true;
+function showBoostersWheele() {
     powerup.play();
     const overlay = document.getElementById('overlay');
     overlay.innerHTML = `<div class="overlay-background"><div class="overlay-content1">Losowanie<br>Bonusu</div></div>`;

@@ -104,7 +104,38 @@ initializeWebSocket('ws://localhost:3000/ws', (data) => {
     }
     else if(message.winningTeam){
         displayWinningTeam(message.winningTeam);
+    }else if(message.volumes){
+        
+        setVolumes(message.volumes);
     }
 });
+
+async function setVolumes(volumes) {
+    // Wait for all audio elements to load
+    const waitForLoad = async (audioElement) => {
+        if (!audioElement.readyState) {
+            await new Promise(resolve => {
+                audioElement.addEventListener('loadeddata', resolve, { once: true });
+            });
+        }
+    };
+    console.log("volumes set");
+        await waitForLoad(powerup);
+        await waitForLoad(powerup2);
+        powerup.volume = volumes.powerup;
+        powerup2.volume = volumes.powerup2;
+
+        await waitForLoad(fail);
+        fail.volume = volumes.fail;
+
+        await waitForLoad(lastSeconds);
+        await waitForLoad(alarmSound);
+        lastSeconds.volume = volumes.tick;
+        alarmSound.volume = volumes.bell;
+
+        await waitForLoad(trabkaAudio);
+        trabkaAudio.volume = volumes.trabka;
+
+}
 
 

@@ -170,6 +170,15 @@
                 <label for="points-automat-toggle">Automatcznie dodwanie punktów</label>
                 <input type="checkbox" id="points-automat-toggle" class="settings-toggle">
             </div>
+            <div id="volumes">
+                <h3>Ustawienia audio:</h3>
+                Tykanie <span class="volume-value" id="tick-value">0.25</span><input type="range" max="1" step="0.01" min="0" name="tick"><br>
+                Dzwonek - koniec czasu <span class="volume-value" id="bell-value">1</span><input type="range" max="1" step="0.01" min="0" name="bell"><br>
+                Power up losowanie <span class="volume-value" id="powerup-los-value">1</span><input type="range" max="1" step="0.01" min="0" name="powerup_los"><br>
+                Power up dobry <span class="volume-value" id="powerup-ok-value">0.9</span><input type="range" max="1" step="0.01" min="0" name="powerup_ok"><br>
+                Power up zły <span class="volume-value" id="powerup-bad-value">0.35</span><input type="range" max="1" step="0.01" min="0" name="powerup_bad"><br>
+                Wygrana - trąbka <span class="volume-value" id="trabka-value">1</span><input type="range" max="1" step="0.01" min="0" name="trabka"><br>
+            </div>
             <div class="settings-buttons">
                 <button class="btn btn-warning" id="reset-settings">Reset do domyślnych</button>
                 <button class="btn btn-danger" id="close-settings">Zamknij</button>
