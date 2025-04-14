@@ -1,5 +1,3 @@
-const trabkaAudio = new Audio('js/trabka.mp3');
-trabkaAudio.volume = 1;
 function displayWinningTeam(message) {
     
     const overlay = document.createElement('div');
@@ -54,8 +52,8 @@ function displayWinningTeam(message) {
     overlay.appendChild(confettiGif);
     document.body.appendChild(overlay);
 
-
-    trabkaAudio.play();
+    const audioElement = new Audio('js/trabka.mp3');
+    audioElement.play().catch(error => console.log("Autoodtwarzanie zablokowane:", error));
 
     setTimeout(() => {
         overlay.style.display = 'none';  
