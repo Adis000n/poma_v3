@@ -69,7 +69,7 @@ resetBtn.addEventListener('click', () => {
 
 addBtn.addEventListener('click', () => {
     const wasUnderFiveSeconds = currentTime <= 5;
-    currentTime = Math.floor(currentTime) + 20; // First round current time, then add 20
+    currentTime = Math.floor(currentTime) + 15; // First round current time, then add 20
     time.innerText = currentTime;
     
     // If timer is running (stop button is enabled), restart with correct interval

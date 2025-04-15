@@ -134,7 +134,7 @@ async function stopAlarm() {
 
 function addTimer(){
     const wasUnderFiveSeconds = currentTime <= 5;
-    currentTime = Math.floor(currentTime + 20);
+    currentTime = Math.floor(currentTime + 15);
     document.getElementById('timer').innerText = currentTime;
     
     if (wasUnderFiveSeconds) {
@@ -146,8 +146,12 @@ function addTimer(){
     }
     
     // Restart timer with new time
-    clearInterval(timerInterval);
-    startTimer();
+    if(!isPaused){
+        clearInterval(timerInterval);
+        startTimer();
+    }else{
+        clearInterval(timerInterval);
+    }
 }
 
 async function playLastSecondsAlarm() {
