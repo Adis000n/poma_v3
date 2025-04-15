@@ -142,7 +142,7 @@ transition: 0.7s ease-in-out;
 scale: 0.375;}
 .pawn_img {
     box-shadow: 
-        inset 0px 0 200px #717171,
+        inset 0px 0 200px #202020,
         0 0 80px #e75500;
     border-radius:50%;
 }
