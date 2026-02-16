@@ -964,3 +964,9 @@ input[type=number]::-webkit-outer-spin-button {
     83.33% { color: #8000ff; }
     100% { color: #ff0000; }
 }
+
+.dvd{
+    position: absolute;
+    width: 150px;
+    /* display: none; */
+}
