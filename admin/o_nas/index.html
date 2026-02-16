@@ -96,8 +96,8 @@
 </head>
 
 <body class="about-page">
-    <audio id="background-music" autoplay loop>
-        <source src="Jestem Rozalia i jestem Bielską dziwką, (1).mp3" type="audio/mpeg">
+    <audio id="background-music" loop>
+        <source src="muzyka.mp3" type="audio/mpeg">
     </audio>
     <h1 style="text-align: center; margin-bottom: 40px;">Twórcy MECHANICznej Pomarańczy</h1>
 
@@ -177,12 +177,9 @@
                 backgroundMusic.play();
             };
 
-            startMusic();
-            backgroundMusic.play().catch(() => {
-                document.addEventListener('click', startMusic, { once: true });
-                document.addEventListener('touchstart', startMusic, { once: true });
-                document.addEventListener('keydown', startMusic, { once: true });
-            });
+            document.addEventListener('click', startMusic, { once: true });
+            document.addEventListener('touchstart', startMusic, { once: true });
+            document.addEventListener('keydown', startMusic, { once: true });
         }
     </script>
 </body>
