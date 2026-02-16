@@ -7,7 +7,17 @@ const obrazki = [
     "o_nas/mati.jpg",
     "o_nas/mikolaj.jpg",
     "o_nas/oliwier.jpg",
-    "o_nas/pawel.jpg"
+    "o_nas/pawel.jpg",
+    "o_nas/debile.jpg",
+    "o_nas/IMG_1056.jpg",
+    "o_nas/IMG_7545.jpg",
+    "o_nas/IMG_7605.jpg",
+    "o_nas/IMG_7625.jpg",
+    "o_nas/IMG_7661.jpg",
+    "o_nas/krzys.jpg",
+    "o_nas/olo.jpg",
+
+
 ];
 
 document.getElementById("eventConsoleSend").addEventListener("click", () => {
@@ -17,7 +27,7 @@ document.getElementById("eventConsoleSend").addEventListener("click", () => {
 
     if (komenda == "imprezka") {
 
-        const amount = 7;
+        const amount = obrazki.length;
 
         for (let i = 0; i < amount; i++) {
 
@@ -62,18 +72,12 @@ function animate() {
 
         if (dvd.x + width >= window.innerWidth || dvd.x <= 0) {
             dvd.dx *= -1;
-<<<<<<< HEAD
             el.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
-=======
->>>>>>> 46a949aa059bcd1bd45adab8b05721211c1994a9
         }
 
         if (dvd.y + height >= window.innerHeight || dvd.y <= 0) {
             dvd.dy *= -1;
-<<<<<<< HEAD
             el.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
-=======
->>>>>>> 46a949aa059bcd1bd45adab8b05721211c1994a9
         }
 
         el.style.left = dvd.x + "px";
