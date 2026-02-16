@@ -1,9 +1,13 @@
 let dvds = [];
 let animationRunning = false;
 const obrazki = [
-    "img/my/1",
-    "img/my/1",
-    "img/my/1"
+    "o_nas/adi.JPG",
+    "o_nas/jakub.jpg",
+    "o_nas/kuba.jpg",
+    "o_nas/mati.jpg",
+    "o_nas/mikolaj.jpg",
+    "o_nas/oliwier.jpg",
+    "o_nas/pawel.jpg"
 ];
 
 document.getElementById("eventConsoleSend").addEventListener("click", () => {
@@ -13,12 +17,12 @@ document.getElementById("eventConsoleSend").addEventListener("click", () => {
 
     if (komenda == "imprezka") {
 
-        const amount = 5;
+        const amount = 7;
 
         for (let i = 0; i < amount; i++) {
 
             const img = document.createElement("img");
-            img.src = obrazki[Math.floor(Math.random() * obrazki.length)];
+            img.src = obrazki[i];
             img.classList.add("dvd");
 
             document.body.appendChild(img);
@@ -28,7 +32,9 @@ document.getElementById("eventConsoleSend").addEventListener("click", () => {
                 x: 0.5 * window.innerWidth,
                 y: 0.5 * window.innerHeight,
                 dx: (Math.random() * 4) + 1,
-                dy: (Math.random() * 4) + 1
+                dy: (Math.random() * 4) + 1,
+                rotation: 0,
+                rotationSpeed: (Math.random() * 4) - 2 // losowa prędkość obrotu
             });
         }
 
@@ -51,19 +57,33 @@ function animate() {
         dvd.x += dvd.dx;
         dvd.y += dvd.dy;
 
+        // aktualizacja rotacji
+        dvd.rotation += dvd.rotationSpeed;
+
         if (dvd.x + width >= window.innerWidth || dvd.x <= 0) {
             dvd.dx *= -1;
+<<<<<<< HEAD
             el.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+=======
+>>>>>>> 46a949aa059bcd1bd45adab8b05721211c1994a9
         }
 
         if (dvd.y + height >= window.innerHeight || dvd.y <= 0) {
             dvd.dy *= -1;
+<<<<<<< HEAD
             el.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+=======
+>>>>>>> 46a949aa059bcd1bd45adab8b05721211c1994a9
         }
 
         el.style.left = dvd.x + "px";
         el.style.top = dvd.y + "px";
+
+        // ROTACJA
+        el.style.transform = `rotate(${dvd.rotation}deg)`;
+
     });
 
     requestAnimationFrame(animate);
 }
+
