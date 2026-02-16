@@ -1,18 +1,190 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O nas</title>
+    <style>
+        :root {
+            --bg-1: #0f172a;
+            --bg-2: #1e293b;
+            --card: rgba(15, 23, 42, 0.72);
+            --card-border: rgba(148, 163, 184, 0.28);
+            --text: #e2e8f0;
+            --accent: #22d3ee;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body.about-page {
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 20px 56px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at top, #1d4ed8 0%, transparent 36%),
+                radial-gradient(circle at 85% 5%, #7c3aed 0%, transparent 25%),
+                linear-gradient(160deg, var(--bg-1), var(--bg-2));
+            display: block;
+        }
+
+        .people-grid {
+            width: min(1280px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 22px;
+        }
+
+        .person-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 14px 40px rgba(2, 6, 23, 0.36);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .person-card h3 {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.5;
+            letter-spacing: 0.2px;
+        }
+
+        .person-card img {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 20px 45px rgba(2, 6, 23, 0.55);
+            margin: 0;
+            display: block;
+            transform: translateY(0) scale(1);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+
+        .person-card img:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 26px 60px rgba(2, 6, 23, 0.65);
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 700px) {
+            body.about-page {
+                padding: 20px 12px 36px;
+            }
+
+            .people-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .person-card h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
-<body>
-    Adrian:
-    
-    Kuba:
-    Jakub:
-    Mikołaj:
-    Oliwier:
-    Paweł:
-    Mati:
+
+<body class="about-page">
+    <audio id="background-music" autoplay loop>
+        <source src="Jestem Rozalia i jestem Bielską dziwką, (1).mp3" type="audio/mpeg">
+    </audio>
+    <h1 style="text-align: center; margin-bottom: 40px;">Twórcy MECHANICznej Pomarańczy</h1>
+
+    <div class="people-grid">
+        <div class="person-card">
+            <h3>Adrian: Biegacz, główny koder mechanicznej pomarańczy, ponoć miał bliskie spotkanie z pewną damą, jest
+                rozpianany nagminnie przez kolegów </h3>
+            <img src="adi.JPG" alt="adrian">
+        </div>
+
+        <div class="person-card">
+            <h3>Kuba: Mitoman, alkoholik, driver, ambasador polski na białorusi, kurwi się z ukrainką, marzy mu się
+                trójkącik z pewną panią i jej córką</h3>
+            <img src="kuba.jpg" alt="kuba">
+        </div>
+
+        <div class="person-card">
+            <h3>Jakub:Pedał, kolarz, goli nogi, jezus, hałcnów, jebie koleżanki na machy, spotyka się z koleżanką Nadii
+            </h3>
+            <img src="jakub.jpg" alt="jakub">
+        </div>
+
+        <div class="person-card">
+            <h3>Mikołaj: Kobiernicki szef, alkoholik, gej, ruchą się z oliwierem (ponoć), zjarus</h3>
+            <img src="mikolaj.jpg" alt="mikolaj">
+        </div>
+
+        <div class="person-card">
+            <h3>Oliwier: krypto gej, alkoholik, palacz, wysoki, słaba wątroba, lubi gołe dziewcznyki i chuje kolegów
+            </h3>
+            <img src="oliwier.jpg" alt="oliwier">
+        </div>
+
+        <div class="person-card">
+            <h3>Paweł: szyszkasz, bardzo lubi sale 227, abstynent, NBA, największy fan nowego yorku (od tranferu
+                sochana), czechowicki baron naftowy na silesii </h3>
+            <img src="pawel.JPG" alt="pawel">
+        </div>
+
+        <div class="person-card">
+            <h3>Mati: nałagowy gracz ligi legend, rucha osoby które są na zegarze, fan diabolo, </h3>
+            <img src="mati.jpg" alt="mati">
+        </div>
+    </div>
+
+    <script>
+        const backgroundMusic = document.getElementById('background-music');
+
+        if (backgroundMusic) {
+            backgroundMusic.volume = 1;
+
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            let audioCtx;
+            let sourceNode;
+            let gainNode;
+
+            const setupBoost = () => {
+                if (!AudioCtx || audioCtx) {
+                    return;
+                }
+
+                audioCtx = new AudioCtx();
+                sourceNode = audioCtx.createMediaElementSource(backgroundMusic);
+                gainNode = audioCtx.createGain();
+                gainNode.gain.value = 1.5;
+                sourceNode.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+            };
+
+            const startMusic = () => {
+                setupBoost();
+
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                backgroundMusic.play();
+            };
+
+            startMusic();
+            backgroundMusic.play().catch(() => {
+                document.addEventListener('click', startMusic, { once: true });
+                document.addEventListener('touchstart', startMusic, { once: true });
+                document.addEventListener('keydown', startMusic, { once: true });
+            });
+        }
+    </script>
 </body>
+
 </html>
