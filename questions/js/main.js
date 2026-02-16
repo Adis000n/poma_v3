@@ -6,6 +6,8 @@ odpowiedz_img = document.getElementById("odpowiedz-img");
 audio_element = document.getElementById("audio");
 wideo_element = document.getElementById("wideo");
 pytanie_loader = document.getElementById("pytanie-loader");
+wideo_element.volume = 0.1; 
+audio_element.volume = 0.25;
 var pytanie_img_path;
 audio_element.setAttribute("hidden", true);
 wideo_element.setAttribute("hidden", true);

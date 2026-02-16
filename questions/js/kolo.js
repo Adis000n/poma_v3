@@ -2,8 +2,8 @@
  var powerup = new Audio('js/audio_powerup.mp3');
  var powerup2 = new Audio('js/audio_powerup2.mp3');
  var fail = new Audio('js/fail.mp3');
- powerup.volume = 1;
- powerup2.volume = 0.9;
+ powerup.volume = 0.5;
+ powerup2.volume = 0.8;
  fail.volume = 0.25;
  var overlayV = true;
  function showBoostersWheele() {

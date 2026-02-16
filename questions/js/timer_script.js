@@ -9,8 +9,8 @@ let lastSecondsTimeLeft = 5000;
 alarmSound.load();
 lastSeconds.load();
 
-lastSeconds.volume = 0.25;
-alarmSound.volume = 1;
+lastSeconds.volume = 0.1;
+alarmSound.volume = 0.35;
 let alarmPlaying = false;
 
 async function startTimer() {

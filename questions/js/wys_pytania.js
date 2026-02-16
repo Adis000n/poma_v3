@@ -25,6 +25,7 @@ function showPytanie_img(pytanie) {
 
             if (media_type === "audio") {
                 audio_element.querySelector("source").src = `../${mediaPath}`;
+                audio_element.volume = 0.25;
                 audio_element.load();
                 audio_element.removeAttribute("hidden");
                 audio_element.classList.remove( "slide-in"); 
@@ -32,6 +33,7 @@ function showPytanie_img(pytanie) {
                 audio_element.classList.add("slide-in"); 
             } else if (media_type === "wideo") {
                 wideo_element.querySelector("source").src = `../${mediaPath}`;
+                wideo_element.volume = 0.1; 
                 wideo_element.load();
                 wideo_element.removeAttribute("hidden");
                 wideo_element.classList.remove("slide-in"); 
