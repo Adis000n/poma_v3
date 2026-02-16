@@ -887,13 +887,71 @@ input[type=number]::-webkit-outer-spin-button {
         transform: rotate(360deg);
     }
 }
+#eventConsole{
+    width: 94%;
+    margin-top: 10px;
+    background-color: #212529;
+    height: 50px;
+    background-color: #000;
+    color: #00ff00;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    padding: 15px;
+    border: 2px solid #00ff00;
+    border-radius: 6px;
+    outline: none;
+    resize: none;
+    box-shadow: 0 0 10px #00ff00;
+    caret-color: #00ff00;
+}
+#consoleLabel{
+    color: #555;
+}
+#eventConsole::-webkit-scrollbar {
+    width: 8px;
+}
+#eventConsole::-webkit-scrollbar-track {
+    background: #111;
+}
+#eventConsole::-webkit-scrollbar-thumb {
+    background: #00ff00;
+}
+/* Przycisk neon */
+.console-button {
+    background-color: transparent;
+    color: #00ff00;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    padding: 10px 25px;
+    border: 2px solid #00ff00;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px #00ff00;
+}
+
+/* Hover efekt */
+.console-button:hover {
+    background-color: #00ff00;
+    color: #000;
+    box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+    transform: scale(1.05);
+}
+
+/* Klik efekt */
+.console-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 5px #00ff00;
+}
 
 @keyframes jiggle {
     0% {
-        transform: translateX(-2px);
+        transform: translateX(-3px);
     }
     100% {
-        transform: translateX(2px);
+        transform: translateX(3px);
     }
 }
 
