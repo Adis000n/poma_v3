@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,15 @@
     <link rel="stylesheet" href="style_old.css">
     <script src="../sweetalert/sweetalert2.all.min.js"></script>
 </head>
+
 <body>
+    <div id="page-loader" aria-label="Ładowanie strony">
+        <img src="../grafika/loader.png" alt="Ładowanie">
+    </div>
     <div id="grid">
         <div id="lewy">
             <div id="teams" class="teams-table">
-        
+
             </div>
             <div id="gridlewy">
                 <button type="button" class="btn btn-dark" id="pom_btn" onclick="pomniejsz()">Pomniejsz zdjecie</button>
@@ -32,95 +37,115 @@
                     <br>
                     <div class="pushable" type="button" class="btn btn-warning" id="backup_btn">
                         <span class="front">
-                          BACKUP
+                            BACKUP
                         </span>
-                      </div>
+                    </div>
                     <br>
                     <br>
                     <button type="button" class="btn btn-dark" id="settings_btn">USTAWIENIA</button>
                 </div>
             </div>
         </div>
-        
+
         <div id="prawy">
-            <div id="pytania" >
+            <div id="pytania">
                 <h3>Kategoria:</h3>
                 <div class="btn-group btn-group-toggle" role="group" aria-label="Kategoria buttons">
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="chemia">Chemia</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="informatyka">Informatyka</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="fizyka">Fizyka</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="matematyka">Matematyka</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="technika">Technika</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="niespodzianka">Niespodzianka</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')" value="bonus">Bonus</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')"
+                        value="chemia">Chemia</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')"
+                        value="informatyka">Informatyka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')"
+                        value="fizyka">Fizyka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')"
+                        value="matematyka">Matematyka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')"
+                        value="technika">Technika</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')"
+                        value="niespodzianka">Niespodzianka</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'kategoria')"
+                        value="bonus">Bonus</button>
                 </div>
                 <h3 class="mt-4">Punkty:</h3>
                 <div class="btn-group btn-group-toggle" role="group" aria-label="Punkty buttons">
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="1">1</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="2">2</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')" value="3">3</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')"
+                        value="1">1</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')"
+                        value="2">2</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'punkty')"
+                        value="3">3</button>
                 </div>
                 <h3 class="mt-4">Numer Drużyny:</h3>
                 <div class="btn-group btn-group-toggle" role="group" aria-label="Numer Druzyny buttons">
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="1">1</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="2">2</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="3" id="team3">3</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')" value="4" id="team4">4</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')"
+                        value="1">1</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')"
+                        value="2">2</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')"
+                        value="3" id="team3">3</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="selectOption(this, 'numerDruzyny')"
+                        value="4" id="team4">4</button>
                 </div>
                 <div class="mt-4" id="pytanie_all_buttons">
                 </div>
-                </div>
-                <div id="show_all_time_buttons">
-                    <button id="mediaButton" type="button" class="btn btn-dark play" onclick="start_stop_media()">Play Media ▶️</button>
-                    <button id="clearButton" type="button" class="btn btn-info" onclick="clear_pytania()">Wyczyść pytania</button>
-                </div>
-                <div id="status-dot-container">
-                    <div id="status-dot" class="inactive"></div> Status czy dzwięki z pytań będą odtworzone poprawnie
-                </div>
-                <div id="server-dot-container">
-                    <div id="server-dot" class="inactive"></div> Status serwera
-                    <div class="popover" id="server-popover">
-                        <div class="client-status">
-                            Admin: <span id="admin-status">❌</span>
-                        </div>
-                        <div class="client-status">
-                            Plansza: <span id="board-status">❌</span>
-                        </div>
-                        <div class="client-status">
-                            Pytania: <span id="questions-status">❌</span>
-                        </div>
-                        <div class="client-status">
-                            Overtime: <span id="overtime-status">❌</span>
-                        </div>
+            </div>
+            <div id="show_all_time_buttons">
+                <button id="mediaButton" type="button" class="btn btn-dark play" onclick="start_stop_media()">Play Media
+                    ▶️</button>
+                <button id="clearButton" type="button" class="btn btn-info" onclick="clear_pytania()">Wyczyść
+                    pytania</button>
+            </div>
+            <div id="status-dot-container">
+                <div id="status-dot" class="inactive"></div> Status czy dzwięki z pytań będą odtworzone poprawnie
+            </div>
+            <div id="server-dot-container">
+                <div id="server-dot" class="inactive"></div> Status serwera
+                <div class="popover" id="server-popover">
+                    <div class="client-status">
+                        Admin: <span id="admin-status">❌</span>
+                    </div>
+                    <div class="client-status">
+                        Plansza: <span id="board-status">❌</span>
+                    </div>
+                    <div class="client-status">
+                        Pytania: <span id="questions-status">❌</span>
+                    </div>
+                    <div class="client-status">
+                        Overtime: <span id="overtime-status">❌</span>
                     </div>
                 </div>
-                <br>
-                <div class="btn-group btn-group" role="group" >
-                    <button type="button" class="btn btn-info" onclick="submitTeamData(1)">Podpowiedź publiczności</button>
-                    <button type="button" class="btn btn-info" onclick="submitTeamData(2)" >+1 Punkt</button>
-                    <button type="button" class="btn btn-info" onclick="submitTeamData(3)" >Pytanie za 3 punkty</button>
+            </div>
+            <br>
+            <div class="btn-group btn-group" role="group">
+                <button type="button" class="btn btn-info" onclick="submitTeamData(1)">Podpowiedź publiczności</button>
+                <button type="button" class="btn btn-info" onclick="submitTeamData(2)">+1 Punkt</button>
+                <button type="button" class="btn btn-info" onclick="submitTeamData(3)">Pytanie za 3 punkty</button>
+            </div>
+            <div class="btn-group btn-group" role="group">
+                <button type="button" class="btn btn-info" onclick="submitTeamData(4)">Wybór kategorii</button>
+                <button type="button" class="btn btn-info" onclick="submitTeamData(5)">Dodatkowy czas</button>
+                <button type="button" class="btn btn-info" onclick="submitTeamData(6)">Kolejka przepada</button>
+            </div>
+            <div id="custom-pytanie">
+                <h3>Wyświetlanie pytania z ID</h3>
+                <h4 class="mt-4">Id pytania:</h4>
+                <input type="number" id="numer_pytania">
+                <h4 class="mt-4">Numer Drużyny:</h4>
+                <div class="btn-group btn-group-toggle" role="group" aria-label="Numer Druzyny buttons">
+                    <button type="button" class="btn btn-outline-primary"
+                        onclick="selectCustomOption(this, 'customTeam')" value="1">1</button>
+                    <button type="button" class="btn btn-outline-primary"
+                        onclick="selectCustomOption(this, 'customTeam')" value="2">2</button>
+                    <button type="button" class="btn btn-outline-primary"
+                        onclick="selectCustomOption(this, 'customTeam')" value="3" id="team3Custom">3</button>
+                    <button type="button" class="btn btn-outline-primary"
+                        onclick="selectCustomOption(this, 'customTeam')" value="4" id="team4Custom">4</button>
                 </div>
-                <div class="btn-group btn-group" role="group" >
-                    <button type="button" class="btn btn-info" onclick="submitTeamData(4)" >Wybór kategorii</button>
-                    <button type="button" class="btn btn-info" onclick="submitTeamData(5)" >Dodatkowy czas</button>
-                    <button type="button" class="btn btn-info" onclick="submitTeamData(6)" >Kolejka przepada</button>
+                <div class="mt-4" id="pytanie_all_custom_buttons">
                 </div>
-                <div id="custom-pytanie">
-                    <h3>Wyświetlanie pytania z ID</h3>
-                    <h4 class="mt-4">Id pytania:</h4>
-                    <input type="number" id="numer_pytania">
-                    <h4 class="mt-4">Numer Drużyny:</h4>
-                    <div class="btn-group btn-group-toggle" role="group" aria-label="Numer Druzyny buttons">
-                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="1" >1</button>
-                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="2" >2</button>
-                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="3" id="team3Custom">3</button>
-                        <button type="button" class="btn btn-outline-primary" onclick="selectCustomOption(this, 'customTeam')" value="4" id="team4Custom">4</button>
-                    </div>
-                    <div class="mt-4" id="pytanie_all_custom_buttons">
-                    </div>
-                </div>  
             </div>
         </div>
+    </div>
     </div>
     <div id="settings">
         <div id="settings-div">
@@ -148,8 +173,9 @@
         </div>
     </div>
     <script type="text/javascript" src="js/setup_variables.js"></script>
+    <script type="text/javascript" src="js/ladowanie.js"></script>
     <script type="text/javascript" src="js/settings.js"></script>
-    <script  type="text/javascript" src="ws_setup.js"></script>
+    <script type="text/javascript" src="ws_setup.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/punkty.js"></script>
     <script type="text/javascript" src="js/backup.js"></script>
@@ -166,4 +192,5 @@
     <script type="text/javascript" src="js/custom_odpowiedz.js"></script>
     <script type="text/javascript" src="js/powieksz_pomniejsz.js"></script>
 </body>
+
 </html>
