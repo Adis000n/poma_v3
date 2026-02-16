@@ -53,12 +53,12 @@ function animate() {
 
         if (dvd.x + width >= window.innerWidth || dvd.x <= 0) {
             dvd.dx *= -1;
-            el.style.filter = `hue-rotate(${Math.random()*360}deg)`;
+            el.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
         }
 
         if (dvd.y + height >= window.innerHeight || dvd.y <= 0) {
             dvd.dy *= -1;
-            el.style.filter = `hue-rotate(${Math.random()*360}deg)`;
+            el.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
         }
 
         el.style.left = dvd.x + "px";
